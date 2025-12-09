@@ -1,0 +1,26 @@
+{
+  "name": "react-native-notifyvisitors",
+  "version": "4.6.2",
+  "description": "React Native Notifyvisitors SDK for push notifications and surveys",
+  "main": "index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native",
+    "ios",
+    "android",
+    "notifications",
+    "push",
+    "apns",
+    "fcm",
+    "gcm",
+    "notifyvisitors"
+  ],
+  "author": "Siddharth Gupta",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tagnpin/react-native-notifyvisitors.git"
+  }
+}

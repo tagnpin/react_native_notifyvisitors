@@ -1,0 +1,2099 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "notifyvisitorsNudges",
+    "printedName": "notifyvisitorsNudges",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "AVFoundation",
+        "printedName": "AVFoundation",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CoreGraphics",
+        "printedName": "CoreGraphics",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "WebKit",
+        "printedName": "WebKit",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "notifyvisitorsNudgesDelegate",
+        "printedName": "notifyvisitorsNudgesDelegate",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "notifyvisitorsNudgesTrackInAppStatisticsListner",
+            "printedName": "notifyvisitorsNudgesTrackInAppStatisticsListner(forNotificationID:statsActionType:pageName:templateID:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@notifyvisitorsNudges@objc(pl)notifyvisitorsNudgesDelegate(im)notifyvisitorsNudgesTrackInAppStatisticsListnerForNotificationID:statsActionType:pageName:templateID:",
+            "mangledName": "$s20notifyvisitorsNudges0aB8DelegateP0aB27TrackInAppStatisticsListner17forNotificationID15statsActionType8pageName08templateK0ySSSg_A3ItF",
+            "moduleName": "notifyvisitorsNudges",
+            "genericSig": "<τ_0_0 where τ_0_0 : notifyvisitorsNudges.notifyvisitorsNudgesDelegate>",
+            "sugared_genericSig": "<Self where Self : notifyvisitorsNudges.notifyvisitorsNudgesDelegate>",
+            "protocolReq": true,
+            "objc_name": "notifyvisitorsNudgesTrackInAppStatisticsListnerForNotificationID:statsActionType:pageName:templateID:",
+            "declAttributes": [
+              "Optional",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "notifyvisitorsNudgesTriggerInAppBannerImpressionCallbackListner",
+            "printedName": "notifyvisitorsNudgesTriggerInAppBannerImpressionCallbackListner(forNotificationID:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@notifyvisitorsNudges@objc(pl)notifyvisitorsNudgesDelegate(im)notifyvisitorsNudgesTriggerInAppBannerImpressionCallbackListnerForNotificationID:",
+            "mangledName": "$s20notifyvisitorsNudges0aB8DelegateP0aB43TriggerInAppBannerImpressionCallbackListner17forNotificationIDySSSg_tF",
+            "moduleName": "notifyvisitorsNudges",
+            "genericSig": "<τ_0_0 where τ_0_0 : notifyvisitorsNudges.notifyvisitorsNudgesDelegate>",
+            "sugared_genericSig": "<Self where Self : notifyvisitorsNudges.notifyvisitorsNudgesDelegate>",
+            "protocolReq": true,
+            "objc_name": "notifyvisitorsNudgesTriggerInAppBannerImpressionCallbackListnerForNotificationID:",
+            "declAttributes": [
+              "Optional",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "notifyvisitorsNudgesOnClickListner",
+            "printedName": "notifyvisitorsNudgesOnClickListner(withEvent:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.AnyHashable : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AnyHashable",
+                    "printedName": "Swift.AnyHashable",
+                    "usr": "s:s11AnyHashableV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@notifyvisitorsNudges@objc(pl)notifyvisitorsNudgesDelegate(im)notifyvisitorsNudgesOnClickListnerWithEvent:",
+            "mangledName": "$s20notifyvisitorsNudges0aB8DelegateP0aB14OnClickListner9withEventySDys11AnyHashableVypG_tF",
+            "moduleName": "notifyvisitorsNudges",
+            "genericSig": "<τ_0_0 where τ_0_0 : notifyvisitorsNudges.notifyvisitorsNudgesDelegate>",
+            "sugared_genericSig": "<Self where Self : notifyvisitorsNudges.notifyvisitorsNudgesDelegate>",
+            "protocolReq": true,
+            "objc_name": "notifyvisitorsNudgesOnClickListnerWithEvent:",
+            "declAttributes": [
+              "Optional",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "notifyvisitorsNudgesOnCloseButtonClickListner",
+            "printedName": "notifyvisitorsNudgesOnCloseButtonClickListner(forNotificationID:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@notifyvisitorsNudges@objc(pl)notifyvisitorsNudgesDelegate(im)notifyvisitorsNudgesOnCloseButtonClickListnerForNotificationID:",
+            "mangledName": "$s20notifyvisitorsNudges0aB8DelegateP0aB25OnCloseButtonClickListner17forNotificationIDySSSg_tF",
+            "moduleName": "notifyvisitorsNudges",
+            "genericSig": "<τ_0_0 where τ_0_0 : notifyvisitorsNudges.notifyvisitorsNudgesDelegate>",
+            "sugared_genericSig": "<Self where Self : notifyvisitorsNudges.notifyvisitorsNudgesDelegate>",
+            "protocolReq": true,
+            "objc_name": "notifyvisitorsNudgesOnCloseButtonClickListnerForNotificationID:",
+            "declAttributes": [
+              "Optional",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "notifyvisitorsNudgesOnClickInWKWebViewListner",
+            "printedName": "notifyvisitorsNudgesOnClickInWKWebViewListner(withUserContentController:didReceiveMessage:isValidNudgesWebView:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKUserContentController",
+                "printedName": "WebKit.WKUserContentController",
+                "usr": "c:objc(cs)WKUserContentController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "WKScriptMessage",
+                "printedName": "WebKit.WKScriptMessage",
+                "usr": "c:objc(cs)WKScriptMessage"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@notifyvisitorsNudges@objc(pl)notifyvisitorsNudgesDelegate(im)notifyvisitorsNudgesOnClickInWKWebViewListnerWithUserContentController:didReceiveMessage:isValidNudgesWebView:",
+            "mangledName": "$s20notifyvisitorsNudges0aB8DelegateP0aB25OnClickInWKWebViewListner25withUserContentController17didReceiveMessage07isValidb3WebH0ySo06WKUserlM0C_So08WKScriptP0CSbtF",
+            "moduleName": "notifyvisitorsNudges",
+            "genericSig": "<τ_0_0 where τ_0_0 : notifyvisitorsNudges.notifyvisitorsNudgesDelegate>",
+            "sugared_genericSig": "<Self where Self : notifyvisitorsNudges.notifyvisitorsNudgesDelegate>",
+            "protocolReq": true,
+            "objc_name": "notifyvisitorsNudgesOnClickInWKWebViewListnerWithUserContentController:didReceiveMessage:isValidNudgesWebView:",
+            "declAttributes": [
+              "Optional",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@notifyvisitorsNudges@objc(pl)notifyvisitorsNudgesDelegate",
+        "mangledName": "$s20notifyvisitorsNudges0aB8DelegateP",
+        "moduleName": "notifyvisitorsNudges",
+        "genericSig": "<τ_0_0 : ObjectiveC.NSObjectProtocol>",
+        "sugared_genericSig": "<Self : ObjectiveC.NSObjectProtocol>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "notifyvisitorsNudgesManager",
+        "printedName": "notifyvisitorsNudgesManager",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "sharedInstance",
+            "printedName": "sharedInstance",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "notifyvisitorsNudgesManager",
+                "printedName": "notifyvisitorsNudges.notifyvisitorsNudgesManager",
+                "usr": "c:@M@notifyvisitorsNudges@objc(cs)notifyvisitorsNudgesManager"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@notifyvisitorsNudges@objc(cs)notifyvisitorsNudgesManager(cpy)sharedInstance",
+            "mangledName": "$s20notifyvisitorsNudges0aB7ManagerC14sharedInstanceACvpZ",
+            "moduleName": "notifyvisitorsNudges",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "notifyvisitorsNudgesManager",
+                    "printedName": "notifyvisitorsNudges.notifyvisitorsNudgesManager",
+                    "usr": "c:@M@notifyvisitorsNudges@objc(cs)notifyvisitorsNudgesManager"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@notifyvisitorsNudges@objc(cs)notifyvisitorsNudgesManager(cm)sharedInstance",
+                "mangledName": "$s20notifyvisitorsNudges0aB7ManagerC14sharedInstanceACvgZ",
+                "moduleName": "notifyvisitorsNudges",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "notifyvisitorsNudgesManager",
+                "printedName": "notifyvisitorsNudges.notifyvisitorsNudgesManager",
+                "usr": "c:@M@notifyvisitorsNudges@objc(cs)notifyvisitorsNudgesManager"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@notifyvisitorsNudges@objc(cs)notifyvisitorsNudgesManager(im)init",
+            "mangledName": "$s20notifyvisitorsNudges0aB7ManagerCACycfc",
+            "moduleName": "notifyvisitorsNudges",
+            "overriding": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "delegate",
+            "printedName": "delegate",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "WeakStorage",
+                "printedName": "(any notifyvisitorsNudges.notifyvisitorsNudgesDelegate)?"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@notifyvisitorsNudges@objc(cs)notifyvisitorsNudgesManager(py)delegate",
+            "mangledName": "$s20notifyvisitorsNudges0aB7ManagerC8delegateAA0aB8Delegate_pSgvp",
+            "moduleName": "notifyvisitorsNudges",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "ReferenceOwnership",
+              "AccessControl",
+              "ObjC"
+            ],
+            "ownership": 1,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any notifyvisitorsNudges.notifyvisitorsNudgesDelegate)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "notifyvisitorsNudgesDelegate",
+                        "printedName": "any notifyvisitorsNudges.notifyvisitorsNudgesDelegate",
+                        "usr": "c:@M@notifyvisitorsNudges@objc(pl)notifyvisitorsNudgesDelegate"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@notifyvisitorsNudges@objc(cs)notifyvisitorsNudgesManager(im)delegate",
+                "mangledName": "$s20notifyvisitorsNudges0aB7ManagerC8delegateAA0aB8Delegate_pSgvg",
+                "moduleName": "notifyvisitorsNudges",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any notifyvisitorsNudges.notifyvisitorsNudgesDelegate)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "notifyvisitorsNudgesDelegate",
+                        "printedName": "any notifyvisitorsNudges.notifyvisitorsNudgesDelegate",
+                        "usr": "c:@M@notifyvisitorsNudges@objc(pl)notifyvisitorsNudgesDelegate"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@notifyvisitorsNudges@objc(cs)notifyvisitorsNudgesManager(im)setDelegate:",
+                "mangledName": "$s20notifyvisitorsNudges0aB7ManagerC8delegateAA0aB8Delegate_pSgvs",
+                "moduleName": "notifyvisitorsNudges",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:20notifyvisitorsNudges0aB7ManagerC8delegateAA0aB8Delegate_pSgvM",
+                "mangledName": "$s20notifyvisitorsNudges0aB7ManagerC8delegateAA0aB8Delegate_pSgvM",
+                "moduleName": "notifyvisitorsNudges",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "showPipVideoPopup",
+            "printedName": "showPipVideoPopup(withInAppMessaageData:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.NSDictionary?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSDictionary",
+                    "printedName": "Foundation.NSDictionary",
+                    "usr": "c:objc(cs)NSDictionary"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@notifyvisitorsNudges@objc(cs)notifyvisitorsNudgesManager(im)showPipVideoPopupWithInAppMessaageData:",
+            "mangledName": "$s20notifyvisitorsNudges0aB7ManagerC17showPipVideoPopup21withInAppMessaageDataySo12NSDictionaryCSg_tF",
+            "moduleName": "notifyvisitorsNudges",
+            "objc_name": "showPipVideoPopupWithInAppMessaageData:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@notifyvisitorsNudges@objc(cs)notifyvisitorsNudgesManager",
+        "mangledName": "$s20notifyvisitorsNudges0aB7ManagerC",
+        "moduleName": "notifyvisitorsNudges",
+        "objc_name": "notifyvisitorsNudgesManager",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "notifyvisitorsNativeDisplay",
+        "printedName": "notifyvisitorsNativeDisplay",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "sharedInstance",
+            "printedName": "sharedInstance",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "notifyvisitorsNativeDisplay",
+                "printedName": "notifyvisitorsNudges.notifyvisitorsNativeDisplay",
+                "usr": "c:@M@notifyvisitorsNudges@objc(cs)notifyvisitorsNativeDisplay"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@notifyvisitorsNudges@objc(cs)notifyvisitorsNativeDisplay(cpy)sharedInstance",
+            "mangledName": "$s20notifyvisitorsNudges0A13NativeDisplayC14sharedInstanceACvpZ",
+            "moduleName": "notifyvisitorsNudges",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "notifyvisitorsNativeDisplay",
+                    "printedName": "notifyvisitorsNudges.notifyvisitorsNativeDisplay",
+                    "usr": "c:@M@notifyvisitorsNudges@objc(cs)notifyvisitorsNativeDisplay"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@notifyvisitorsNudges@objc(cs)notifyvisitorsNativeDisplay(cm)sharedInstance",
+                "mangledName": "$s20notifyvisitorsNudges0A13NativeDisplayC14sharedInstanceACvgZ",
+                "moduleName": "notifyvisitorsNudges",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "notifyvisitorsNativeDisplay",
+                "printedName": "notifyvisitorsNudges.notifyvisitorsNativeDisplay",
+                "usr": "c:@M@notifyvisitorsNudges@objc(cs)notifyvisitorsNativeDisplay"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@notifyvisitorsNudges@objc(cs)notifyvisitorsNativeDisplay(im)init",
+            "mangledName": "$s20notifyvisitorsNudges0A13NativeDisplayCACycfc",
+            "moduleName": "notifyvisitorsNudges",
+            "overriding": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "loadContent",
+            "printedName": "loadContent(forPropertyName:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UIView",
+                "printedName": "UIKit.UIView",
+                "usr": "c:objc(cs)UIView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@notifyvisitorsNudges@objc(cs)notifyvisitorsNativeDisplay(im)loadContentForPropertyName:",
+            "mangledName": "$s20notifyvisitorsNudges0A13NativeDisplayC11loadContent15forPropertyNameSo6UIViewCSS_tF",
+            "moduleName": "notifyvisitorsNudges",
+            "objc_name": "loadContentForPropertyName:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@notifyvisitorsNudges@objc(cs)notifyvisitorsNativeDisplay",
+        "mangledName": "$s20notifyvisitorsNudges0A13NativeDisplayC",
+        "moduleName": "notifyvisitorsNudges",
+        "objc_name": "notifyvisitorsNativeDisplay",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "WebKit",
+        "printedName": "WebKit",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges"
+      },
+      {
+        "kind": "Import",
+        "name": "WebKit",
+        "printedName": "WebKit",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "Preconcurrency",
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "NVSDKNudgesJSONParser",
+        "printedName": "NVSDKNudgesJSONParser",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "decode",
+            "printedName": "decode(_:from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Result",
+                "printedName": "Swift.Result<τ_0_0, any Swift.Error>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Error",
+                    "printedName": "any Swift.Error",
+                    "usr": "s:s5ErrorP"
+                  }
+                ],
+                "usr": "s:s6ResultO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Metatype",
+                "printedName": "τ_0_0.Type",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Data",
+                "printedName": "Foundation.Data",
+                "usr": "s:10Foundation4DataV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:20notifyvisitorsNudges21NVSDKNudgesJSONParserO6decode_4froms6ResultOyxs5Error_pGxm_10Foundation4DataVtSeRzlFZ",
+            "mangledName": "$s20notifyvisitorsNudges21NVSDKNudgesJSONParserO6decode_4froms6ResultOyxs5Error_pGxm_10Foundation4DataVtSeRzlFZ",
+            "moduleName": "notifyvisitorsNudges",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.Decodable>",
+            "sugared_genericSig": "<T where T : Swift.Decodable>",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "decode",
+            "printedName": "decode(_:from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Result",
+                "printedName": "Swift.Result<τ_0_0, any Swift.Error>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Error",
+                    "printedName": "any Swift.Error",
+                    "usr": "s:s5ErrorP"
+                  }
+                ],
+                "usr": "s:s6ResultO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Metatype",
+                "printedName": "τ_0_0.Type",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:20notifyvisitorsNudges21NVSDKNudgesJSONParserO6decode_4froms6ResultOyxs5Error_pGxm_SDySSypGtSeRzlFZ",
+            "mangledName": "$s20notifyvisitorsNudges21NVSDKNudgesJSONParserO6decode_4froms6ResultOyxs5Error_pGxm_SDySSypGtSeRzlFZ",
+            "moduleName": "notifyvisitorsNudges",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.Decodable>",
+            "sugared_genericSig": "<T where T : Swift.Decodable>",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "parseInAppMessagesForModel",
+            "printedName": "parseInAppMessagesForModel(_:from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Result",
+                "printedName": "Swift.Result<τ_0_0, any Swift.Error>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Error",
+                    "printedName": "any Swift.Error",
+                    "usr": "s:s5ErrorP"
+                  }
+                ],
+                "usr": "s:s6ResultO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Metatype",
+                "printedName": "τ_0_0.Type",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ProtocolComposition",
+                "printedName": "Any"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:20notifyvisitorsNudges21NVSDKNudgesJSONParserO26parseInAppMessagesForModel_4froms6ResultOyxs5Error_pGxm_yptSeRzlFZ",
+            "mangledName": "$s20notifyvisitorsNudges21NVSDKNudgesJSONParserO26parseInAppMessagesForModel_4froms6ResultOyxs5Error_pGxm_yptSeRzlFZ",
+            "moduleName": "notifyvisitorsNudges",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.Decodable>",
+            "sugared_genericSig": "<T where T : Swift.Decodable>",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "encodeToDictionary",
+            "printedName": "encodeToDictionary(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Result",
+                "printedName": "Swift.Result<[Swift.String : Any], any Swift.Error>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Error",
+                    "printedName": "any Swift.Error",
+                    "usr": "s:s5ErrorP"
+                  }
+                ],
+                "usr": "s:s6ResultO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:20notifyvisitorsNudges21NVSDKNudgesJSONParserO18encodeToDictionaryys6ResultOySDySSypGs5Error_pGxSERzlFZ",
+            "mangledName": "$s20notifyvisitorsNudges21NVSDKNudgesJSONParserO18encodeToDictionaryys6ResultOySDySSypGs5Error_pGxSERzlFZ",
+            "moduleName": "notifyvisitorsNudges",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.Encodable>",
+            "sugared_genericSig": "<T where T : Swift.Encodable>",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "encodeToString",
+            "printedName": "encodeToString(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Result",
+                "printedName": "Swift.Result<Swift.String, any Swift.Error>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Error",
+                    "printedName": "any Swift.Error",
+                    "usr": "s:s5ErrorP"
+                  }
+                ],
+                "usr": "s:s6ResultO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:20notifyvisitorsNudges21NVSDKNudgesJSONParserO14encodeToStringys6ResultOySSs5Error_pGxSERzlFZ",
+            "mangledName": "$s20notifyvisitorsNudges21NVSDKNudgesJSONParserO14encodeToStringys6ResultOySSs5Error_pGxSERzlFZ",
+            "moduleName": "notifyvisitorsNudges",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.Encodable>",
+            "sugared_genericSig": "<T where T : Swift.Encodable>",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:20notifyvisitorsNudges21NVSDKNudgesJSONParserO",
+        "mangledName": "$s20notifyvisitorsNudges21NVSDKNudgesJSONParserO",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "WebKit",
+        "printedName": "WebKit",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "AVKit",
+        "printedName": "AVKit",
+        "declKind": "Import",
+        "moduleName": "notifyvisitorsNudges"
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/Model\/NVSDKNudgesPipVideoPopupModal.swift",
+      "kind": "StringLiteral",
+      "offset": 2213,
+      "length": 12,
+      "value": "\"os_version\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/Model\/NVSDKNudgesPipVideoPopupModal.swift",
+      "kind": "StringLiteral",
+      "offset": 2307,
+      "length": 13,
+      "value": "\"app_version\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/Model\/NVSDKNudgesPipVideoPopupModal.swift",
+      "kind": "StringLiteral",
+      "offset": 2354,
+      "length": 16,
+      "value": "\"email_postback\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/Model\/NVSDKNudgesPipVideoPopupModal.swift",
+      "kind": "StringLiteral",
+      "offset": 2432,
+      "length": 11,
+      "value": "\"close_btn\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/Model\/NVSDKNudgesPipVideoPopupModal.swift",
+      "kind": "StringLiteral",
+      "offset": 2809,
+      "length": 14,
+      "value": "\"repeat_close\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/Model\/NVSDKNudgesPipVideoPopupModal.swift",
+      "kind": "StringLiteral",
+      "offset": 2883,
+      "length": 14,
+      "value": "\"repeat_click\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/Model\/NVSDKNudgesPipVideoPopupModal.swift",
+      "kind": "StringLiteral",
+      "offset": 3118,
+      "length": 13,
+      "value": "\"liquid_tags\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/Model\/NVSDKNudgesPipVideoPopupModal.swift",
+      "kind": "StringLiteral",
+      "offset": 5062,
+      "length": 11,
+      "value": "\"video_url\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/Model\/NVSDKNudgesPipVideoPopupModal.swift",
+      "kind": "StringLiteral",
+      "offset": 5100,
+      "length": 13,
+      "value": "\"video_ratio\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/Model\/NVSDKNudgesPipVideoPopupModal.swift",
+      "kind": "StringLiteral",
+      "offset": 5143,
+      "length": 16,
+      "value": "\"video_position\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/Model\/NVSDKNudgesPipVideoPopupModal.swift",
+      "kind": "StringLiteral",
+      "offset": 5186,
+      "length": 13,
+      "value": "\"layout_mode\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Config\/NVSDKNudgesFrameworkInfo.swift",
+      "kind": "StringLiteral",
+      "offset": 211,
+      "length": 23,
+      "value": "\"notifyvisitors Nudges\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Config\/NVSDKNudgesFrameworkInfo.swift",
+      "kind": "StringLiteral",
+      "offset": 309,
+      "length": 9,
+      "value": "\"unknown\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Config\/NVSDKNudgesFrameworkInfo.swift",
+      "kind": "StringLiteral",
+      "offset": 352,
+      "length": 7,
+      "value": "\"0.0.3\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Config\/NVSDKNudgesFrameworkInfo.swift",
+      "kind": "StringLiteral",
+      "offset": 402,
+      "length": 16,
+      "value": "\"notifyvisitors\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Config\/NVSDKNudgesFrameworkInfo.swift",
+      "kind": "StringLiteral",
+      "offset": 462,
+      "length": 8,
+      "value": "\"nudges\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/NativeDisplayNudges\/View\/NVNudgesNativeDisplayStyle.swift",
+      "kind": "IntegerLiteral",
+      "offset": 244,
+      "length": 2,
+      "value": "16"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/NativeDisplayNudges\/View\/NVNudgesNativeDisplayStyle.swift",
+      "kind": "IntegerLiteral",
+      "offset": 401,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/NativeDisplayNudges\/View\/NVNudgesNativeDisplayStyle.swift",
+      "kind": "FloatLiteral",
+      "offset": 445,
+      "length": 3,
+      "value": "0.1"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/NativeDisplayNudges\/View\/NVNudgesNativeDisplayStyle.swift",
+      "kind": "IntegerLiteral",
+      "offset": 492,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/NativeDisplayNudges\/View\/NVNudgesNativeDisplayStyle.swift",
+      "kind": "IntegerLiteral",
+      "offset": 545,
+      "length": 2,
+      "value": "14"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/NativeDisplayNudges\/View\/NVNudgesNativeDisplayStyle.swift",
+      "kind": "BooleanLiteral",
+      "offset": 669,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/NativeDisplayNudges\/View\/NVNudgesNativeDisplayStyle.swift",
+      "kind": "BooleanLiteral",
+      "offset": 866,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/NativeDisplayNudges\/View\/NVNudgesNativeDisplayStyle.swift",
+      "kind": "BooleanLiteral",
+      "offset": 914,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/NativeDisplayNudges\/View\/NVNudgesNativeDisplayStyle.swift",
+      "kind": "BooleanLiteral",
+      "offset": 975,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/NativeDisplayNudges\/View\/NVNudgesNativeDisplayStyle.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1033,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/NativeDisplayNudges\/View\/NVNudgesNativeDisplayStyle.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1104,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/NativeDisplayNudges\/View\/NVNudgesNativeDisplayStyle.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1173,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/NativeDisplayNudges\/View\/NVNudgesNativeDisplayStyle.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1238,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/NativeDisplayNudges\/View\/NVNudgesNativeDisplayCardView.swift",
+      "kind": "StringLiteral",
+      "offset": 271,
+      "length": 145,
+      "value": "\"<header><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'><\/header>\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/NativeDisplayNudges\/View\/NVNudgesNativeDisplayCardView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 508,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/NativeDisplayNudges\/View\/NVNudgesNativeDisplayCardView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 603,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Model\/NVSDKNudgesInAppModal.swift",
+      "kind": "StringLiteral",
+      "offset": 2926,
+      "length": 11,
+      "value": "\"video_url\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Model\/NVSDKNudgesInAppModal.swift",
+      "kind": "StringLiteral",
+      "offset": 2964,
+      "length": 13,
+      "value": "\"video_ratio\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Model\/NVSDKNudgesInAppModal.swift",
+      "kind": "StringLiteral",
+      "offset": 3007,
+      "length": 16,
+      "value": "\"video_position\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Model\/NVSDKNudgesInAppModal.swift",
+      "kind": "StringLiteral",
+      "offset": 3050,
+      "length": 13,
+      "value": "\"layout_mode\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Model\/NVSDKNudgesTemplateType.swift",
+      "kind": "StringLiteral",
+      "offset": 191,
+      "length": 3,
+      "value": "\"1\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Model\/NVSDKNudgesTemplateType.swift",
+      "kind": "StringLiteral",
+      "offset": 219,
+      "length": 3,
+      "value": "\"2\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Model\/NVSDKNudgesTemplateType.swift",
+      "kind": "StringLiteral",
+      "offset": 240,
+      "length": 3,
+      "value": "\"3\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Model\/NVSDKNudgesTemplateType.swift",
+      "kind": "StringLiteral",
+      "offset": 266,
+      "length": 3,
+      "value": "\"4\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Model\/NVSDKNudgesTemplateType.swift",
+      "kind": "StringLiteral",
+      "offset": 294,
+      "length": 3,
+      "value": "\"5\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Model\/NVSDKNudgesTemplateType.swift",
+      "kind": "StringLiteral",
+      "offset": 331,
+      "length": 3,
+      "value": "\"6\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Model\/NVSDKNudgesTemplateType.swift",
+      "kind": "StringLiteral",
+      "offset": 361,
+      "length": 3,
+      "value": "\"7\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Model\/NVSDKNudgesTemplateType.swift",
+      "kind": "StringLiteral",
+      "offset": 396,
+      "length": 3,
+      "value": "\"8\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Model\/NVSDKNudgesTemplateType.swift",
+      "kind": "StringLiteral",
+      "offset": 420,
+      "length": 3,
+      "value": "\"9\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Model\/NVSDKNudgesTemplateType.swift",
+      "kind": "StringLiteral",
+      "offset": 449,
+      "length": 4,
+      "value": "\"10\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Model\/NVSDKNudgesTemplateType.swift",
+      "kind": "StringLiteral",
+      "offset": 477,
+      "length": 5,
+      "value": "\"101\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Model\/NVSDKNudgesTemplateType.swift",
+      "kind": "StringLiteral",
+      "offset": 511,
+      "length": 5,
+      "value": "\"102\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Utilities\/NVSDKNudgesLogger.swift",
+      "kind": "StringLiteral",
+      "offset": 169,
+      "length": 7,
+      "value": "\"DEBUG\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Utilities\/NVSDKNudgesLogger.swift",
+      "kind": "StringLiteral",
+      "offset": 193,
+      "length": 6,
+      "value": "\"INFO\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Utilities\/NVSDKNudgesLogger.swift",
+      "kind": "StringLiteral",
+      "offset": 219,
+      "length": 9,
+      "value": "\"WARNING\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Utilities\/NVSDKNudgesLogger.swift",
+      "kind": "StringLiteral",
+      "offset": 246,
+      "length": 7,
+      "value": "\"ERROR\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Utilities\/NVSDKNudgesLogger.swift",
+      "kind": "StringLiteral",
+      "offset": 273,
+      "length": 9,
+      "value": "\"VERBOSE\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Utilities\/NVSDKNudgesLogger.swift",
+      "kind": "BooleanLiteral",
+      "offset": 524,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Utilities\/NVSDKNudgesLogger.swift",
+      "kind": "BooleanLiteral",
+      "offset": 717,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Utilities\/NVSDKNudgesLogger.swift",
+      "kind": "BooleanLiteral",
+      "offset": 911,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Utilities\/NVSDKNudgesLogger.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1105,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/Core\/Utilities\/NVSDKNudgesLogger.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1506,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 203,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 224,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 249,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 273,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 337,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 340,
+      "length": 10,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 722,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "Array",
+      "offset": 1140,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "Array",
+      "offset": 1204,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1361,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1408,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1657,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1714,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1762,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "FloatLiteral",
+      "offset": 1822,
+      "length": 3,
+      "value": "1.0"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "FloatLiteral",
+      "offset": 1877,
+      "length": 3,
+      "value": "0.5"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2062,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2091,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "StringLiteral",
+      "offset": 2157,
+      "length": 12,
+      "value": "\"pause.fill\""
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "FloatLiteral",
+      "offset": 2286,
+      "length": 3,
+      "value": "0.5"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2327,
+      "length": 2,
+      "value": "30"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2361,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2455,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2625,
+      "length": 2,
+      "value": "16"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2776,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2836,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2995,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3040,
+      "length": 2,
+      "value": "16"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3116,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "FloatLiteral",
+      "offset": 19849,
+      "length": 3,
+      "value": "0.5"
+    },
+    {
+      "filePath": "\/Users\/siddharth\/TagnpinProjects\/NotifyvisitorsProjects\/Native_IOS\/Framework_Projects_Notifyvisitors\/notify_ios_nudges\/notifyvisitorsNudges\/NVSDKInAppNudges\/Templates\/PIPVideoNudges\/View\/NVSDKPIPVideoNudgesView.swift",
+      "kind": "FloatLiteral",
+      "offset": 19880,
+      "length": 3,
+      "value": "0.5"
+    }
+  ]
+}
