@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/values-v16/values-v16.xml",
+            "map": [
+                {
+                    "source": "/Users/siddharth/.gradle/caches/9.0.0/transforms/7d70c53f215a24f2b87b315133c9b6f2/transformed/appcompat-1.7.1/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "223"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "com.rn_notifyvisitors.react-native-notifyvisitors-mergeReleaseResources-54:/values-v16/values-v16.xml",
+            "map": [
+                {
+                    "source": "/Users/siddharth/.gradle/caches/9.0.0/transforms/7d70c53f215a24f2b87b315133c9b6f2/transformed/appcompat-1.7.1/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "223"
+                    }
+                }
+            ]
+        }
+    ]
+}

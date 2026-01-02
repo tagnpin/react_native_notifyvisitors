@@ -1,0 +1,90 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.rn_notifyvisitors.react-native-notifyvisitors-mergeReleaseResources-54:/values-hdpi-v4/values-hdpi-v4.xml",
+            "map": [
+                {
+                    "source": "/Users/siddharth/.gradle/caches/9.0.0/transforms/b8d382ffd6a4ab0669b33411e49cf88b/transformed/notifyvisitors-v5.6.2/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,24,27,30,33,36",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,114,159,214,271,320,375,426,475,533,592,648,704,765,826,884,1283,1425,1567,1711,1847",
+                        "endLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,23,26,29,32,35,38",
+                        "endColumns": "58,44,54,56,48,54,50,48,57,58,55,55,60,60,57,12,12,12,12,12,12",
+                        "endOffsets": "109,154,209,266,315,370,421,470,528,587,643,699,760,821,879,1278,1420,1562,1706,1842,1976"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,22,29,32,35,38,41",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,114,159,214,271,320,375,426,475,533,592,648,704,765,826,1161,1560,1702,1844,1988,2124",
+                        "endLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,28,31,34,37,40,43",
+                        "endColumns": "58,44,54,56,48,54,50,48,57,58,55,55,60,60,57,12,12,12,12,12,12",
+                        "endOffsets": "109,154,209,266,315,370,421,470,528,587,643,699,760,821,879,1555,1697,1839,1983,2119,2253"
+                    }
+                },
+                {
+                    "source": "/Users/siddharth/.gradle/caches/9.0.0/transforms/7d70c53f215a24f2b87b315133c9b6f2/transformed/appcompat-1.7.1/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "13",
+                        "endOffsets": "327"
+                    },
+                    "to": {
+                        "startLines": "17",
+                        "startColumns": "4",
+                        "startOffsets": "884",
+                        "endLines": "21",
+                        "endColumns": "13",
+                        "endOffsets": "1156"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/values-hdpi-v4/values-hdpi-v4.xml",
+            "map": [
+                {
+                    "source": "/Users/siddharth/.gradle/caches/9.0.0/transforms/b8d382ffd6a4ab0669b33411e49cf88b/transformed/notifyvisitors-v5.6.2/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,24,27,30,33,36",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,114,159,214,271,320,375,426,475,533,592,648,704,765,826,884,1283,1425,1567,1711,1847",
+                        "endLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,23,26,29,32,35,38",
+                        "endColumns": "58,44,54,56,48,54,50,48,57,58,55,55,60,60,57,12,12,12,12,12,12",
+                        "endOffsets": "109,154,209,266,315,370,421,470,528,587,643,699,760,821,879,1278,1420,1562,1706,1842,1976"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,22,29,32,35,38,41",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,114,159,214,271,320,375,426,475,533,592,648,704,765,826,1161,1560,1702,1844,1988,2124",
+                        "endLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,28,31,34,37,40,43",
+                        "endColumns": "58,44,54,56,48,54,50,48,57,58,55,55,60,60,57,12,12,12,12,12,12",
+                        "endOffsets": "109,154,209,266,315,370,421,470,528,587,643,699,760,821,879,1555,1697,1839,1983,2119,2253"
+                    }
+                },
+                {
+                    "source": "/Users/siddharth/.gradle/caches/9.0.0/transforms/7d70c53f215a24f2b87b315133c9b6f2/transformed/appcompat-1.7.1/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "13",
+                        "endOffsets": "327"
+                    },
+                    "to": {
+                        "startLines": "17",
+                        "startColumns": "4",
+                        "startOffsets": "884",
+                        "endLines": "21",
+                        "endColumns": "13",
+                        "endOffsets": "1156"
+                    }
+                }
+            ]
+        }
+    ]
+}

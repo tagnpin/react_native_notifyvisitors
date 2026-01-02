@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/interpolator/btn_radio_to_on_mtrl_animation_interpolator_0.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/interpolator/btn_radio_to_on_mtrl_animation_interpolator_0.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/interpolator/btn_checkbox_unchecked_mtrl_animation_interpolator_1.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/interpolator/btn_checkbox_unchecked_mtrl_animation_interpolator_1.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_1.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_1.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_0.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_0.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/interpolator/btn_radio_to_off_mtrl_animation_interpolator_0.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/interpolator/btn_radio_to_off_mtrl_animation_interpolator_0.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/interpolator/fast_out_slow_in.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/interpolator/fast_out_slow_in.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/interpolator/btn_checkbox_unchecked_mtrl_animation_interpolator_0.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/interpolator/btn_checkbox_unchecked_mtrl_animation_interpolator_0.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/interpolator/mtrl_linear.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-material-1.12.0-32:/interpolator/mtrl_linear.xml"
+    }
+]

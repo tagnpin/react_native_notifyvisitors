@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/color-night-v8/material_timepicker_button_stroke.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-material-1.12.0-32:/color-night-v8/material_timepicker_button_stroke.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/color-night-v8/material_timepicker_modebutton_tint.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-material-1.12.0-32:/color-night-v8/material_timepicker_modebutton_tint.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/color-night-v8/material_timepicker_clockface.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-material-1.12.0-32:/color-night-v8/material_timepicker_clockface.xml"
+    }
+]

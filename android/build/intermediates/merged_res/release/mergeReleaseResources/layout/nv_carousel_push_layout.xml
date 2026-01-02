@@ -1,0 +1,121 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/nv_carouselMainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#0000"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="28dp"
+        android:background="#F5F5F5"
+        android:orientation="horizontal"
+        android:paddingRight="5dp">
+
+        <ImageView
+            android:id="@+id/nv_carouseSmallIcon"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginStart="15dp"
+            />      <!--android:background="@color/push_small_icon_background"-->
+
+        <TextView
+            android:id="@+id/nv_carouselAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:maxLines="1"
+            android:layout_margin="3dp"
+            android:textColor="#757575"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/nv_carouselSummary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="#757575"
+            android:textSize="12sp"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/nv_carouselTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="3dp"
+            android:layout_marginStart="3dp"
+            android:textColor="#757575"
+            android:textSize="11sp"
+            android:singleLine="true"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/nv_carouselFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/headerLayout"
+        android:layout_gravity="center_horizontal|center_vertical">
+
+        <ImageView
+            android:id="@+id/nv_carouselFrameImages"
+            android:layout_width="match_parent"
+            android:layout_height="175dp"
+            android:scaleType="fitXY"
+            android:layout_alignParentRight="true"/>
+
+        <Button
+            android:id="@+id/nv_carouselPrevious"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical|left"
+            android:alpha="0.8"
+            android:background="@drawable/nv_previous_btn"
+            android:clickable="true" />
+
+        <Button
+            android:id="@+id/nv_carouselNext"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical|right"
+            android:background="@drawable/nv_next_btn"
+            android:alpha="0.8"
+            android:clickable="true"/>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/nv_carouselActionLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nv_carouselFrameLayout"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="1dp"
+        android:weightSum="2" >
+
+        <Button
+            android:id="@+id/nv_carouselActionBtn1"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:textColor="#9C9C9C" />
+
+        <Button
+            android:id="@+id/nv_carouselActionBtn2"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="1dp"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:textColor="#9C9C9C" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="custom_push_background">#00FFFFFF</color>
+    <dimen name="header_height">16dp</dimen>
+    <dimen name="header_small_icon_width">16dp</dimen>
+    <dimen name="timer_padding_coll_bottom">14dp</dimen>
+    <dimen name="timer_padding_end">14dp</dimen>
+    <dimen name="timer_padding_exp_bottom">8dp</dimen>
+    <dimen name="timer_padding_start">16dp</dimen>
+    <dimen name="timer_padding_top">14dp</dimen>
+    <dimen name="timer_push_cta2_left_margin">0dp</dimen>
+    <dimen name="timer_push_cta_bottom_margin">0dp</dimen>
+    <dimen name="timer_push_cta_text_size">13sp</dimen>
+    <dimen name="timer_push_cta_top_margin">6dp</dimen>
+    <dimen name="timer_push_rich_image_height">115dp</dimen>
+    <dimen name="timer_push_rich_img_top_margin">6dp</dimen>
+    <dimen name="timer_push_title_top_margin">8dp</dimen>
+    <style name="Base.Widget.AppCompat.DrawerArrowToggle" parent="Base.Widget.AppCompat.DrawerArrowToggle.Common">
+          <item name="barLength">18.66dp</item>
+          <item name="gapBetweenBars">3.33dp</item>
+          <item name="drawableSize">24dp</item>
+     </style>
+    <style name="CustomPushCTA" parent="android:Widget.Button">
+        <item name="android:textSize">@dimen/timer_push_cta_text_size</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:gravity">left|center_vertical</item>
+    </style>
+    <style name="CustomPushHeaderAppName" parent="android:Widget.TextView">
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="CustomPushHeaderSummary" parent="android:Widget.TextView">
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="CustomPushHeaderTimeStamp" parent="android:Widget.TextView">
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="CustomPushMessage" parent="android:Widget.TextView">
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="CustomPushTitle" parent="android:Widget.TextView">
+        <item name="android:textStyle">normal</item>
+    </style>
+</resources>
