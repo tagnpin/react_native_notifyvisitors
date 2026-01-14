@@ -36,7 +36,7 @@ jobs:
         with:
           node-version: 18
           cache: npm
-          cache-dependency-path: react_native_notifyvisitors/nv_react_native_sdk_app/package-lock.json
+          
 
       - name: 📥 Install Dependencies
         run: |
