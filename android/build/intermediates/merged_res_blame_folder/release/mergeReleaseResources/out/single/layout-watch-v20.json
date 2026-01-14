@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/layout-watch-v20/abc_alert_dialog_title_material.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/layout-watch-v20/abc_alert_dialog_title_material.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/layout-watch-v20/abc_alert_dialog_button_bar_material.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/layout-watch-v20/abc_alert_dialog_button_bar_material.xml"
+    }
+]

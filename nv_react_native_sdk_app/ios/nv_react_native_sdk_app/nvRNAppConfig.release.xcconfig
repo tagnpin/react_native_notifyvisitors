@@ -1,0 +1,12 @@
+//
+//  nvRNAppConfig.release.xcconfig
+//  nv_react_native_sdk_app
+//
+//  Created by Notifyvisitors Macbook Pro 001  on 31/12/25.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project
+
+#include "nvSecrets.xcconfig"
+#include "Pods/Target Support Files/Pods-nv_react_native_sdk_app/Pods-nv_react_native_sdk_app.release.xcconfig"

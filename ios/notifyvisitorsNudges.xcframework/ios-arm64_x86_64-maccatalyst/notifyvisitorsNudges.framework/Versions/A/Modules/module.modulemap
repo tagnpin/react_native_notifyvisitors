@@ -1,0 +1,11 @@
+framework module notifyvisitorsNudges {
+  umbrella header "notifyvisitorsNudges.h"
+  export *
+
+  module * { export * }
+}
+
+module notifyvisitorsNudges.Swift {
+  header "notifyvisitorsNudges-Swift.h"
+  requires objc
+}

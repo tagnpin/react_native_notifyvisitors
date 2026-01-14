@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!--START: Custom SP 1 & Custom RP 1 Template-->
+
+    <RelativeLayout
+        android:id="@+id/mainPushLayout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:id="@+id/nv_pushImage"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                tools:ignore="ContentDescription" />
+
+            <LinearLayout
+                android:id="@+id/infoLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1.9"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/nv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:maxLines="1"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingStart="5dp"
+                    android:textColor="#212F3D"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/nv_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="0dp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingStart="5dp"
+                    android:singleLine="false"
+                    android:textColor="#707B7C"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <!--END: Custom SP 1 & Custom RP 1 Template-->
+
+
+    <!--START: Custom SP 2 Template-->
+
+    <RelativeLayout
+        android:id = "@+id/mainRL2"
+        android:layout_width = "match_parent"
+        android:layout_height = "70dp"
+        android:background = "@android:color/white">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            tools:ignore="UselessParent">
+
+            <LinearLayout
+                android:id="@+id/infoLayout2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1.9"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id = "@+id/headerLayout"
+                    android:layout_width = "match_parent"
+                    android:layout_height = "20dp"
+                    android:orientation = "horizontal"
+                    android:paddingLeft = "8dp"
+                    android:paddingStart = "8dp"
+                    android:gravity = "center_vertical"
+                    android:paddingRight = "5dp"
+                    android:paddingEnd = "5dp">
+
+                    <ImageView
+                        android:id = "@+id/appIcon"
+                        android:layout_width = "15dp"
+                        android:layout_height = "15dp"
+                        android:layout_gravity = "center"
+                        tools:ignore = "ContentDescription" />
+
+                    <TextView
+                        android:id = "@+id/appName"
+                        android:layout_width = "wrap_content"
+                        android:layout_height = "15dp"
+                        android:layout_marginLeft = "3dp"
+                        android:layout_marginStart = "3dp"
+                        android:maxLines = "1"
+                        android:fontFamily = "sans-serif"
+                        android:gravity = "center_vertical"
+                        android:textColor = "@android:color/black"
+                        android:textSize = "10sp"
+                        tools:ignore = "SmallSp"/>
+
+                    <TextView
+                        android:id = "@+id/timepush"
+                        android:layout_width = "wrap_content"
+                        android:layout_height = "15dp"
+                        android:gravity = "center_vertical"
+                        android:singleLine = "true"
+                        android:textColor = "@android:color/black"
+                        android:textSize = "10sp"
+                        tools:ignore = "SmallSp"
+                        android:fontFamily = "sans-serif"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/nv_title2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="sans-serif"
+                    android:maxLines="1"
+                    android:paddingStart="8dp"
+                    android:paddingLeft="8dp"
+                    android:paddingEnd="5dp"
+                    android:textStyle="bold"
+                    android:paddingRight="5dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/nv_msg2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="5dp"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif"
+                    android:maxLines="1"
+                    android:paddingStart="8dp"
+                    android:paddingLeft="8dp"
+                    android:paddingEnd="5dp"
+                    android:paddingRight="5dp"
+                    android:singleLine="false"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id = "@+id/nv_pushImage2"
+                android:layout_width = "0dp"
+                android:layout_height = "match_parent"
+                android:layout_weight = "1.1"
+                android:adjustViewBounds = "true"
+                android:scaleType = "centerCrop"
+                tools:ignore = "ContentDescription" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!--END: Custom SP 2 Template-->
+
+</RelativeLayout>

@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/layout-sw600dp-v13/mtrl_layout_snackbar.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-material-1.12.0-32:/layout-sw600dp-v13/mtrl_layout_snackbar.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/layout-sw600dp-v13/design_layout_snackbar.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-material-1.12.0-32:/layout-sw600dp-v13/design_layout_snackbar.xml"
+    }
+]

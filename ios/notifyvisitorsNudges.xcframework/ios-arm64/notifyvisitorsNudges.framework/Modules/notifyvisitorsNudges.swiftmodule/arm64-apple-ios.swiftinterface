@@ -1,0 +1,42 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name notifyvisitorsNudges
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+import AVFoundation
+import AVKit
+import CoreGraphics
+import Foundation
+import Swift
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_exported import notifyvisitorsNudges
+@objc public protocol notifyvisitorsNudgesDelegate : ObjectiveC.NSObjectProtocol {
+  @objc(notifyvisitorsNudgesTrackInAppStatisticsListnerForNotificationID:statsActionType:pageName:templateID:) optional func notifyvisitorsNudgesTrackInAppStatisticsListner(forNotificationID notificationID: Swift.String?, statsActionType statsType: Swift.String?, pageName nvInAppPageName: Swift.String?, templateID nvInAppTemplateID: Swift.String?)
+  @objc(notifyvisitorsNudgesTriggerInAppBannerImpressionCallbackListnerForNotificationID:) optional func notifyvisitorsNudgesTriggerInAppBannerImpressionCallbackListner(forNotificationID notificationID: Swift.String?)
+  @objc(notifyvisitorsNudgesOnClickListnerWithEvent:) optional func notifyvisitorsNudgesOnClickListner(withEvent event: [Swift.AnyHashable : Any])
+  @objc(notifyvisitorsNudgesOnCloseButtonClickListnerForNotificationID:) optional func notifyvisitorsNudgesOnCloseButtonClickListner(forNotificationID notificationID: Swift.String?)
+  @objc(notifyvisitorsNudgesOnClickInWKWebViewListnerWithUserContentController:didReceiveMessage:isValidNudgesWebView:) optional func notifyvisitorsNudgesOnClickInWKWebViewListner(withUserContentController userContentController: WebKit.WKUserContentController, didReceiveMessage message: WebKit.WKScriptMessage, isValidNudgesWebView isValidNudgesWKWebView: Swift.Bool)
+}
+@_inheritsConvenienceInitializers @objc(notifyvisitorsNudgesManager) public class notifyvisitorsNudgesManager : ObjectiveC.NSObject {
+  @objc public static let sharedInstance: notifyvisitorsNudges.notifyvisitorsNudgesManager
+  @objc override dynamic public init()
+  @objc weak public var delegate: (any notifyvisitorsNudges.notifyvisitorsNudgesDelegate)?
+  @objc(showPipVideoPopupWithInAppMessaageData:) public func showPipVideoPopup(withInAppMessaageData inAppMessageDataDict: Foundation.NSDictionary?)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(notifyvisitorsNativeDisplay) public class notifyvisitorsNativeDisplay : ObjectiveC.NSObject {
+  @objc public static let sharedInstance: notifyvisitorsNudges.notifyvisitorsNativeDisplay
+  @objc override dynamic public init()
+  @objc(loadContentForPropertyName:) public func loadContent(forPropertyName propertyName: Swift.String) -> UIKit.UIView
+  @objc deinit
+}
+public enum NVSDKNudgesJSONParser {
+  public static func decode<T>(_ type: T.Type, from data: Foundation.Data) -> Swift.Result<T, any Swift.Error> where T : Swift.Decodable
+  public static func decode<T>(_ type: T.Type, from json: [Swift.String : Any]) -> Swift.Result<T, any Swift.Error> where T : Swift.Decodable
+  public static func parseInAppMessagesForModel<T>(_ type: T.Type, from array: Any) -> Swift.Result<T, any Swift.Error> where T : Swift.Decodable
+  public static func encodeToDictionary<T>(_ value: T) -> Swift.Result<[Swift.String : Any], any Swift.Error> where T : Swift.Encodable
+  public static func encodeToString<T>(_ value: T) -> Swift.Result<Swift.String, any Swift.Error> where T : Swift.Encodable
+}

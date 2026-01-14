@@ -1,0 +1,18 @@
+name: Block Non-Stage PRs
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  block_non_stage:
+    name: Validate Source Branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check source branch
+        run: |
+          if [[ "${{ github.event.pull_request.head.ref }}" != "stage" ]]; then
+            echo "Only the 'stage' branch is permitted to open pull requests into 'master'."
+            exit 1
+          fi

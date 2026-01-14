@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/animator-v21/design_appbar_state_list_animator.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-material-1.12.0-32:/animator-v21/design_appbar_state_list_animator.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/animator-v21/m3_appbar_state_list_animator.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-material-1.12.0-32:/animator-v21/m3_appbar_state_list_animator.xml"
+    }
+]
