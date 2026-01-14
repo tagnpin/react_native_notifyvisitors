@@ -1,7 +1,6 @@
 // src/client/features/analytics/analyticsActions.ts
 
 import { Alert } from 'react-native';
-// import { InputParameter, InputType } from '../../../shared/types/InputTypes';
 import SDKManager from '../../../sdk/SDKManager';
 import { FeatureActionProps } from '../../../shared/types/actions';
 
@@ -48,7 +47,7 @@ const trackEventActions: FeatureActionProps[] = [
     description: 'Tracks screen_view event with custom screen name',
     actionLabel: 'Track Screen',
     params: {
-      screentName: 'rn_homeScreen',
+      screentName: 'nv_rn_clientHomeScreen',
     },
     execute: payload => SDKManager.trackScreen(payload as any),
   },

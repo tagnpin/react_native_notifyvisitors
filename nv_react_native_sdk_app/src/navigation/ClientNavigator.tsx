@@ -11,6 +11,7 @@ import FeatureGroupScreen from '../client/screens/FeatureGroupScreen';
 import ActionButton from '../shared/components/ActionButton';
 import BellIcon from '../shared/components/icons/BellIcon';
 import SDKManager from '../sdk/SDKManager';
+import { theme } from '../shared/styles/theme';
 // import FeatureActionScreen from '../client/screens/FeatureActionScreen';
 
 const Stack = createNativeStackNavigator<ClientStackParamList>();
@@ -28,34 +29,27 @@ const ClientNavigator = ({ nvCenterBadgeFromHomePage }: Props) => {
   };
 
   useEffect(() => {
-    var tabCountInfo = {
-      label_one: 'tg1',
-      name_one: 'Promotional',
-      label_two: 'tg2',
-      name_two: 'Transactional',
-      label_three: 'others',
-      name_three: 'Others',
+    const fetchUnreadCount = async () => {
+      const unreadCountData = await SDKManager.getNotificationCenterUnreadCount(
+        {},
+      );
+      let unreadCountJSON = JSON.parse(unreadCountData);
+      let allCount: number = unreadCountJSON.totalCount;
+      setNVCenterBadge(() => allCount);
     };
-    // Notifyvisitors.getNotificationCenterCount(
-    //   tabCountInfo,
-    //   function (callback: any) {
-    //     let callbackData = JSON.parse(callback);
-    //     console.log(callbackData);
-    //     let allCount: number = callbackData.totalCount;
-    //     setNVCenterBadge(() => allCount);
-    //   },
-    // );
+    fetchUnreadCount();
   }, []);
+
   return (
     <Stack.Navigator
       initialRouteName="ClientHome"
       screenOptions={{
         headerBackTitleVisible: false,
         headerStyle: {
-          backgroundColor: '#005D99',
+          backgroundColor: theme.colors.primary,
           //011926, 012433, 005D99, 50A8F9
         },
-        headerTintColor: '#ffffff',
+        headerTintColor: theme.colors.primaryText,
         headerTitleStyle: {
           fontWeight: 'bold',
         },
@@ -63,7 +57,7 @@ const ClientNavigator = ({ nvCenterBadgeFromHomePage }: Props) => {
           <React.Fragment>
             <ActionButton
               key={'bellIcon'}
-              icon={<BellIcon size={24} color="#ffffff" />}
+              icon={<BellIcon size={24} color={theme.colors.primaryText} />}
               iconPosition="right"
               badgeCount={nvCenterBadge}
               layout="iconOnly"

@@ -1,6 +1,6 @@
 // src/client/screens/ClientHomeScreen.tsx
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ScrollView, View, StyleSheet, Text } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
@@ -20,6 +20,11 @@ import {
   InAppMessageIcon,
   InAppNudgesIcon,
 } from '../../shared/components/icons/myIcons';
+import { DeviceInfo } from '../../sdk/SDKTypes';
+import Notifyvisitors from '../../../..';
+import { version as nvPluginVersion } from '../../../../package.json';
+import TextRow from '../../shared/components/TextRow';
+import SDKManager from '../../sdk/SDKManager';
 
 type Props = NativeStackScreenProps<ClientStackParamList, 'ClientHome'>;
 
@@ -32,21 +37,43 @@ const ClientHomeScreen: React.FC<Props> = ({ navigation }) => {
       title,
     });
   };
+  const [deviceInfo, setDeviceInfo] = useState<DeviceInfo | null>(null);
+  const [pushToken, setPushToken] = useState('');
+  const [sdkVersion, setSDKVersion] = useState('');
+
+  useEffect(() => {
+    SDKManager.getDeviceInfo().then(setDeviceInfo);
+    Notifyvisitors.getRegistrationToken((tokenStr: any) => {
+      const finalToken: string = tokenStr.toString();
+      setPushToken(finalToken);
+    });
+
+    let finalnvVerssion = nvPluginVersion.toString() ?? '';
+    setSDKVersion(finalnvVerssion);
+  }, []);
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <Text style={styles.title}>Client Home Screen</Text>
+        <Text style={styles.title}>Notifyvisitors (React Native) SDK App</Text>
         <Text style={styles.subtitle}>
-          Reference implementation for SDK integration
+          Reference app for SDK integration & testing
         </Text>
       </View>
 
       {/* SDK Status */}
       <ClientSectionCard>
-        <Text style={styles.statusLabel}>SDK Status</Text>
-        <Text style={styles.statusValue}>Initialized</Text>
+        <Text style={styles.statusValue}>SDK Info</Text>
+
+        <TextRow label="Status" value="Initialized" />
+        <TextRow label="SDK Version" value={sdkVersion} />
+        <TextRow
+          label="App Version"
+          value={`${deviceInfo?.appVersion} (${deviceInfo?.buildNumber})`}
+        />
+        <TextRow label="Device ID" value={deviceInfo?.deviceId ?? ''} />
+        <TextRow label="Push Token" value={pushToken} />
       </ClientSectionCard>
 
       {/* Features */}
@@ -55,7 +82,7 @@ const ClientHomeScreen: React.FC<Props> = ({ navigation }) => {
       <ClientSectionCard>
         <Accordion
           title="Push Notifications"
-          subtitle="Permission, tokens, delivery"
+          subtitle="Send test Push, Notification Center"
           icon={<BellIcon size={22} />}
         >
           <ActionButton
@@ -75,12 +102,14 @@ const ClientHomeScreen: React.FC<Props> = ({ navigation }) => {
         <ActionButton
           variant="row"
           title="In-App Messages"
+          subtitle="show InApp Popup and surveys"
           icon={<InAppMessageIcon size={22} />}
           onPress={() => openFeatureGroup('inAppMessages', 'In-App Messages')}
         />
 
         <ActionButton
           title="In-App Nudges"
+          subtitle="show InApp Nudges"
           variant="row"
           icon={<InAppNudgesIcon size={22} />}
           onPress={() => openFeatureGroup('inAppNudges', 'In-App Nudges')}

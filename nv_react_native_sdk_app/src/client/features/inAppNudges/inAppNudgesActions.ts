@@ -17,8 +17,5 @@ export const inAppNudgesActions: FeatureActionProps[] = [
     title: 'Native Display',
     description: 'Show native display inside your parent view',
     actionLabel: 'Native Display',
-    params: {
-      propertyName: 'home',
-    },
   },
 ];

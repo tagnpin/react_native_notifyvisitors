@@ -18,7 +18,7 @@ import ResultBottomSheet from '../ResultBottomSheet';
 type CallbackResponse = Record<string, any> | null;
 
 type Props = {
-  key: string;
+  accordionId?: string; // ✅ renamed
   title?: string;
   subtitle?: string;
   icon?: React.ReactNode;
@@ -26,7 +26,7 @@ type Props = {
 };
 
 const SetupUserDetailsAccordion: React.FC<Props> = ({
-  key,
+  accordionId,
   title = '',
   subtitle,
   icon,
@@ -77,7 +77,7 @@ const SetupUserDetailsAccordion: React.FC<Props> = ({
   return (
     <Accordion
       title={title}
-      key={key}
+      key={accordionId}
       subtitle={subtitle}
       icon={icon}
       defaultExpanded={defaultExpanded}
