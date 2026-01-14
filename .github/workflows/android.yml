@@ -55,6 +55,15 @@ jobs:
           mkdir -p android/app
           echo "$FIREBASE_JSON_BASE64" | base64 --decode > android/app/google-services.json
           ls -lh android/app/google-services.json
+      
+      - name: 📦 Cache Android SDK & NDK
+        uses: actions/cache@v4
+        with:
+          path: |
+            /usr/local/lib/android/sdk/ndk
+            /usr/local/lib/android/sdk/build-tools
+            /usr/local/lib/android/sdk/platforms
+          key: ${{ runner.os }}-android-sdk-ndk-27.1.12297006
 
       - name: 🤖 Setup Android SDK
         uses: android-actions/setup-android@v2
