@@ -20,7 +20,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: react-native-notifyvisitors/nv_react_native_sdk_app   # ✅ updated
+        working-directory: react_native_notifyvisitors/nv_react_native_sdk_app   # ✅ updated
 
     env:
       BUILD_TYPE: ${{ vars.RN_BUILD_TYPE }}
