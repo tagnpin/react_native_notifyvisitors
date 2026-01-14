@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/values-ldrtl-v17/values-ldrtl-v17.xml",
+            "map": [
+                {
+                    "source": "/Users/siddharth/.gradle/caches/9.0.0/transforms/90e24704c1bc2ef4a723838ed12a2f86/transformed/material-1.12.0/res/values-ldrtl-v17/values-ldrtl-v17.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,191",
+                        "endColumns": "135,140",
+                        "endOffsets": "186,327"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "com.rn_notifyvisitors.react-native-notifyvisitors-mergeReleaseResources-54:/values-ldrtl-v17/values-ldrtl-v17.xml",
+            "map": [
+                {
+                    "source": "/Users/siddharth/.gradle/caches/9.0.0/transforms/90e24704c1bc2ef4a723838ed12a2f86/transformed/material-1.12.0/res/values-ldrtl-v17/values-ldrtl-v17.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,191",
+                        "endColumns": "135,140",
+                        "endOffsets": "186,327"
+                    }
+                }
+            ]
+        }
+    ]
+}

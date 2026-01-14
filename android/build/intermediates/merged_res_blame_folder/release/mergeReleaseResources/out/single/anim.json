@@ -1,0 +1,238 @@
+[
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/wobble.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-notifyvisitors-v5.6.2-37:/anim/wobble.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/zoom_in.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-notifyvisitors-v5.6.2-37:/anim/zoom_in.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/top_to_bottom.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-notifyvisitors-v5.6.2-37:/anim/top_to_bottom.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/abc_slide_out_bottom.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/anim/abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/linear_indeterminate_line2_head_interpolator.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-material-1.12.0-32:/anim/linear_indeterminate_line2_head_interpolator.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/abc_slide_in_bottom.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/anim/abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/btn_radio_to_on_mtrl_ring_outer_animation.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/anim/btn_radio_to_on_mtrl_ring_outer_animation.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/btn_radio_to_on_mtrl_dot_group_animation.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/anim/btn_radio_to_on_mtrl_dot_group_animation.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/abc_tooltip_enter.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/anim/abc_tooltip_enter.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/abc_fade_out.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/anim/abc_fade_out.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/btn_checkbox_to_unchecked_icon_null_animation.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/anim/btn_checkbox_to_unchecked_icon_null_animation.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/btn_checkbox_to_checked_box_outer_merged_animation.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/anim/btn_checkbox_to_checked_box_outer_merged_animation.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/rotate_in_down_left.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-notifyvisitors-v5.6.2-37:/anim/rotate_in_down_left.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/btn_checkbox_to_unchecked_box_inner_merged_animation.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/anim/btn_checkbox_to_unchecked_box_inner_merged_animation.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/btn_checkbox_to_checked_icon_null_animation.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/anim/btn_checkbox_to_checked_icon_null_animation.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/btn_radio_to_on_mtrl_ring_outer_path_animation.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/anim/btn_radio_to_on_mtrl_ring_outer_path_animation.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/btn_radio_to_off_mtrl_ring_outer_path_animation.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/anim/btn_radio_to_off_mtrl_ring_outer_path_animation.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/zoom_rotate.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-notifyvisitors-v5.6.2-37:/anim/zoom_rotate.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/catalyst_slide_up.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-react-android-0.82.0-release-42:/anim/catalyst_slide_up.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/btn_radio_to_off_mtrl_dot_group_animation.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/anim/btn_radio_to_off_mtrl_dot_group_animation.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/bounce.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-notifyvisitors-v5.6.2-37:/anim/bounce.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/catalyst_push_up_in.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-react-android-0.82.0-release-42:/anim/catalyst_push_up_in.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/btn_radio_to_off_mtrl_ring_outer_animation.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/anim/btn_radio_to_off_mtrl_ring_outer_animation.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/fade_in.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-notifyvisitors-v5.6.2-37:/anim/fade_in.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/abc_grow_fade_in_from_bottom.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/anim/abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/shake.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-notifyvisitors-v5.6.2-37:/anim/shake.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/rotate_in_down_right.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-notifyvisitors-v5.6.2-37:/anim/rotate_in_down_right.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/left_to_right.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-notifyvisitors-v5.6.2-37:/anim/left_to_right.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/slide_out_right.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-notifyvisitors-v5.6.2-37:/anim/slide_out_right.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/rotate_in.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-notifyvisitors-v5.6.2-37:/anim/rotate_in.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/linear_indeterminate_line1_tail_interpolator.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-material-1.12.0-32:/anim/linear_indeterminate_line1_tail_interpolator.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/catalyst_fade_out.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-react-android-0.82.0-release-42:/anim/catalyst_fade_out.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/slide_out_up.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-notifyvisitors-v5.6.2-37:/anim/slide_out_up.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/design_snackbar_in.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-material-1.12.0-32:/anim/design_snackbar_in.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/slide_out_left.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-notifyvisitors-v5.6.2-37:/anim/slide_out_left.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/catalyst_slide_down.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-react-android-0.82.0-release-42:/anim/catalyst_slide_down.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/m3_motion_fade_exit.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-material-1.12.0-32:/anim/m3_motion_fade_exit.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/rotate_in_up_left.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-notifyvisitors-v5.6.2-37:/anim/rotate_in_up_left.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/catalyst_fade_in.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-react-android-0.82.0-release-42:/anim/catalyst_fade_in.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/abc_slide_out_top.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/anim/abc_slide_out_top.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/abc_popup_enter.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/anim/abc_popup_enter.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/design_snackbar_out.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-material-1.12.0-32:/anim/design_snackbar_out.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/linear_indeterminate_line2_tail_interpolator.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-material-1.12.0-32:/anim/linear_indeterminate_line2_tail_interpolator.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/catalyst_push_up_out.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-react-android-0.82.0-release-42:/anim/catalyst_push_up_out.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/mtrl_card_lowers_interpolator.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-material-1.12.0-32:/anim/mtrl_card_lowers_interpolator.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/abc_shrink_fade_out_from_bottom.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/anim/abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/btn_checkbox_to_unchecked_check_path_merged_animation.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/anim/btn_checkbox_to_unchecked_check_path_merged_animation.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/abc_fade_in.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/anim/abc_fade_in.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/abc_tooltip_exit.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/anim/abc_tooltip_exit.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/abc_slide_in_top.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/anim/abc_slide_in_top.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/rollin.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-notifyvisitors-v5.6.2-37:/anim/rollin.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/linear_indeterminate_line1_head_interpolator.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-material-1.12.0-32:/anim/linear_indeterminate_line1_head_interpolator.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/right_to_left.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-notifyvisitors-v5.6.2-37:/anim/right_to_left.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/m3_motion_fade_enter.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-material-1.12.0-32:/anim/m3_motion_fade_enter.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/bottom_to_top.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-notifyvisitors-v5.6.2-37:/anim/bottom_to_top.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/slide_out_bottom.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-notifyvisitors-v5.6.2-37:/anim/slide_out_bottom.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/rotate_in_up_right.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-notifyvisitors-v5.6.2-37:/anim/rotate_in_up_right.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/abc_popup_exit.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/anim/abc_popup_exit.xml"
+    },
+    {
+        "merged": "com.rn_notifyvisitors.react-native-notifyvisitors-release-56:/anim/btn_checkbox_to_checked_box_inner_merged_animation.xml",
+        "source": "com.rn_notifyvisitors.react-native-notifyvisitors-appcompat-1.7.1-25:/anim/btn_checkbox_to_checked_box_inner_merged_animation.xml"
+    }
+]

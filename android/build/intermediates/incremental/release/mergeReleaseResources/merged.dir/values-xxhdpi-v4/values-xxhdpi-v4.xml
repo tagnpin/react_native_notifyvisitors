@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="custom_push_background">#FFFFFF</color>
+    <dimen name="header_height">18dp</dimen>
+    <dimen name="header_small_icon_width">18dp</dimen>
+    <dimen name="timer_padding_coll_bottom">16dp</dimen>
+    <dimen name="timer_padding_end">18dp</dimen>
+    <dimen name="timer_padding_exp_bottom">0dp</dimen>
+    <dimen name="timer_padding_start">18dp</dimen>
+    <dimen name="timer_padding_top">16dp</dimen>
+    <dimen name="timer_push_cta2_left_margin">0dp</dimen>
+    <dimen name="timer_push_cta_bottom_margin">0dp</dimen>
+    <dimen name="timer_push_cta_text_size">14sp</dimen>
+    <dimen name="timer_push_cta_top_margin">0dp</dimen>
+    <dimen name="timer_push_rich_image_height">120dp</dimen>
+    <dimen name="timer_push_rich_img_top_margin">0dp</dimen>
+    <dimen name="timer_push_title_top_margin">8dp</dimen>
+    <style name="CustomPushCTA" parent="android:Widget.TextView">
+        <item name="android:textSize">@dimen/timer_push_cta_text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+    <style name="CustomPushHeaderAppName" parent="android:Widget.TextView">
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="CustomPushHeaderSummary" parent="android:Widget.TextView">
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="CustomPushHeaderTimeStamp" parent="android:Widget.TextView">
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="CustomPushMessage" parent="android:Widget.TextView">
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="CustomPushTitle" parent="android:Widget.TextView">
+        <item name="android:textStyle">normal</item>
+    </style>
+</resources>

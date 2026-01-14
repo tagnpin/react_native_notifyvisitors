@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content_view_big"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/custom_push_background"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rel_lyt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/timer_padding_start"
+        android:paddingLeft="@dimen/timer_padding_start"
+        android:paddingEnd="@dimen/timer_padding_end"
+        android:paddingRight="@dimen/timer_padding_end"
+        android:paddingBottom="@dimen/timer_padding_exp_bottom"
+        android:paddingTop="@dimen/timer_padding_top">
+
+        <include
+            android:id="@+id/metadata"
+            layout="@layout/nv_custom_push_header" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/metadata"
+            android:layout_marginEnd="4dp"
+            android:layout_marginTop="@dimen/timer_push_title_top_margin"
+            android:layout_toStartOf="@id/chronometer">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="title"
+                style="@style/CustomPushTitle"
+                android:textColor="@android:color/black"
+                android:ellipsize="end"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/msgS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title"
+                android:layout_alignStart="@id/title"
+                android:text="message"
+                android:textSize="14sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_marginTop="2dp"
+                style="@style/CustomPushMessage"/>
+
+            <TextView
+                android:id="@+id/msg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title"
+                android:layout_alignStart="@id/title"
+                android:text="message"
+                style="@style/CustomPushMessage"
+                android:textSize="14sp"
+                android:layout_marginTop="2dp"/>
+
+        </RelativeLayout>
+
+        <Chronometer
+            android:id="@+id/chronometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:textAlignment="center"
+            android:textSize="13sp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rel_lyt"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/timer_padding_start"
+        android:paddingLeft="@dimen/timer_padding_start"
+        android:paddingEnd="@dimen/timer_padding_end"
+        android:paddingRight="@dimen/timer_padding_end">
+
+        <ImageView
+            android:id="@+id/big_image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/timer_push_rich_image_height"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/timer_push_rich_img_top_margin"
+            android:scaleType="fitXY" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="bottom"
+            android:background="@android:color/transparent"
+            android:layout_marginTop="@dimen/timer_push_cta_top_margin"
+            android:layout_marginBottom="@dimen/timer_push_cta_bottom_margin">
+
+            <Button
+                android:id="@+id/cta1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                style="@style/CustomPushCTA" />
+
+            <Button
+                android:id="@+id/cta2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:layout_marginStart="@dimen/timer_push_cta2_left_margin"
+                style="@style/CustomPushCTA" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/big_image_full"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/timer_push_rich_img_top_margin"
+        android:scaleType="fitXY"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="@dimen/timer_push_rich_img_bottom_padding"
+        android:layout_below="@id/rel_lyt"
+        android:paddingStart="@dimen/timer_padding_start"
+        android:paddingLeft="@dimen/timer_padding_start"
+        android:paddingEnd="@dimen/timer_padding_end"
+        android:paddingRight="@dimen/timer_padding_end"/>
+
+</RelativeLayout>
