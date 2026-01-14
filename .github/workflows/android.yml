@@ -77,7 +77,7 @@ jobs:
           ls -lh android/app/release-key.jks
 
       - name: 🏗 Build Android App
-        working-directory: react_native_notifyvisitors/nv_react_native_sdk_app/android
+        working-directory: nv_react_native_sdk_app/android
         env:
           KEYSTORE_PASSWORD: ${{ secrets.RN_KEYSTORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.RN_KEY_ALIAS }}
