@@ -26,7 +26,7 @@ jobs:
       BUILD_TYPE: ${{ vars.RN_BUILD_TYPE }}
       NV_BRAND_ID: ${{ vars.NV_BRAND_ID }}
       NV_BRAND_ENCRYPTION_KEY: ${{ vars.NV_BRAND_ENCRYPTION_KEY }}
-      FIREBASE_JSON_BASE64: ${{ secrets.RN_FIREBASE_JSON_BASE64 }}
+      FIREBASE_JSON_BASE64: ${{ secrets.RN_ANDROID_KEYSTORE_BASE64 }}
 
     steps:
       - name: 📦 Checkout Repository
