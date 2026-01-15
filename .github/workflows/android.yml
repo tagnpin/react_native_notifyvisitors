@@ -45,7 +45,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
       S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-      S3_DESTINATION: ${{ github.event.repository.name }}/${BUILD_TYPE}-${{ github.run_number }}.apk
+      S3_DESTINATION: ${{ github.event.repository.name }}/${{ vars.RN_BUILD_TYPE }}-${{ github.run_number }}.apk
 
     steps:
       # -----------------------------
@@ -73,6 +73,28 @@ jobs:
           : "${KEY_PASSWORD:?Missing KEY_PASSWORD}"
 
           echo "✅ All required environment variables are present"
+
+      # ------------------------------------------------------------
+      # Read plugin version from root package.json
+      # NOTE:
+      # - Global working-directory = nv_react_native_sdk_app
+      # - Plugin package.json lives one level up (../package.json)
+      # - Version is exported to GITHUB_ENV for later steps
+      # ------------------------------------------------------------
+      - name: 📦 Extract Plugin Version
+        id: extract_plugin_version
+        run: |
+          set -e
+
+          # Read version from plugin root package.json
+          NV_PLUGIN_VERSION=$(node -p "require('../package.json').version")
+
+          # Export version as environment variable for subsequent steps
+          echo "PLUGIN_VERSION=$NV_PLUGIN_VERSION" >> $GITHUB_ENV
+
+          # Log for visibility (safe, version is not secret)
+          echo "Plugin version detected: $NV_PLUGIN_VERSION"
+
 
       # -----------------------------
       # Node.js setup
@@ -170,7 +192,7 @@ jobs:
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: android-${{ env.BUILD_TYPE }}
+          name: android-${{ env.BUILD_TYPE }}-v${{ env.NV_PLUGIN_VERSION }}
           path: |
             nv_react_native_sdk_app/android/app/build/outputs/apk/${{ env.BUILD_TYPE }}/*.apk
           if-no-files-found: ignore
