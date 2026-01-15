@@ -116,11 +116,10 @@ jobs:
           # Mask values in logs
           sed 's/=.*/=****/g' android/local.properties
 
-          # Keystore
-          mkdir -p keystore
-          echo "$KEYSTORE_FILE_BASE64" | base64 --decode > keystore/nv_react_native_sdk_app_release.keystore
-          chmod 600 keystore/nv_react_native_sdk_app_release.keystore
-
+          mkdir -p android/keystore
+          echo "$KEYSTORE_FILE_BASE64" | base64 --decode > android/keystore/nv_react_native_sdk_app_release.keystore
+          chmod 600 android/keystore/nv_react_native_sdk_app_release.keystore
+          ls -lh android/keystore/
       # -----------------------------
       # React Native bundle
       # -----------------------------
