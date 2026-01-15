@@ -40,6 +40,12 @@ jobs:
       KEY_ALIAS: ${{ secrets.RN_KEY_ALIAS }}
       KEY_PASSWORD: ${{ secrets.NV_KEY_PASSWORD }}
 
+      # S3 secrets
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
+      S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+
     steps:
       # -----------------------------
       # Checkout source code
@@ -173,12 +179,16 @@ jobs:
       # -----------------------------
       - name: Upload APK to S3 (release only)
         if: env.BUILD_TYPE == 'release'
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
-          S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
         run: |
-          for apk in nv_react_native_sdk_app/android/app/build/outputs/apk/release/*.apk; do
-            aws s3 cp "$apk" "s3://$S3_BUCKET/$(basename $apk)"
+          shopt -s nullglob
+          apks=(android/app/build/outputs/apk/release/*.apk)
+
+          if [ ${#apks[@]} -eq 0 ]; then
+            echo "❌ No APK found to upload"
+            exit 1
+          fi
+
+          for apk in "${apks[@]}"; do
+            echo "Uploading $(basename "$apk")"
+            aws s3 cp "$apk" "s3://$S3_BUCKET/$(basename "$apk")"
           done
