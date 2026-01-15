@@ -38,7 +38,7 @@ jobs:
       # Android signing secrets
       KEYSTORE_PASSWORD: ${{ secrets.RN_KEYSTORE_PASSWORD }}
       KEY_ALIAS: ${{ secrets.RN_KEY_ALIAS }}
-      KEY_PASSWORD: ${{ secrets.RN_KEY_PASSWORD }}
+      KEY_PASSWORD: ${{ secrets.NV_KEY_PASSWORD }}
 
     steps:
       # -----------------------------
