@@ -45,6 +45,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
       S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+      S3_DESTINATION: ${{ github.event.repository.name }}/${BUILD_TYPE}-${{ github.run_number }}.apk
 
     steps:
       # -----------------------------
@@ -190,5 +191,5 @@ jobs:
 
           for apk in "${apks[@]}"; do
             echo "Uploading $(basename "$apk")"
-            aws s3 cp "$apk" "s3://$S3_BUCKET/$(basename "$apk")" --only-show-errors
+            aws s3 cp "$apk" "s3://$S3_BUCKET/$S3_DESTINATION" --only-show-errors
           done
