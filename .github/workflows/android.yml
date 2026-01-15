@@ -154,7 +154,7 @@ jobs:
           if [ "$BUILD_TYPE" = "debug" ]; then
             ./gradlew clean assembleDebug --no-daemon --parallel
           else
-            ./gradlew clean bundleRelease --no-daemon --parallel
+            ./gradlew clean assembleRelease --no-daemon --parallel
           fi
 
       # -----------------------------
@@ -166,7 +166,6 @@ jobs:
           name: android-${{ env.BUILD_TYPE }}
           path: |
             nv_react_native_sdk_app/android/app/build/outputs/apk/${{ env.BUILD_TYPE }}/*.apk
-            nv_react_native_sdk_app/android/app/build/outputs/bundle/release/*.aab
           if-no-files-found: ignore
 
       # -----------------------------
