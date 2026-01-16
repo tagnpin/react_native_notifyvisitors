@@ -186,13 +186,32 @@ jobs:
             ./gradlew clean assembleRelease --no-daemon --parallel
           fi
 
+      # ------------------------------------------------------------
+      # Rename APK with plugin version
+      # ------------------------------------------------------------
+      - name: 🏷 Rename APK with plugin version
+        run: |
+          set -e
+          APK_DIR=android/app/build/outputs/apk/release
+          ORIGINAL_APK="$APK_DIR/app-release.apk"
+
+          if [ ! -f "$ORIGINAL_APK" ]; then
+            echo "APK not found"
+            ls -lh "$APK_DIR"
+            exit 1
+          fi
+
+          VERSIONED_APK="$APK_DIR/react_native_release_${PLUGIN_VERSION}_(${GITHUB_RUN_NUMBER}).apk"
+          mv "$ORIGINAL_APK" "$VERSIONED_APK"
+          ls -lh "$APK_DIR"
+
       # -----------------------------
       # Upload build artifacts
       # -----------------------------
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: android-${{ env.BUILD_TYPE }}-v${{ env.NV_PLUGIN_VERSION }}
+          name: android-${{ env.BUILD_TYPE }}-v${{ env.PLUGIN_VERSION }}
           path: |
             nv_react_native_sdk_app/android/app/build/outputs/apk/${{ env.BUILD_TYPE }}/*.apk
           if-no-files-found: ignore
