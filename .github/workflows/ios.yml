@@ -52,8 +52,8 @@ jobs:
 
       - name: 🔧 Generate iOS Secrets XCConfig
         run: |
-          echo "NV_BRAND_ID=${NV_BRAND_ID}" > ios/nvSecrets.xcconfig
-          echo "NV_BRAND_ENCRYPTION_KEY=${NV_BRAND_ENCRYPTION_KEY}" >> ios/nvSecrets.xcconfig
+          echo "NV_BRAND_ID=${NV_BRAND_ID}" > ios/nv_react_native_sdk_app/nvSecrets.xcconfig
+          echo "NV_BRAND_ENCRYPTION_KEY=${NV_BRAND_ENCRYPTION_KEY}" >> ios/nv_react_native_sdk_app/nvSecrets.xcconfig
 
       - name: ⚙️ Setup Node.js
         uses: actions/setup-node@v4
