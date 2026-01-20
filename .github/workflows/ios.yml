@@ -86,18 +86,25 @@ jobs:
 
           chmod 600 ios/certs/*
 
-      - name: 🔑 Setup Keychain (Stable)
+      - name: 🔑 Setup Keychain (Final & Stable)
         run: |
-          security unlock-keychain -p "$RN_IOS_P12_PASSWORD" ~/Library/Keychains/login.keychain-db
+          # Unlock default login keychain (no password needed on GH runner)
+          security unlock-keychain ~/Library/Keychains/login.keychain-db
 
+          # Import Apple Distribution certificate
           security import ios/certs/AppleDistribution.p12 \
             -k ~/Library/Keychains/login.keychain-db \
             -P "$RN_IOS_P12_PASSWORD" \
             -T /usr/bin/codesign
 
+          # Allow non-interactive access for xcodebuild / codesign
           security set-key-partition-list -S apple-tool:,apple: \
-            -s -k "$RN_IOS_P12_PASSWORD" \
+            -s \
             ~/Library/Keychains/login.keychain-db
+
+          # Verify identity (debug-safe)
+          security find-identity -v -p codesigning
+
 
 
       - name: 📄 Install Provisioning Profiles
