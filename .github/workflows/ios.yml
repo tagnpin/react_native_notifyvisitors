@@ -131,19 +131,24 @@ jobs:
             -scheme "$APP_SCHEME" \
             -configuration "$CONFIGURATION"
 
-          xcodebuild archive \
-            -workspace "$WORKSPACE" \
+          xcodebuild -workspace "$WORKSPACE" \
             -scheme "$APP_SCHEME" \
             -configuration "$CONFIGURATION" \
             -sdk iphoneos \
             -archivePath "$ARCHIVE_PATH" \
             DEVELOPMENT_TEAM="$DEVELOPMENT_TEAM" \
-            CODE_SIGN_STYLE=Manual | xcpretty
+            CODE_SIGN_STYLE=Manual \
+            CODE_SIGN_IDENTITY="Apple Distribution" \
+            -allowProvisioningUpdates \
+            archive | xcpretty
 
+          echo "📦 Exporting .ipa..."
           xcodebuild -exportArchive \
             -archivePath "$ARCHIVE_PATH" \
             -exportPath "$PWD/build/export" \
-            -exportOptionsPlist ExportOptions.plist
+            -exportOptionsPlist ExportOptions.plist \
+            -allowProvisioningUpdates \
+            -verbose | tee export.log
 
       - name: 🚀 Upload to TestFlight
         run: |
