@@ -86,18 +86,19 @@ jobs:
 
           chmod 600 ios/certs/*
 
-      - name: 🔑 Setup Keychain
+      - name: 🔑 Setup Keychain (Stable)
         run: |
-          KEYCHAIN=build.keychain
-          security create-keychain -p "$RN_IOS_P12_PASSWORD" "$KEYCHAIN"
-          security default-keychain -s "$KEYCHAIN"
-          security unlock-keychain -p "$RN_IOS_P12_PASSWORD" "$KEYCHAIN"
+          security unlock-keychain -p "$RN_IOS_P12_PASSWORD" ~/Library/Keychains/login.keychain-db
 
           security import ios/certs/AppleDistribution.p12 \
-            -k "$KEYCHAIN" -P "$RN_IOS_P12_PASSWORD" -T /usr/bin/codesign
+            -k ~/Library/Keychains/login.keychain-db \
+            -P "$RN_IOS_P12_PASSWORD" \
+            -T /usr/bin/codesign
 
           security set-key-partition-list -S apple-tool:,apple: \
-            -s -k "$RN_IOS_P12_PASSWORD" "$KEYCHAIN"
+            -s -k "$RN_IOS_P12_PASSWORD" \
+            ~/Library/Keychains/login.keychain-db
+
 
       - name: 📄 Install Provisioning Profiles
         run: |
