@@ -23,34 +23,40 @@ jobs:
         working-directory: nv_react_native_sdk_app
 
     env:
-      # Build type
+      # 🔧 Build type (debug / release)
       BUILD_TYPE: ${{ vars.RN_BUILD_TYPE }}
 
-      # Base64 configs
+      # 🔐 Base64 configs
       FIREBASE_JSON_BASE64: ${{ secrets.RN_FIREBASE_JSON_BASE64 }}
       LOCAL_PROPERTIES: ${{ secrets.LOCAL_PROPERTIES_B64 }}
       KEYSTORE_FILE_BASE64: ${{ secrets.RN_ANDROID_KEYSTORE_BASE64 }}
 
-      # Brand / app config
+      # 🏷 Brand / app config
       NV_BRAND_ID: ${{ vars.NV_BRAND_ID }}
       NV_BRAND_ENCRYPTION_KEY: ${{ vars.NV_BRAND_ENCRYPTION_KEY }}
 
-      # Android signing secrets
+      # 🔑 Android signing secrets
       KEYSTORE_PASSWORD: ${{ secrets.RN_KEYSTORE_PASSWORD }}
       KEY_ALIAS: ${{ secrets.RN_KEY_ALIAS }}
-      KEY_PASSWORD: ${{ secrets.RN_KEY_PASSWORD }}
+      KEY_PASSWORD: ${{ secrets.NV_KEY_PASSWORD }}
+
+      # ☁️ AWS / S3
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
+      S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
 
     steps:
-      # -----------------------------
-      # Checkout source code
-      # -----------------------------
-      - name: Checkout repository
+      # ============================================================
+      # STEP 1️⃣  Checkout Source Code
+      # ============================================================
+      - name: 📥 Checkout repository
         uses: actions/checkout@v4
 
-      # -----------------------------
-      # Validate required env vars
-      # -----------------------------
-      - name: Validate Android CI environment variables
+      # ============================================================
+      # STEP 2️⃣  Validate Required Environment Variables (Fail Fast)
+      # ============================================================
+      - name: ✅ Validate Android CI environment variables
         run: |
           set -e
 
@@ -67,36 +73,58 @@ jobs:
 
           echo "✅ All required environment variables are present"
 
-      # -----------------------------
-      # Node.js setup
-      # -----------------------------
-      - name: Setup Node.js
+      # ============================================================
+      # STEP 3️⃣  Read Plugin Version (from root package.json)
+      # ============================================================
+      - name: 📦 Extract Plugin Version
+        id: extract_plugin_version
+        run: |
+          set -e
+
+          # Plugin package.json is one level above app directory
+          NV_PLUGIN_VERSION=$(node -p "require('../package.json').version")
+
+          # Export version for later steps
+          echo "PLUGIN_VERSION=$NV_PLUGIN_VERSION" >> $GITHUB_ENV
+
+          echo "📦 Plugin version detected: $NV_PLUGIN_VERSION"
+
+      # ============================================================
+      # STEP 4️⃣  Setup Node.js & Install Dependencies
+      # ============================================================
+      - name: 🟢 Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
           cache-dependency-path: nv_react_native_sdk_app/package-lock.json
 
-      - name: Install npm dependencies
+      - name: 📦 Install npm dependencies
         run: npm ci --legacy-peer-deps
 
-      # -----------------------------
-      # Java & Android SDK
-      # -----------------------------
-      - name: Setup Java 17
+      # ============================================================
+      # STEP 5️⃣  Setup Java & Android SDK
+      # ============================================================
+      - name: ☕ Setup Java 17
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 17
           cache: gradle
 
-      - name: Setup Android SDK
+      - name: 🤖 Setup Android SDK
         uses: android-actions/setup-android@v2
 
-      # -----------------------------
-      # Prepare Firebase & signing
-      # -----------------------------
-      - name: Prepare Firebase config & Android signing files
+      - name: ⚡ Cache Android NDK
+        uses: actions/cache@v4
+        with:
+          path: /usr/local/lib/android/sdk/ndk/27.1.12297006
+          key: ${{ runner.os }}-ndk-27.1.12297006
+
+      # ============================================================
+      # STEP 6️⃣  Prepare Firebase Config & Android Signing
+      # ============================================================
+      - name: 🔐 Prepare Firebase & Android signing files
         run: |
           set -e
 
@@ -116,15 +144,16 @@ jobs:
           # Mask values in logs
           sed 's/=.*/=****/g' android/local.properties
 
-          # Keystore
-          mkdir -p keystore
-          echo "$KEYSTORE_FILE_BASE64" | base64 --decode > keystore/nv_react_native_sdk_app_release.keystore
-          chmod 600 keystore/nv_react_native_sdk_app_release.keystore
+          # Decode keystore
+          mkdir -p android/keystore
+          echo "$KEYSTORE_FILE_BASE64" | base64 --decode > android/keystore/nv_react_native_sdk_app_release.keystore
+          chmod 600 android/keystore/nv_react_native_sdk_app_release.keystore
+          ls -lh android/keystore/
 
-      # -----------------------------
-      # React Native bundle
-      # -----------------------------
-      - name: Bundle React Native JS
+      # ============================================================
+      # STEP 7️⃣  Bundle React Native JavaScript
+      # ============================================================
+      - name: 📦 Bundle React Native JS
         run: |
           mkdir -p android/app/src/main/assets
 
@@ -136,45 +165,76 @@ jobs:
             --bundle-output android/app/src/main/assets/index.android.bundle \
             --assets-dest android/app/src/main/res/
 
-      - name: Remove source map
+      - name: 🧹 Remove source map
         run: rm -f android/app/src/main/assets/index.android.bundle.map || true
 
-      # -----------------------------
-      # Build Android app
-      # -----------------------------
-      - name: Build Android app
+      # ============================================================
+      # STEP 8️⃣  Build Android App
+      # ============================================================
+      - name: 🏗 Build Android app
         working-directory: nv_react_native_sdk_app/android
         run: |
           chmod +x gradlew
           if [ "$BUILD_TYPE" = "debug" ]; then
             ./gradlew clean assembleDebug --no-daemon --parallel
           else
-            ./gradlew clean bundleRelease --no-daemon --parallel
+            ./gradlew clean assembleRelease --no-daemon --parallel
           fi
 
-      # -----------------------------
-      # Upload build artifacts
-      # -----------------------------
-      - name: Upload build artifacts
+      # ============================================================
+      # STEP 9️⃣  Rename APK with Version & Runner Count
+      # ============================================================
+      - name: 🏷 Rename APK with plugin version
+        run: |
+          set -e
+
+          APK_DIR=android/app/build/outputs/apk/release
+          ORIGINAL_APK="$APK_DIR/app-release.apk"
+
+          if [ ! -f "$ORIGINAL_APK" ]; then
+            echo "❌ APK not found"
+            ls -lh "$APK_DIR"
+            exit 1
+          fi
+
+          VERSIONED_APK="$APK_DIR/react_native_release_${PLUGIN_VERSION}_(${GITHUB_RUN_NUMBER}).apk"
+          mv "$ORIGINAL_APK" "$VERSIONED_APK"
+
+          echo "✅ Final APK:"
+          ls -lh "$APK_DIR"
+
+      # ============================================================
+      # STEP 🔟  Upload Build Artifacts
+      # ============================================================
+      - name: 📤 Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: android-${{ env.BUILD_TYPE }}
+          name: android-${{ env.BUILD_TYPE }}-v${{ env.PLUGIN_VERSION }}
           path: |
             nv_react_native_sdk_app/android/app/build/outputs/apk/${{ env.BUILD_TYPE }}/*.apk
-            nv_react_native_sdk_app/android/app/build/outputs/bundle/release/*.aab
           if-no-files-found: ignore
 
-      # -----------------------------
-      # Upload release APK to S3
-      # -----------------------------
-      - name: Upload APK to S3 (release only)
+      # ============================================================
+      # STEP 1️⃣1️⃣  Upload Release APK to S3
+      # ============================================================
+      - name: ☁️ Upload APK to S3 (release only)
         if: env.BUILD_TYPE == 'release'
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
-          S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
         run: |
-          for apk in nv_react_native_sdk_app/android/app/build/outputs/apk/release/*.apk; do
-            aws s3 cp "$apk" "s3://$S3_BUCKET/$(basename $apk)"
+          set -e
+          shopt -s nullglob
+
+          APK_DIR=android/app/build/outputs/apk/release
+          apks=("$APK_DIR"/*.apk)
+
+          if [ ${#apks[@]} -eq 0 ]; then
+            echo "❌ No APK found to upload"
+            exit 1
+          fi
+
+          for apk in "${apks[@]}"; do
+            APK_NAME=$(basename "$apk")
+            S3_KEY="${{ github.event.repository.name }}/$APK_NAME"
+
+            echo "☁️ Uploading $APK_NAME to s3://$S3_BUCKET/$S3_KEY"
+            aws s3 cp "$apk" "s3://$S3_BUCKET/$S3_KEY" --only-show-errors
           done
