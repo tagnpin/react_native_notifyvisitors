@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>method</key>
+  <string>app-store</string>
+
+  <key>teamID</key>
+  <string>4JW4924F8P</string>
+
+  <key>signingStyle</key>
+  <string>manual</string>
+
+  <key>signingCertificate</key>
+  <string>Apple Distribution</string>
+
+  <key>provisioningProfiles</key>
+  <dict>
+    <!-- Main App Target -->
+    <key>com.notifyvisitors.rn.sdkapp</key>
+    <string>nv_rn_sdkapp_ios_release_profile</string>
+
+    <!-- Push Notification Service Extension -->
+    <key>com.notifyvisitors.rn.sdkapp.notifyvisitorsServiceExtension</key>
+    <string>nv_rn_sdkapp_service_ext_ios_release_profile</string>
+  </dict>
+
+  <key>stripSwiftSymbols</key>
+  <true/>
+
+  <key>compileBitcode</key>
+  <false/>
+
+  <key>destination</key>
+  <string>export</string>
+</dict>
+</plist>
