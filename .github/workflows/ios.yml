@@ -156,24 +156,35 @@ jobs:
             -allowProvisioningUpdates \
             -verbose | tee export.log
 
-      - name: 🚀 Upload to TestFlight (FINAL)
-        env:
-          FASTLANE_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
-          FASTLANE_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+        # -------------------------------------------------
+      # 1️⃣3️⃣ Upload IPA to TestFlight (Fastlane Deliver)
+      # -------------------------------------------------
+      - name: 🚀 Upload IPA to TestFlight
         run: |
-          # Decode App Store Connect API key (.p8)
           echo "$APP_STORE_CONNECT_API_KEY_BASE64" | base64 --decode > AuthKey.p8
 
-          # Sanity check (optional, safe)
-          head -1 AuthKey.p8
+          KEY_CONTENT=$(awk '{printf "%s\\n", $0}' AuthKey.p8 | sed 's/"/\\"/g')
 
-          # Install fastlane
-          gem install fastlane -N
+          cat > fastlane_api_key.json <<EOF
+          {
+            "key_id": "$APP_STORE_CONNECT_API_KEY_ID",
+            "issuer_id": "$APP_STORE_CONNECT_ISSUER_ID",
+            "key": "$KEY_CONTENT",
+            "in_house": false
+          }
+          EOF
 
-          # Upload IPA to TestFlight
-          fastlane pilot upload \
-            --api_key_path AuthKey.p8 \
-            --ipa ios/build/export/nv_react_native_sdk_app.ipa
+          sudo gem install fastlane -N
+
+          fastlane deliver \
+            --api_key_path fastlane_api_key.json \
+            --ipa ios/build/export/*.ipa \
+            --skip_screenshots \
+            --skip_metadata \
+            --run_precheck_before_submit false \
+            --force \
+            --verbose
+
 
       - name: ☁️ Upload IPA Artifact
         uses: actions/upload-artifact@v4
