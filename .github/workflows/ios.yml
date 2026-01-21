@@ -146,7 +146,8 @@ jobs:
             CODE_SIGN_STYLE=Manual \
             CODE_SIGN_IDENTITY="Apple Distribution" \
             -allowProvisioningUpdates \
-            archive | tee xcodebuild.log
+            archive | tee xcodebuild.log | xcpretty
+
 
           echo "📦 Exporting .ipa..."
           xcodebuild -exportArchive \
