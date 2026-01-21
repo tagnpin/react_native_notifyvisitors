@@ -1,2 +1,0 @@
-com.rn_notifyvisitors
-string app_name
