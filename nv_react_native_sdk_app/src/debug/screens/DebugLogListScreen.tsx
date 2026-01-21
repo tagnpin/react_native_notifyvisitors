@@ -9,7 +9,7 @@ import DebugLogsRow from '../components/DebugLogsRow';
 import ActionButton from '../../shared/components/ActionButton';
 import DebugFilterBar from '../components/DebugFilterBar';
 
-import { exportDebugLogs } from '../utils/DebugLogExporter';
+// import { exportDebugLogs } from '../utils/DebugLogExporter';
 import { useCopyToClipboard } from '../../shared/hooks/useCopyToClipboard';
 
 import { Alert } from 'react-native';
@@ -91,12 +91,6 @@ const DebugLogListScreen = ({ navigation }: any) => {
       />
 
       <ActionButton title="Clear Logs" onPress={() => DebugLogsStore.clear()} />
-      <ActionButton
-        title="Export Logs"
-        subtitle="Share logs (JSON + TXT)"
-        onPress={exportDebugLogs}
-      />
-
       <FlatList
         data={filteredEvents}
         keyExtractor={item => item.id}

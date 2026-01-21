@@ -1,87 +1,86 @@
-import Share from 'react-native-share';
-import RNFS from 'react-native-fs';
-import DebugLogsStore from '../DebugLogsStore';
-import SDKManager from '../../sdk/SDKManager';
+// import RNFS from 'react-native-fs';
+// import DebugLogsStore from '../DebugLogsStore';
+// import SDKManager from '../../sdk/SDKManager';
 
-const EXPORT_FILE_NAME = 'sdk_debug_logs.json';
+// const EXPORT_FILE_NAME = 'sdk_debug_logs.json';
 
-const buildExportPayload = async () => {
-  const deviceInfo = await SDKManager.getDeviceInfo();
-  const logs = DebugLogsStore.getAll();
-  const session = DebugLogsStore.getSessionInfo();
+// const buildExportPayload = async () => {
+//   const deviceInfo = await SDKManager.getDeviceInfo();
+//   const logs = DebugLogsStore.getAll();
+//   const session = DebugLogsStore.getSessionInfo();
 
-  return {
-    exportedAt: new Date().toISOString(),
-    device: deviceInfo,
-    session,
-    logCount: logs.length,
-    logs,
-  };
-};
+//   return {
+//     exportedAt: new Date().toISOString(),
+//     device: deviceInfo,
+//     session,
+//     logCount: logs.length,
+//     logs,
+//   };
+// };
 
-const exportJSON = async (payload: any) => {
-  const path = `${RNFS.CachesDirectoryPath}/sdk_debug_logs.json`;
+// const exportJSON = async (payload: any) => {
+//   const path = `${RNFS.CachesDirectoryPath}/sdk_debug_logs.json`;
 
-  await RNFS.writeFile(path, JSON.stringify(payload, null, 2), 'utf8');
+//   await RNFS.writeFile(path, JSON.stringify(payload, null, 2), 'utf8');
 
-  return path;
-};
+//   return path;
+// };
 
-const exportTXT = async (payload: any) => {
-  const lines: string[] = [];
+// const exportTXT = async (payload: any) => {
+//   const lines: string[] = [];
 
-  const { device, session, logs } = payload;
+//   const { device, session, logs } = payload;
 
-  lines.push('=== SDK DEBUG LOGS ===');
-  lines.push(`Exported At: ${payload.exportedAt}`);
-  lines.push('');
+//   lines.push('=== SDK DEBUG LOGS ===');
+//   lines.push(`Exported At: ${payload.exportedAt}`);
+//   lines.push('');
 
-  lines.push('--- DEVICE INFO ---');
-  Object.entries(device).forEach(([k, v]) => {
-    lines.push(`${k}: ${String(v)}`);
-  });
+//   lines.push('--- DEVICE INFO ---');
+//   Object.entries(device).forEach(([k, v]) => {
+//     lines.push(`${k}: ${String(v)}`);
+//   });
 
-  lines.push('');
-  lines.push('--- SESSION INFO ---');
-  lines.push(`Session ID: ${session.sessionId}`);
-  lines.push(`Started At: ${new Date(session.startedAt).toISOString()}`);
-  lines.push(`Duration (ms): ${session.durationMs}`);
+//   lines.push('');
+//   lines.push('--- SESSION INFO ---');
+//   lines.push(`Session ID: ${session.sessionId}`);
+//   lines.push(`Started At: ${new Date(session.startedAt).toISOString()}`);
+//   lines.push(`Duration (ms): ${session.durationMs}`);
 
-  lines.push('');
-  lines.push('--- LOGS ---');
+//   lines.push('');
+//   lines.push('--- LOGS ---');
 
-  logs.forEach((log: any, index: number) => {
-    lines.push('');
-    lines.push(`#${index + 1}`);
-    lines.push(`Time: ${new Date(log.timestamp).toISOString()}`);
-    lines.push(`Type: ${log.type}`);
-    lines.push(`Source: ${log.source}`);
-    lines.push(`Success: ${String(log.success)}`);
-    lines.push(`Payload: ${JSON.stringify(log.payload)}`);
-  });
+//   logs.forEach((log: any, index: number) => {
+//     lines.push('');
+//     lines.push(`#${index + 1}`);
+//     lines.push(`Time: ${new Date(log.timestamp).toISOString()}`);
+//     lines.push(`Type: ${log.type}`);
+//     lines.push(`Source: ${log.source}`);
+//     lines.push(`Success: ${String(log.success)}`);
+//     lines.push(`Payload: ${JSON.stringify(log.payload)}`);
+//   });
 
-  const path = `${RNFS.CachesDirectoryPath}/sdk_debug_logs.txt`;
+//   const path = `${RNFS.CachesDirectoryPath}/sdk_debug_logs.txt`;
 
-  await RNFS.writeFile(path, lines.join('\n'), 'utf8');
+//   await RNFS.writeFile(path, lines.join('\n'), 'utf8');
 
-  return path;
-};
+//   return path;
+// };
 
-export const exportDebugLogs = async () => {
-  const payload = await buildExportPayload();
+// export const exportDebugLogs = async () => {
+//   const payload = await buildExportPayload();
 
-  if (!payload.logs.length) {
-    throw new Error('No logs to export');
-  }
+//   if (!payload.logs.length) {
+//     throw new Error('No logs to export');
+//   }
 
-  const jsonPath = await exportJSON(payload);
-  const txtPath = await exportTXT(payload);
+//   const jsonPath = await exportJSON(payload);
+//   const txtPath = await exportTXT(payload);
 
-  await Share.open({
-    urls: [`file://${jsonPath}`, `file://${txtPath}`],
-    failOnCancel: false,
-  });
-};
+//   await Share.open({
+//     urls: [`file://${jsonPath}`, `file://${txtPath}`],
+//     failOnCancel: false,
+//   });
+// };
 
 // export const exportDebugLogs = async () => {
 //   const logs = DebugLogsStore.getAll();

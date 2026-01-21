@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Alert, AppState } from 'react-native';
+import RNBootSplash from 'react-native-bootsplash';
 
 import RootNavigator from '../navigation/RootNavigator';
 import {
@@ -14,6 +15,10 @@ import {
 const AppGate = () => {
   const [ready, setReady] = useState(false);
   const [showQA, setShowQA] = useState(false);
+
+  useEffect(() => {
+    RNBootSplash.hide({ fade: true });
+  }, []);
 
   useEffect(() => {
     const init = async () => {

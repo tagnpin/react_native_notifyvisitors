@@ -73,7 +73,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     RNNotifyvisitors.application(application, didFailToRegisterForRemoteNotificationsWithError: error)
   }
   
-  
 }
 
 class ReactNativeDelegate: RCTDefaultReactNativeFactoryDelegate {
