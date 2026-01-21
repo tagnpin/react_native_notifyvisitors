@@ -157,26 +157,22 @@ jobs:
             -allowProvisioningUpdates \
             -verbose | tee export.log
 
-      - name: 🚀 Upload to TestFlight
-        run: |
-          echo "$APP_STORE_CONNECT_API_KEY_BASE64" | base64 --decode > AuthKey.p8
-
-          cat > api_key.json <<EOF
-          {
-            "key_id": "$APP_STORE_CONNECT_API_KEY_ID",
-            "issuer_id": "$APP_STORE_CONNECT_ISSUER_ID",
-            "key": "$(awk '{printf "%s\\n",$0}' AuthKey.p8)"
-          }
-          EOF
-
-          gem install fastlane -N
-          fastlane pilot upload \
-            --api_key_path api_key.json \
-            --ipa ios/build/export/*.ipa
-
       - name: ☁️ Upload IPA Artifact
         uses: actions/upload-artifact@v4
         with:
           name: ios-release-ipa
           path: ios/build/export/*.ipa
-          
+
+      - name: 🚀 Upload to TestFlight (FINAL)
+        run: |
+          # Decode App Store Connect API key
+          echo "$APP_STORE_CONNECT_API_KEY_BASE64" | base64 --decode > AuthKey.p8
+
+          # Install fastlane
+          gem install fastlane -N
+
+          # Upload IPA
+          fastlane pilot upload \
+            --api_key_path AuthKey.p8 \
+            --ipa ios/build/export/*.ipa
+    
