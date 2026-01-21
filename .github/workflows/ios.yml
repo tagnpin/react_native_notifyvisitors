@@ -123,6 +123,25 @@ jobs:
       - name: 💎 Install xcpretty
         run: gem install xcpretty
 
+      - name: 🚀 Upload to TestFlight (FINAL)
+        env:
+          FASTLANE_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+          FASTLANE_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+        run: |
+          # Decode App Store Connect API key (.p8)
+          echo "$APP_STORE_CONNECT_API_KEY_BASE64" | base64 --decode > AuthKey.p8
+
+          # Sanity check (optional, safe)
+          head -1 AuthKey.p8
+
+          # Install fastlane
+          gem install fastlane -N
+
+          # Upload IPA to TestFlight
+          fastlane pilot upload \
+            --api_key_path AuthKey.p8 \
+            --ipa ios/build/export/nv_react_native_sdk_app.ipa
+
       - name: 🏗️ Build & Archive iOS App
         run: |
           cd ios
@@ -157,22 +176,31 @@ jobs:
             -allowProvisioningUpdates \
             -verbose | tee export.log
 
+     
+
+      - name: 🚀 Upload to TestFlight (FINAL)
+        env:
+          FASTLANE_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+          FASTLANE_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+        run: |
+          # Decode App Store Connect API key (.p8)
+          echo "$APP_STORE_CONNECT_API_KEY_BASE64" | base64 --decode > AuthKey.p8
+
+          # Sanity check (optional, safe)
+          head -1 AuthKey.p8
+
+          # Install fastlane
+          gem install fastlane -N
+
+          # Upload IPA to TestFlight
+          fastlane pilot upload \
+            --api_key_path AuthKey.p8 \
+            --ipa ios/build/export/nv_react_native_sdk_app.ipa
+
       - name: ☁️ Upload IPA Artifact
         uses: actions/upload-artifact@v4
         with:
           name: ios-release-ipa
           path: ios/build/export/*.ipa
 
-      - name: 🚀 Upload to TestFlight (FINAL)
-        run: |
-          # Decode App Store Connect API key
-          echo "$APP_STORE_CONNECT_API_KEY_BASE64" | base64 --decode > AuthKey.p8
-
-          # Install fastlane
-          gem install fastlane -N
-
-          # Upload IPA
-          fastlane pilot upload \
-            --api_key_path AuthKey.p8 \
-            --ipa ios/build/export/*.ipa
     
