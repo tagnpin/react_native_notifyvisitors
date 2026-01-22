@@ -1,4 +1,4 @@
-name: iOS Release CI - Build
+name: 🚀 iOS Release CI – Build & Upload
 
 on:
   push:
@@ -20,6 +20,9 @@ jobs:
     name: 🧱 Build iOS (Release)
     runs-on: macos-latest
 
+    # -------------------------------------------------
+    # 🌍 Global Environment Variables
+    # -------------------------------------------------
     env:
       CI: true
       USE_HERMES: "1"
@@ -45,36 +48,57 @@ jobs:
 
     steps:
 
+      # -------------------------------------------------
+      # 1️⃣ Checkout Source Code
+      # -------------------------------------------------
       - name: 🧩 Checkout Repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
+      # -------------------------------------------------
+      # 2️⃣ Generate iOS Runtime Secrets
+      # -------------------------------------------------
       - name: 🔧 Generate iOS Secrets XCConfig
         run: |
           echo "NV_BRAND_ID=${NV_BRAND_ID}" > ios/nv_react_native_sdk_app/nvSecrets.xcconfig
           echo "NV_BRAND_ENCRYPTION_KEY=${NV_BRAND_ENCRYPTION_KEY}" >> ios/nv_react_native_sdk_app/nvSecrets.xcconfig
 
+      # -------------------------------------------------
+      # 3️⃣ Node.js Setup
+      # -------------------------------------------------
       - name: ⚙️ Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
+      # -------------------------------------------------
+      # 4️⃣ Install JavaScript Dependencies
+      # -------------------------------------------------
       - name: 📦 Install JS Dependencies
         run: npm ci --legacy-peer-deps
 
+      # -------------------------------------------------
+      # 5️⃣ Install CocoaPods Dependencies
+      # -------------------------------------------------
       - name: 🧰 Install CocoaPods
         run: |
           rm -rf ~/Library/Developer/Xcode/DerivedData ios/build ios/Pods
           cd ios
           pod install --repo-update
 
+      # -------------------------------------------------
+      # 6️⃣ Increment iOS Build Number
+      # -------------------------------------------------
       - name: 🔢 Increment Build Number
         run: |
           plutil -replace CFBundleVersion \
             -string "${{ github.run_number }}" \
             ios/${APP_SCHEME}/Info.plist
 
+      # -------------------------------------------------
+      # 7️⃣ Prepare Signing Assets (Certs & Profiles)
+      # -------------------------------------------------
       - name: 🔐 Create iOS Signing Assets
         run: |
           set -e
@@ -86,9 +110,9 @@ jobs:
 
           chmod 600 ios/certs/*
 
-      # -------------------------
-      # 8️⃣ Configure Keychain
-      # -------------------------
+      # -------------------------------------------------
+      # 8️⃣ Configure Keychain & Import Certificate
+      # -------------------------------------------------
       - name: 🔑 Setup Keychain & Import Certificate
         env:
           CERT_PASSWORD: ${{ secrets.RN_IOS_P12_PASSWORD }}
@@ -102,15 +126,28 @@ jobs:
           security unlock-keychain -p "$CERT_PASSWORD" "$KEYCHAIN_NAME"
 
           echo "📥 Importing Distribution Certificate..."
-          security import ios/certs/appleDistribution.p12 -k "$KEYCHAIN_NAME" -P "$CERT_PASSWORD" -T /usr/bin/codesign
-          security set-key-partition-list -S apple-tool:,apple: -s -k "$CERT_PASSWORD" "$KEYCHAIN_NAME"
+          security import ios/certs/appleDistribution.p12 \
+            -k "$KEYCHAIN_NAME" \
+            -P "$CERT_PASSWORD" \
+            -T /usr/bin/codesign
 
+          security set-key-partition-list \
+            -S apple-tool:,apple: \
+            -s -k "$CERT_PASSWORD" \
+            "$KEYCHAIN_NAME"
+
+      # -------------------------------------------------
+      # 9️⃣ Install Provisioning Profiles
+      # -------------------------------------------------
       - name: 📄 Install Provisioning Profiles
         run: |
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp ios/certs/*.mobileprovision \
             ~/Library/MobileDevice/Provisioning\ Profiles/
 
+      # -------------------------------------------------
+      # 🔟 Bundle React Native JavaScript
+      # -------------------------------------------------
       - name: 📦 Bundle React Native JS
         run: |
           npx react-native bundle \
@@ -120,16 +157,21 @@ jobs:
             --bundle-output ios/main.jsbundle \
             --assets-dest ios
 
+      # -------------------------------------------------
+      # 1️⃣1️⃣ Install xcpretty (Readable Logs)
+      # -------------------------------------------------
       - name: 💎 Install xcpretty
         run: gem install xcpretty
 
+      # -------------------------------------------------
+      # 1️⃣2️⃣ Build, Archive & Export IPA
+      # -------------------------------------------------
       - name: 🏗️ Build & Archive iOS App
         run: |
           cd ios
           mkdir -p build
 
           cp ../ExportOptions.plist ExportOptions.plist
-
           ARCHIVE_PATH="$PWD/build/${APP_SCHEME}.xcarchive"
 
           xcodebuild clean \
@@ -146,7 +188,7 @@ jobs:
             CODE_SIGN_STYLE=Manual \
             CODE_SIGN_IDENTITY="Apple Distribution" \
             -allowProvisioningUpdates \
-            archive | tee xcodebuild.log | xcpretty
+            archive | xcpretty
 
           echo "📦 Exporting .ipa..."
           xcodebuild -exportArchive \
@@ -156,8 +198,8 @@ jobs:
             -allowProvisioningUpdates \
             -verbose | tee export.log
 
-        # -------------------------------------------------
-      # 1️⃣3️⃣ Upload IPA to TestFlight (Fastlane Deliver)
+      # -------------------------------------------------
+      # 1️⃣3️⃣ Upload IPA to TestFlight (Fastlane)
       # -------------------------------------------------
       - name: 🚀 Upload IPA to TestFlight
         run: |
@@ -185,10 +227,11 @@ jobs:
             --force \
             --verbose
 
-
+      # -------------------------------------------------
+      # 1️⃣4️⃣ Upload IPA as CI Artifact
+      # -------------------------------------------------
       - name: ☁️ Upload IPA Artifact
         uses: actions/upload-artifact@v4
         with:
           name: ios-release-ipa
           path: ios/build/export/*.ipa
-          
