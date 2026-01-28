@@ -106,6 +106,9 @@ const QAHomeScreen: React.FC<Props> = ({ navigation }) => {
 
       <QAPinModal
         visible={qa.modalVisible}
+        title="Disable QA Mode"
+        description="Enter the QA PIN to turn off QA features."
+        confirmLabel="Disable"
         onCancel={qa.closeModal}
         onSubmit={qa.onSubmit}
       />

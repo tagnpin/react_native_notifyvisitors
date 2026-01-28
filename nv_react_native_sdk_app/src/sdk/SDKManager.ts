@@ -5,10 +5,9 @@ import DeviceInfoLib from 'react-native-device-info';
 import moment from 'moment';
 import { DeviceInfo } from './SDKTypes';
 import SDK_VERSION from './SDKVersion';
-import { emitSDKCallback, emitSDKError } from './SDKEventBridge';
 import Notifyvisitors from '../../..';
 import { theme } from '../shared/styles/theme';
-import { jsx } from 'react/jsx-runtime';
+import { SDKCallbackEvents } from './events/SDKCallbackEvents';
 
 /**
  * SDKManager
@@ -19,19 +18,46 @@ import { jsx } from 'react/jsx-runtime';
  * - All callbacks are logged centrally
  */
 class SDKManager {
+  private static listenersInitialized = false;
+
+  static nvInitListeners() {
+    if (this.listenersInitialized) return;
+    this.listenersInitialized = true;
+
+    // 1️⃣ Event Survey Info
+    Notifyvisitors.getEventSurveyInfo((callback: any) => {
+      console.log('[SDK] EventSurveyInfo', callback);
+      SDKCallbackEvents.nvEventSurvey.emit(callback);
+    });
+
+    // 2️⃣ Link Info
+    Notifyvisitors.getLinkInfo((callback: any) => {
+      console.log('[SDK] LinkInfo', callback);
+      SDKCallbackEvents.nvLinkInfo.emit(callback);
+    });
+
+    // 3️⃣ Known User Identified
+    Notifyvisitors.knownUserIdentified((callback: any) => {
+      console.log('[SDK] KnownUserIdentified', callback);
+      SDKCallbackEvents.nvKnownUser.emit(callback);
+    });
+  }
+
   static async getDeviceInfo(): Promise<DeviceInfo> {
+    const tokenStr = await this.getPushToken();
+    const deviceIdStr = await DeviceInfoLib.getUniqueId();
+
     const info: DeviceInfo = {
       platform: Platform.OS as 'ios' | 'android',
       osVersion: DeviceInfoLib.getSystemVersion(),
-      deviceId: DeviceInfoLib.getUniqueId(),
-
+      deviceId: deviceIdStr,
+      pushToken: tokenStr,
       appVersion: DeviceInfoLib.getVersion(),
       buildNumber: DeviceInfoLib.getBuildNumber(),
       sdkVersion: SDK_VERSION,
       environment: __DEV__ ? 'debug' : 'release',
     };
 
-    emitSDKCallback('getDeviceInfo', info, true);
     return info;
   }
 
@@ -99,7 +125,6 @@ class SDKManager {
       const notificationId = this.getNotificationId('standardPushNID');
       this.scheduleNVPushNotification(notificationId, '2');
     } catch (error) {
-      emitSDKError('sendStandardPushNotification', error);
       throw error;
     }
   }
@@ -111,7 +136,6 @@ class SDKManager {
       const notificationId = this.getNotificationId('stdPushWithActionNID');
       this.scheduleNVPushNotification(notificationId, '2');
     } catch (error) {
-      emitSDKError('sendStdPushWithActionBtns', error);
       throw error;
     }
   }
@@ -121,7 +145,6 @@ class SDKManager {
       const notificationId = this.getNotificationId('richPushNID');
       this.scheduleNVPushNotification(notificationId, '2');
     } catch (error) {
-      emitSDKError('sendRichPushNotification', error);
       throw error;
     }
   }
@@ -136,7 +159,6 @@ class SDKManager {
       const notificationId = this.getNotificationId('gifPushNID');
       this.scheduleNVPushNotification(notificationId, '2');
     } catch (error) {
-      emitSDKError('sendAndroidGIFPush', error);
       throw error;
     }
   }
@@ -152,7 +174,6 @@ class SDKManager {
       const notificationId = this.getNotificationId('sliderPushNID');
       this.scheduleNVPushNotification(notificationId, '2');
     } catch (error) {
-      emitSDKError('sendAndroidSLiderPush', error);
       throw error;
     }
   }
@@ -169,7 +190,6 @@ class SDKManager {
       const notificationId = this.getNotificationId('crouselPushNID');
       this.scheduleNVPushNotification(notificationId, '2');
     } catch (error) {
-      emitSDKError('sendAndroidCrouselPush', error);
       throw error;
     }
   }
@@ -184,7 +204,6 @@ class SDKManager {
       const notificationId = this.getNotificationId('audioPushNID');
       this.scheduleNVPushNotification(notificationId, '2');
     } catch (error) {
-      emitSDKError('sendAudioPushNotification', error);
       throw error;
     }
   }
@@ -199,9 +218,21 @@ class SDKManager {
       const notificationId = this.getNotificationId('videoPushNID');
       this.scheduleNVPushNotification(notificationId, '2');
     } catch (error) {
-      emitSDKError('sendVideoPushNotification', error);
       throw error;
     }
+  }
+
+  static async getPushToken(): Promise<string> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        Notifyvisitors.getRegistrationToken((callback: string) => {
+          resolve(callback);
+          //console.log(`result in getPushToken = ${callback}`);
+        });
+      } catch (e) {
+        reject(e);
+      }
+    });
   }
 
   /* ---------------------------------------------------
@@ -227,9 +258,7 @@ class SDKManager {
   ): Promise<void> {
     try {
       Notifyvisitors.showNotifications(null, 0);
-      //Alert.alert('new center data');
     } catch (error) {
-      emitSDKError('showStdNotificationCenter', error);
       throw error;
     }
   }
@@ -244,23 +273,15 @@ class SDKManager {
           console.log(
             `open Notification Center callback: ${JSON.stringify(callback)}`,
           );
-          emitSDKCallback(
-            'open Notification Center callback:',
-            JSON.stringify(callback),
-            true,
-          );
           return callback;
         },
       );
     } catch (error) {
-      emitSDKError('showAdvancedNotificationCenter', error);
       throw error;
     }
   }
 
-  static async getNotificationCenterUnreadCount(
-    payload: Record<string, any>,
-  ): Promise<any> {
+  static async getNotificationCenterUnreadCount(payload: Record<string, any>) {
     return new Promise((resolve, reject) => {
       try {
         Notifyvisitors.getNotificationCenterCount(
@@ -271,19 +292,11 @@ class SDKManager {
                 callback,
               )}`,
             );
-
-            emitSDKCallback(
-              'Center unread count: ',
-              JSON.stringify(callback),
-              true,
-            );
-
             resolve(callback);
           },
         );
-      } catch (error) {
-        emitSDKError('getNotificationCenterUnreadCount', error);
-        reject(error);
+      } catch (e) {
+        reject(e);
       }
     });
   }
@@ -330,11 +343,7 @@ class SDKManager {
               console.log(
                 `showInAppMessage() callback: ${JSON.stringify(callback)}`,
               );
-              emitSDKCallback(
-                `show "${bannerType}" inAppMessage callback:`,
-                result,
-                true,
-              );
+
               resolve(result);
             },
           );
@@ -342,7 +351,6 @@ class SDKManager {
           reject('Invalid InAppMessage Template');
         }
       } catch (error) {
-        emitSDKError('showAlert', error);
         reject(error);
       }
     });
@@ -403,27 +411,6 @@ class SDKManager {
       }
     });
   }
-  // static async trackEvent(payload: {
-  //   eventName: InputType.STRING;
-  //   attributes?: InputType.JSON_OBJECT;
-  //   ltv?: InputType.STRING;
-  //   scope?: InputType.STRING;
-  // }) {
-  //   const { eventName, attributes = {}, ltv = '', scope = '' } = payload;
-
-  //   return new Promise((resolve, reject) => {
-  //     try {
-  //       Alert.alert(
-  //         `Track Event Now with payload:\n${JSON.stringify(payload)}`,
-  //       );
-  //       // myRNPlugin.event(eventName, attributes, ltv, scope, (result: any) => {
-  //       //   resolve(result);
-  //       // });
-  //     } catch (e: any) {
-  //       reject(e);
-  //     }
-  //   });
-  // }
 
   static async trackScreen(payload: { screentName: string }) {
     const { screentName } = payload;
@@ -456,8 +443,6 @@ class SDKManager {
       // throw new Error('attributes must be a JSON object');
       return;
     }
-
-    Alert.alert(`setupUserDetails  params = ${JSON.stringify(payload)}`);
     return new Promise((resolve, reject) => {
       try {
         Notifyvisitors.setUserIdentifier(payload, (callback: any) => {
@@ -469,475 +454,59 @@ class SDKManager {
     });
   }
 
-  static async getNVUID(): Promise<number> {
-    try {
-      // TODO: replace with actual native SDK call
-      const result = 0;
-
-      emitSDKCallback('showAlert', { count: result }, true);
-
-      return result;
-    } catch (error) {
-      emitSDKError('showAlert', error);
-      throw error;
-    }
+  static async getNVUID(): Promise<any> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        Notifyvisitors.getNvUID((callback: any) => {
+          resolve(callback);
+        });
+      } catch (e) {
+        reject(e);
+      }
+    });
   }
+
+  /* ---------------------------------------------------
+   *  -- Other -->> Callbacks method and listeners
+   * --------------------------------------------------- */
+
+  // ---------- Subscribe APIs (public) ----------
+
+  static getEventSurveyInfo(listener: (data: any) => void) {
+    return SDKCallbackEvents.nvEventSurvey.subscribe(listener);
+  }
+
+  static getLinkInfo(listener: (data: any) => void) {
+    return SDKCallbackEvents.nvLinkInfo.subscribe(listener);
+  }
+
+  static knownUserIdentified(listener: (data: any) => void) {
+    return SDKCallbackEvents.nvKnownUser.subscribe(listener);
+  }
+
+  // static async getLinkInfoOLD(): Promise<any> {
+  //   return new Promise(async (resolve, reject) => {
+  //     try {
+  //       Notifyvisitors.knownUserIdentified((callback: any) => {
+  //         console.log(`getLinkInfo called with callback = ${callback}`);
+  //         resolve(callback);
+  //       });
+  //     } catch (e) {
+  //       reject(e);
+  //     }
+  //   });
+  // }
+
+  // static onEventSurveyInfo(callback: nvEventSurveyCallback) {
+  //   if (this.eventSurveyListenerSet) {
+  //     return;
+  //   }
+  //   this.eventSurveyListenerSet = true;
+  //   Notifyvisitors.getEventSurveyInfo((data: any) => {
+  //     console.log('getEventSurveyInfo received in SDKManager =', data);
+  //     callback(data);
+  //   });
+  // }
 }
 
 export default SDKManager;
-
-// import { Alert, Platform } from 'react-native';
-// import Notifyvisitors from 'react-native-notifyvisitors';
-// import DeviceInfoLib from 'react-native-device-info';
-
-// import SDK_VERSION from './SDKVersion';
-// import { DeviceInfo } from './SDKTypes';
-
-// import { emitSDKCallback, emitSDKError } from './SDKEventBridge';
-
-// /**
-//  * SDKManager
-//  *
-//  * Single abstraction layer over native SDK.
-//  * - Screens call SDKManager
-//  * - SDKManager talks to native modules
-//  * - All callbacks are logged centrally
-//  */
-// class SDKManager {
-//   private pushToken?: string;
-
-//   async getDeviceInfo(): Promise<DeviceInfo> {
-//     const info: DeviceInfo = {
-//       platform: Platform.OS as 'ios' | 'android',
-//       osVersion: DeviceInfoLib.getSystemVersion(),
-//       deviceId: DeviceInfoLib.getUniqueId(),
-
-//       appVersion: DeviceInfoLib.getVersion(),
-//       buildNumber: DeviceInfoLib.getBuildNumber(),
-//       sdkVersion: SDK_VERSION,
-//       environment: __DEV__ ? 'debug' : 'release',
-//     };
-
-//     emitSDKCallback('getDeviceInfo', info, true);
-//     return info;
-//   }
-
-//   /* ---------------------------------------------------
-//    *  -- Push Notifications
-//    * --------------------------------------------------- */
-
-//   async sendStandardPushNotification(): Promise<void> {
-//     try {
-//       // TODO: replace with actual native SDK call
-//       const result = true;
-
-//       emitSDKCallback(
-//         'sendStandardPushNotification',
-//         { granted: result },
-//         true,
-//       );
-//     } catch (error) {
-//       emitSDKError('sendStandardPushNotification', error);
-//       throw error;
-//     }
-//   }
-
-//   async sendStdPushWithActionBtns(): Promise<void> {
-//     try {
-//       // TODO: replace with actual native SDK call
-//       const result = true;
-
-//       emitSDKCallback('sendStdPushWithActionBtns', { granted: result }, true);
-//     } catch (error) {
-//       emitSDKError('sendStdPushWithActionBtns', error);
-//       throw error;
-//     }
-//   }
-
-//   async sendRichPush(): Promise<void> {
-//     try {
-//       // TODO: replace with actual native SDK call
-//       const result = true;
-
-//       emitSDKCallback('sendRichPushNotification', { granted: result }, true);
-//     } catch (error) {
-//       emitSDKError('sendRichPushNotification', error);
-//       throw error;
-//     }
-//   }
-
-//   async sendAndroidGIFPush(): Promise<void> {
-//     try {
-//       // TODO: replace with actual native SDK call
-//       const result = true;
-
-//       emitSDKCallback('sendAndroidGIFPush', { granted: result }, true);
-//     } catch (error) {
-//       emitSDKError('sendAndroidGIFPush', error);
-//       throw error;
-//     }
-//   }
-
-//   async sendAndroidSLiderPush(): Promise<void> {
-//     try {
-//       // TODO: replace with actual native SDK call
-//       const result = true;
-
-//       emitSDKCallback('sendAndroidSLiderPush', { granted: result }, true);
-//     } catch (error) {
-//       emitSDKError('sendAndroidSLiderPush', error);
-//       throw error;
-//     }
-//   }
-
-//   async sendAndroidCrouselPush(): Promise<void> {
-//     try {
-//       // TODO: replace with actual native SDK call
-//       const result = true;
-
-//       emitSDKCallback('sendAndroidCrouselPush', { granted: result }, true);
-//     } catch (error) {
-//       emitSDKError('sendAndroidCrouselPush', error);
-//       throw error;
-//     }
-//   }
-
-//   async sendIOSAudioPush(): Promise<void> {
-//     try {
-//       // TODO: replace with actual native SDK call
-//       const result = true;
-
-//       emitSDKCallback('sendAudioPushNotification', { granted: result }, true);
-//     } catch (error) {
-//       emitSDKError('sendAudioPushNotification', error);
-//       throw error;
-//     }
-//   }
-
-//   async sendIOSVideoPush(): Promise<void> {
-//     try {
-//       // TODO: replace with actual native SDK call
-//       const result = true;
-
-//       emitSDKCallback('sendVideoPushNotification', { granted: result }, true);
-//     } catch (error) {
-//       emitSDKError('sendVideoPushNotification', error);
-//       throw error;
-//     }
-//   }
-
-//   /* ---------------------------------------------------
-//    *  -- Notifications Center
-//    * --------------------------------------------------- */
-//   async showStdNotificationCenter(): Promise<void> {
-//     try {
-//       Notifyvisitors.showNotifications(null, 0);
-//       //Alert.alert('new center data');
-//     } catch (error) {
-//       emitSDKError('showStdNotificationCenter', error);
-//       throw error;
-//     }
-//   }
-//   async showAdvancedNotificationCenter(): Promise<void> {
-//     try {
-//       // TODO: replace with actual native SDK call
-//       const result = true;
-
-//       emitSDKCallback(
-//         'showAdvancedNotificationCenter',
-//         { granted: result },
-//         true,
-//       );
-//     } catch (error) {
-//       emitSDKError('showAdvancedNotificationCenter', error);
-//       throw error;
-//     }
-//   }
-
-//   async getNotificationCenterUnreadCount(): Promise<number> {
-//     try {
-//       // TODO: replace with actual native SDK call
-//       const result = 0;
-
-//       emitSDKCallback(
-//         'getNotificationCenterUnreadCount',
-//         { count: result },
-//         true,
-//       );
-
-//       return result;
-//     } catch (error) {
-//       emitSDKError('getNotificationCenterUnreadCount', error);
-//       throw error;
-//     }
-//   }
-
-//   /* ---------------------------------------------------
-//    *  -- InApp Messages / Popups
-//    * --------------------------------------------------- */
-
-//   async showAlert(): Promise<number> {
-//     try {
-//       // TODO: replace with actual native SDK call
-//       const result = 0;
-
-//       emitSDKCallback('showAlert', { count: result }, true);
-
-//       return result;
-//     } catch (error) {
-//       emitSDKError('showAlert', error);
-//       throw error;
-//     }
-//   }
-
-//   async showConfirmationDialog(): Promise<number> {
-//     try {
-//       // TODO: replace with actual native SDK call
-//       const result = 0;
-
-//       emitSDKCallback('showConfirmationDialog', { count: result }, true);
-
-//       return result;
-//     } catch (error) {
-//       emitSDKError('showConfirmationDialog', error);
-//       throw error;
-//     }
-//   }
-
-//   async showPopup(): Promise<number> {
-//     try {
-//       // TODO: replace with actual native SDK call
-//       const result = 0;
-
-//       emitSDKCallback('showPopup', { count: result }, true);
-
-//       return result;
-//     } catch (error) {
-//       emitSDKError('showPopup', error);
-//       throw error;
-//     }
-//   }
-
-//   async showFullPopup(): Promise<number> {
-//     try {
-//       // TODO: replace with actual native SDK call
-//       const result = 0;
-
-//       emitSDKCallback('showFullPopup', { count: result }, true);
-
-//       return result;
-//     } catch (error) {
-//       emitSDKError('showFullPopup', error);
-//       throw error;
-//     }
-//   }
-
-//   async showStickyBar(): Promise<number> {
-//     try {
-//       // TODO: replace with actual native SDK call
-//       const result = 0;
-
-//       emitSDKCallback('showStickyBar', { count: result }, true);
-
-//       return result;
-//     } catch (error) {
-//       emitSDKError('showStickyBar', error);
-//       throw error;
-//     }
-//   }
-
-//   async showSurvey(): Promise<number> {
-//     try {
-//       // TODO: replace with actual native SDK call
-//       const result = 0;
-
-//       emitSDKCallback('showSurvey', { count: result }, true);
-
-//       return result;
-//     } catch (error) {
-//       emitSDKError('showSurvey', error);
-//       throw error;
-//     }
-//   }
-
-//   async showNPSSurvey(): Promise<number> {
-//     try {
-//       // TODO: replace with actual native SDK call
-//       const result = 0;
-
-//       emitSDKCallback('showNPSSurvey', { count: result }, true);
-
-//       return result;
-//     } catch (error) {
-//       emitSDKError('showNPSSurvey', error);
-//       throw error;
-//     }
-//   }
-
-//   async showInAppWalkthrough(): Promise<number> {
-//     try {
-//       // TODO: replace with actual native SDK call
-//       const result = 0;
-
-//       emitSDKCallback('showInAppWalkthrough', { count: result }, true);
-
-//       return result;
-//     } catch (error) {
-//       emitSDKError('showInAppWalkthrough', error);
-//       throw error;
-//     }
-//   }
-
-//   /* ---------------------------------------------------
-//    *  -- Analytics -->> TRACK EENTS
-//    * --------------------------------------------------- */
-
-//   static trackEvent(payload: {
-//     eventName: string;
-//     attributes?: Record<string, any>;
-//     ltv?: string;
-//     scope?: string;
-//   }) {
-//     const { eventName, attributes = {}, ltv = '', scope = '' } = payload;
-
-//     return new Promise((resolve, reject) => {
-//       try {
-//         Alert.alert(`Track Event Now with payload:\n${payload}`);
-//         // myRNPlugin.event(eventName, attributes, ltv, scope, (result: any) => {
-//         //   resolve(result);
-//         // });
-//       } catch (e: any) {
-//         reject(e);
-//       }
-//     });
-//   }
-
-//   async trackScreen(): Promise<number> {
-//     try {
-//       // TODO: replace with actual native SDK call
-//       const result = 0;
-
-//       emitSDKCallback('showAlert', { count: result }, true);
-
-//       return result;
-//     } catch (error) {
-//       emitSDKError('showAlert', error);
-//       throw error;
-//     }
-//   }
-
-//   /* ---------------------------------------------------
-//    *  -- Analytics -->> USER PROPERTIES
-//    * --------------------------------------------------- */
-
-//   async setUserDetails(): Promise<number> {
-//     try {
-//       // TODO: replace with actual native SDK call
-//       const result = 0;
-
-//       emitSDKCallback('showAlert', { count: result }, true);
-
-//       return result;
-//     } catch (error) {
-//       emitSDKError('showAlert', error);
-//       throw error;
-//     }
-//   }
-
-//   async getNVUID(): Promise<number> {
-//     try {
-//       // TODO: replace with actual native SDK call
-//       const result = 0;
-
-//       emitSDKCallback('showAlert', { count: result }, true);
-
-//       return result;
-//     } catch (error) {
-//       emitSDKError('showAlert', error);
-//       throw error;
-//     }
-//   }
-
-//   /**
-//    * Example: Request push permission
-//    */
-//   async requestPushPermission(): Promise<boolean> {
-//     try {
-//       // TODO: replace with actual native SDK call
-//       const result = true;
-
-//       emitSDKCallback('requestPushPermission', { granted: result }, true);
-
-//       return result;
-//     } catch (error) {
-//       emitSDKError('requestPushPermission', error);
-//       throw error;
-//     }
-//   }
-
-//   /**
-//    * Example: Get push token
-//    */
-//   async getPushToken(): Promise<string> {
-//     try {
-//       // TODO: replace with native SDK call
-//       const token = 'mock_push_token';
-
-//       emitSDKCallback('getPushToken', { token }, true);
-
-//       return token;
-//     } catch (error) {
-//       emitSDKError('getPushToken', error);
-//       throw error;
-//     }
-//   }
-
-//   /**
-//    * Example: Show in-app message
-//    */
-//   async showInAppMessage(): Promise<void> {
-//     try {
-//       // TODO: native SDK call
-//       emitSDKCallback('showInAppMessage', { shown: true }, true);
-//     } catch (error) {
-//       emitSDKError('showInAppMessage', error);
-//       throw error;
-//     }
-//   }
-
-//   /**
-//    * Example: Show nudge
-//    */
-//   async showNudge(): Promise<void> {
-//     try {
-//       emitSDKCallback('showNudge', { shown: true }, true);
-//     } catch (error) {
-//       emitSDKError('showNudge', error);
-//       throw error;
-//     }
-//   }
-
-//   /**
-//    * Example: Track analytics event
-//    */
-//   // async trackEvent(name: string, params?: Record<string, any>): Promise<void> {
-//   //   try {
-//   //     // TODO: native SDK call
-//   //     emitSDKCallback('trackEvent', { name, params }, true);
-//   //   } catch (error) {
-//   //     emitSDKError('trackEvent', error);
-//   //     throw error;
-//   //   }
-//   // }
-
-//   setPushToken(token: string) {
-//     this.pushToken = token;
-//     emitSDKCallback('setPushToken', { token }, true);
-//   }
-
-//   getPushTokenCached(): string | undefined {
-//     return this.pushToken;
-//   }
-// }
-
-// export default new SDKManager();

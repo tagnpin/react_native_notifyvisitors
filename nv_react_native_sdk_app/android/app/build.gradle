@@ -162,8 +162,8 @@ android {
                 
             // minifyEnabled enableProguardInReleaseBuilds
              minifyEnabled true
-            shrinkResources true
-            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+             shrinkResources true
+             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
 }

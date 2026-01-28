@@ -17,7 +17,7 @@ export type RootStackParamList = {
 export type ClientStackParamList = {
   ClientHome: undefined;
 
-  FeatureGroup: {
+  ClientFeatureAction: {
     featureKey: string;
     title?: string;
   };

@@ -36,7 +36,7 @@ const trackEventActions: FeatureActionProps[] = [
 
     actionLabel: 'Track Event',
     showResult: true,
-    resultTitle: 'Track Event Result',
+    resultTitle: 'Track Event Result:',
 
     execute: payload => SDKManager.trackEvent(payload as TrackEventPayload),
   },
@@ -49,6 +49,8 @@ const trackEventActions: FeatureActionProps[] = [
     params: {
       screentName: 'nv_rn_clientHomeScreen',
     },
+    showResult: true,
+    resultTitle: 'Track Screen Result:',
     execute: payload => SDKManager.trackScreen(payload as any),
   },
 
@@ -57,6 +59,8 @@ const trackEventActions: FeatureActionProps[] = [
     title: 'Track Custom Event',
     description: 'Goto custom EventTracking Screen',
     actionLabel: 'Track Custom Event',
+    showResult: true,
+    resultTitle: 'Track Custom Event Result:',
   },
 ];
 
@@ -74,7 +78,7 @@ const userPropertyActions: FeatureActionProps[] = [
       plan_type: 31,
     },
     showResult: true,
-    resultTitle: 'Set User Details Result',
+    resultTitle: 'Set User Details Result:',
     execute: payload => SDKManager.setUserDetails(payload),
   },
 
@@ -84,13 +88,15 @@ const userPropertyActions: FeatureActionProps[] = [
     description: 'give the current value og nv-uid',
     actionLabel: 'Get NV-UID',
     showResult: true,
-    resultTitle: 'Set User Details Result',
+    resultTitle: 'Get NV-UID Result:',
     execute: () => SDKManager.getNVUID(),
   },
   {
     key: 'trackCustomUser',
     title: 'Set Your Custom User',
     description: 'create your own custom user profile',
+    showResult: true,
+    resultTitle: 'Set Custom User Details Result:',
     actionLabel: 'Track Custom User',
   },
 ];
