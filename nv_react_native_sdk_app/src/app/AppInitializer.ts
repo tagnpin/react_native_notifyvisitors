@@ -1,5 +1,6 @@
 // src/app/AppInitializer.ts
 import DebugLogsStore from '../debug/DebugLogsStore';
+import SDKManager from '../sdk/SDKManager';
 /**
  * AppInitializer
  *
@@ -13,6 +14,7 @@ import DebugLogsStore from '../debug/DebugLogsStore';
 export const initializeApp = async (): Promise<void> => {
   // Future: SDKManager.initialize()
   // Future: preload configs
+  SDKManager.nvInitListeners();
   await DebugLogsStore.init();
   return Promise.resolve();
 };

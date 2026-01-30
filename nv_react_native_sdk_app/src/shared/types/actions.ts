@@ -25,7 +25,8 @@ export type FeatureActionProps<TPayload = Record<string, any>> = {
   actionBadgeCount?: number;
   showResult?: boolean;
   resultTitle?: string;
-  icon?: () => React.ReactNode; // ✅ function returning JSX
+  icon?: React.ReactNode | (() => React.ReactNode);
+  // icon?: () => React.ReactNode; // ✅ function returning JSX
   iconPosition?: 'left' | 'right';
 
   /** Platform control */
@@ -35,6 +36,9 @@ export type FeatureActionProps<TPayload = Record<string, any>> = {
   /** Layout */
   layout?: 'card' | 'inline';
   accordionDefaultExpanded?: boolean;
+
+  onBeforeExecute?: () => void;
+  onAfterExecute?: (result?: any) => void;
 };
 
 export type ActionButtonProps = {
@@ -44,7 +48,8 @@ export type ActionButtonProps = {
   onPress: () => void;
 
   // Icon support
-  icon?: React.ReactNode;
+  // icon?: React.ReactNode;
+  icon?: React.ReactNode | (() => React.ReactNode);
   iconPosition?: 'left' | 'right';
 
   // Badge

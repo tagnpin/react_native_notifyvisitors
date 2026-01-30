@@ -3,7 +3,25 @@
 import SDKManager from '../../../sdk/SDKManager';
 import { FeatureActionProps } from '../../../shared/types/actions';
 
+type BadgeHelpers = {
+  clearBadge: () => void;
+  setBadge: (count: number) => void;
+};
+
 const sendPushActions: FeatureActionProps[] = [
+  {
+    key: 'getNVSubscripionID',
+    title: 'Get Push SubscriptionID (Push Token)',
+    description:
+      'refers to FCM/APNS token recorded as subscriptionID in NVECTA Panel',
+    actionLabel: 'Get Push SubscriptionID (Push Token)',
+    showResult: true,
+    resultTitle: 'Push SubscriptionID (Push Token):',
+    execute: async payload => {
+      const pushToken = await SDKManager.getPushToken();
+      return pushToken;
+    },
+  },
   {
     key: 'sendStandardPush',
     title: 'Send Standard Push',
@@ -101,7 +119,10 @@ const sendPushActions: FeatureActionProps[] = [
   },
 ];
 
-const notificationCenterActions: FeatureActionProps[] = [
+// const notificationCenterActions: FeatureActionProps[] = [
+const notificationCenterActions = (
+  badge: BadgeHelpers,
+): FeatureActionProps[] => [
   {
     key: 'showStdNotificationCenter',
     title: 'Show Standard Notification Center',
@@ -111,6 +132,10 @@ const notificationCenterActions: FeatureActionProps[] = [
       androidStdPushID: '',
       iOSStdPushNID: '',
     },
+    onBeforeExecute: () => {
+      // ✅ ALWAYS clear badge
+      badge.clearBadge();
+    },
     execute: payload => SDKManager.showStdNotificationCenter(payload),
   },
   {
@@ -118,10 +143,9 @@ const notificationCenterActions: FeatureActionProps[] = [
     title: 'Show Advanced Notification Center',
     description: 'Shows the advanced notification center UI',
     actionLabel: 'Show Advanced Notification Center',
-    actionBadgeCount: 5,
-    params: {
-      androidStdPushID: '',
-      iOSStdPushNID: '',
+    onBeforeExecute: () => {
+      // ✅ ALWAYS clear badge
+      badge.clearBadge();
     },
     execute: payload => SDKManager.showAdvancedNotificationCenter(payload),
   },
@@ -135,7 +159,20 @@ const notificationCenterActions: FeatureActionProps[] = [
       androidStdPushID: '',
       iOSStdPushNID: '',
     },
-    execute: payload => SDKManager.getNotificationCenterUnreadCount(payload),
+    showResult: true,
+    resultTitle: 'Center Push Unread Count Result:',
+    execute: async payload => {
+      const unreadCountData = await SDKManager.getNotificationCenterUnreadCount(
+        payload,
+      );
+      const parsed = JSON.parse(unreadCountData as string);
+      return parsed;
+    },
+    onAfterExecute: result => {
+      // ✅ Update badge ONLY if count changes
+      const total = result?.totalCount ?? 0;
+      badge.setBadge(total);
+    },
   },
 ];
 

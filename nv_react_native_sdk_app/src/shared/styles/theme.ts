@@ -1,5 +1,9 @@
 // src/shared/styles/theme.ts
 
+import { Layout } from '../utils/Layout';
+
+const scale = (size: number) => (Layout.isTablet ? size * 1.2 : size);
+
 export const theme = {
   colors: {
     background: '#FFFFFF',
@@ -19,33 +23,38 @@ export const theme = {
     danger: '#dc3545',
 
     card: '#FFFFFF',
+    backdrop: 'rgba(0,0,0,0.45)',
+  },
+
+  // radius: {
+  //   sm: 6,
+  //   md: 10,
+  //   lg: 14,
+  // },
+
+  radius: {
+    sm: scale(6),
+    md: scale(10),
+    lg: scale(14),
   },
 
   spacing: {
-    xs: 4,
-    sm: 8,
-    md: 12,
-    lg: 16,
-    xl: 24,
+    xs: scale(4),
+    sm: scale(8),
+    md: scale(12),
+    lg: scale(16),
+    xl: scale(24),
   },
-
-  radius: {
-    sm: 6,
-    md: 10,
-    lg: 14,
-  },
-
   text: {
     title: {
-      fontSize: 18,
+      fontSize: scale(18),
       fontWeight: '600' as const,
     },
     body: {
-      fontSize: 14,
+      fontSize: scale(14),
     },
     caption: {
-      fontSize: 12,
-      color: '#6B7280',
+      fontSize: scale(12),
     },
   },
 };
