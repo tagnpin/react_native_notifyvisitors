@@ -11,6 +11,7 @@ import {
   subscribeQAGate,
   getLastQAExpiryReason,
 } from '../config/QAGateConfig';
+import { NotificationBadgeProvider } from '../shared/store/NotificationBadgeContext';
 
 const AppGate = () => {
   const [ready, setReady] = useState(false);
@@ -55,7 +56,12 @@ const AppGate = () => {
 
   if (!ready) return null;
 
-  return <RootNavigator showQA={showQA} />;
+  return (
+    <NotificationBadgeProvider>
+      <RootNavigator showQA={showQA} />
+    </NotificationBadgeProvider>
+  );
+  // return <RootNavigator showQA={showQA} />;
 };
 
 export default AppGate;

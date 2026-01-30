@@ -1,12 +1,15 @@
 import SDKManager from '../../../sdk/SDKManager';
 import { FeatureActionProps } from '../../../shared/types/actions';
 
+const inAppResultTitle = 'show InApp Message Result:';
 export const inAppMessageActions: FeatureActionProps[] = [
   {
     key: 'showInAppWalkthrough',
     title: 'Show InApp Walkthrough',
     description: 'Show InApp Walkthrough',
     actionLabel: 'Show InApp Walkthrough',
+    showResult: true,
+    resultTitle: inAppResultTitle,
     execute: () => SDKManager.nvShowInAppMessages('walkthrough'),
   },
 
@@ -15,6 +18,8 @@ export const inAppMessageActions: FeatureActionProps[] = [
     title: 'Show Alert',
     description: 'Show Alert Message Popup',
     actionLabel: 'Show Alert',
+    showResult: true,
+    resultTitle: inAppResultTitle,
     execute: () => SDKManager.nvShowInAppMessages('alert'),
   },
 
@@ -23,6 +28,8 @@ export const inAppMessageActions: FeatureActionProps[] = [
     title: 'Show Confirmation Dialog',
     description: 'Show Confirmation Dialog Message Popup',
     actionLabel: 'Show Confirmation Dialog',
+    showResult: true,
+    resultTitle: inAppResultTitle,
     execute: () => SDKManager.nvShowInAppMessages('confirmation'),
   },
 
@@ -31,6 +38,8 @@ export const inAppMessageActions: FeatureActionProps[] = [
     title: 'Show Popup',
     description: 'Show Modal inApp Message Popup',
     actionLabel: 'Show Popup',
+    showResult: true,
+    resultTitle: inAppResultTitle,
     execute: () => SDKManager.nvShowInAppMessages('modalpopup'),
   },
 
@@ -39,6 +48,8 @@ export const inAppMessageActions: FeatureActionProps[] = [
     title: 'Show Full Popup',
     description: 'Show Full Screen inApp Message Popup',
     actionLabel: 'Show Full Popup',
+    showResult: true,
+    resultTitle: inAppResultTitle,
     execute: () => SDKManager.nvShowInAppMessages('fullpopup'),
   },
 
@@ -47,6 +58,8 @@ export const inAppMessageActions: FeatureActionProps[] = [
     title: 'Show Sticky Bar',
     description: 'Show Sticky Bar inApp Message Popup',
     actionLabel: 'Show Sticky Bar',
+    showResult: true,
+    resultTitle: inAppResultTitle,
     execute: () => SDKManager.nvShowInAppMessages('stickybar'),
   },
 
@@ -55,6 +68,8 @@ export const inAppMessageActions: FeatureActionProps[] = [
     title: 'Show Survey',
     description: 'Show Modal Survey',
     actionLabel: 'Show Survey',
+    showResult: true,
+    resultTitle: inAppResultTitle,
     execute: () => SDKManager.nvShowInAppMessages('modalsurvey'),
   },
 
@@ -63,6 +78,8 @@ export const inAppMessageActions: FeatureActionProps[] = [
     title: 'Show Full Screen Survey',
     description: 'Show Full Screen Survey',
     actionLabel: 'Show Full Screen Survey',
+    showResult: true,
+    resultTitle: inAppResultTitle,
     execute: () => SDKManager.nvShowInAppMessages('fullsurvey'),
   },
 
@@ -71,6 +88,8 @@ export const inAppMessageActions: FeatureActionProps[] = [
     title: 'Show Star Rating / NPS Survey',
     description: 'Show Star Rating / NPS inAPP Survey',
     actionLabel: 'show Star Rating / NPS Survey',
+    showResult: true,
+    resultTitle: inAppResultTitle,
     execute: () => SDKManager.nvShowInAppMessages('rating_nps_survey'),
   },
 
@@ -79,6 +98,8 @@ export const inAppMessageActions: FeatureActionProps[] = [
     title: 'show Spin the Wheel',
     description: 'show Spin the Wheel',
     actionLabel: 'show Spin the Wheel',
+    showResult: true,
+    resultTitle: inAppResultTitle,
     execute: () => SDKManager.nvShowInAppMessages('spin_wheel'),
   },
 
@@ -87,6 +108,8 @@ export const inAppMessageActions: FeatureActionProps[] = [
     title: 'Show Scratch Card',
     description: 'Show Scratch Card',
     actionLabel: 'Show Scratch Card',
+    showResult: true,
+    resultTitle: inAppResultTitle,
     execute: () => SDKManager.nvShowInAppMessages('scratch_card'),
   },
 

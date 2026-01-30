@@ -22,7 +22,8 @@ const notify = (enabled: boolean) => {
 };
 
 export const isQAAllowed = (): boolean => {
-  return !IS_RELEASE;
+  //return !IS_RELEASE;
+  return true;
 };
 
 /**

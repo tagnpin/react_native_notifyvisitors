@@ -50,7 +50,7 @@ const FeatureActionScreen: React.FC<Props> = ({ route, navigation }) => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <SectionHeader title="Available Actions" />
+      <SectionHeader title="QA Side Available Actions" />
 
       <ClientSectionCard>
         {actions.map(
