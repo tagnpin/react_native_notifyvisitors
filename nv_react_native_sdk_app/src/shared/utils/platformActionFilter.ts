@@ -1,12 +1,12 @@
 // src/shared/utils/platformActionFilter.ts
 
-import { Platform } from 'react-native';
 import { FeatureActionProps } from '../types/actions';
+import { CURRENT_PLATFORM } from './platform';
 
 export const filterActionsByPlatform = (
   actions: FeatureActionProps[],
 ): FeatureActionProps[] => {
-  const os = Platform.OS; // 'ios' | 'android'
+  const os = CURRENT_PLATFORM;
 
   return actions.filter(action => {
     // explicit hide

@@ -1,8 +1,8 @@
 // src/client/features/analytics/analyticsActions.ts
 
-import { Alert } from 'react-native';
 import SDKManager from '../../../sdk/SDKManager';
 import { FeatureActionProps } from '../../../shared/types/actions';
+import { CURRENT_PLATFORM } from '../../../shared/utils/platform';
 
 type TrackEventPayload = {
   eventName: string;
@@ -22,7 +22,7 @@ const trackEventActions: FeatureActionProps[] = [
     description: 'Tracks a custom analytics event',
 
     params: {
-      eventName: 'test_rn_first_event_ios',
+      eventName: `test_rn_first_event_${CURRENT_PLATFORM}`,
       attributes: {
         testStr: 'TestValue',
         testNum: 5,
@@ -47,7 +47,7 @@ const trackEventActions: FeatureActionProps[] = [
     description: 'Tracks screen_view event with custom screen name',
     actionLabel: 'Track Screen',
     params: {
-      screentName: 'nv_rn_clientHomeScreen',
+      screentName: `nv_rn_clientHomeScreen_${CURRENT_PLATFORM}`,
     },
     showResult: true,
     resultTitle: 'Track Screen Result:',
@@ -71,8 +71,8 @@ const userPropertyActions: FeatureActionProps[] = [
     description: 'creates a Known User Profile in the panel',
     actionLabel: 'Set User Details',
     params: {
-      name: 'john',
-      email: 'john.a@notifyvisitors.com',
+      name: 'Customer Name',
+      email: 'customer.email@notifyvisitors.com',
       number: '98987XXXXX',
       user_score: '340',
       plan_type: 31,
