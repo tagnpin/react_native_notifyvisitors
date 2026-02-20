@@ -1,15 +1,8 @@
 "use strict";
 
-import {
-  NativeModules,
-  NativeEventEmitter,
-  Platform,
-  requireNativeComponent,
-} from "react-native";
+import { NativeModules, NativeEventEmitter, Platform, requireNativeComponent } from "react-native";
 
-const NotifyvisitorsNativeDisplayView = requireNativeComponent(
-  "NotifyvisitorsNativeDisplay"
-);
+const NotifyvisitorsNativeDisplayView = requireNativeComponent('NotifyvisitorsNativeDisplay');
 
 const { RNNotifyvisitors } = NativeModules;
 const nvEventEmitter = new NativeEventEmitter(RNNotifyvisitors);
@@ -573,12 +566,8 @@ const NotifyvisitorsNativeDisplay = (props) => {
       onNudgeUiFinalized({ response: finalEvent });
     }
   };
-  return (
-    <NotifyvisitorsNativeDisplayView
-      {...rest}
-      onNudgeUiFinalized={handleEvent}
-    />
-  );
+  return (<NotifyvisitorsNativeDisplayView {...rest}
+    onNudgeUiFinalized={handleEvent} />);
 };
 
 // Wrapper component

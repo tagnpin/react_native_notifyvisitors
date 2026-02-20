@@ -127,7 +127,7 @@ android {
         targetSdkVersion = rootProject.ext.targetSdkVersion
         versionCode = 1
         versionName = resolvedVersionName
-        buildConfigField "int", " nvBrandID", nvBrandId
+        buildConfigField "int", "nvBrandID", nvBrandId
         buildConfigField "String", "nvSecretKey", "\"${nvSecretKey}\""
     }
     signingConfigs {

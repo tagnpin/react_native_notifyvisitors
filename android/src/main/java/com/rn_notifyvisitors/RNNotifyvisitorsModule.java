@@ -50,7 +50,7 @@ public class RNNotifyvisitorsModule extends ReactContextBaseJavaModule implement
 
     private final ReactApplicationContext reactContext;
     private static final String TAG = "RN-NotifyVisitors";
-    private static final String PLUGIN_VERSION = "4.6.2";
+    private static final String PLUGIN_VERSION = "4.6.3";
 
     private String PUSH_BANNER_CLICK_EVENT = "nv_push_banner_click";
     private String CHAT_BOT_BUTTON_CLICK = "nv_chat_bot_button_click";
@@ -740,6 +740,38 @@ public class RNNotifyvisitorsModule extends ReactContextBaseJavaModule implement
         }
     }
 
+    // @ReactMethod
+    // public void setUserIdentifier(ReadableMap attributes, final Callback callback) {
+    //     try {
+    //         Log.i(TAG, "setUserIdentifier !!");
+    //         JSONObject mAttributes = null;
+
+    //         if (attributes != null) {
+    //             HashMap<String, Object> temp = attributes.toHashMap();
+    //             mAttributes = new JSONObject(temp);
+    //         }
+
+    //         if (mAttributes != null) {
+    //             Log.i(TAG, "Attributes : " + mAttributes);
+    //         } else {
+    //             Log.i(TAG, "Attributes : null");
+    //         }
+
+    //         NotifyVisitorsApi.getInstance(reactContext).userIdentifier(mAttributes, new OnUserTrackListener() {
+    //             @Override
+    //             public void onResponse(JSONObject data) {
+    //                 if (data != null) {
+    //                     callback.invoke(data.toString());
+    //                 } else {
+    //                     callback.invoke("{}");
+    //                 }                    
+    //             }
+    //         });
+    //     } catch (Exception e) {
+    //         Log.i(TAG, "SET USER IDENTIFIER ERROR : " + e);
+    //     }
+    // }
+
     @ReactMethod
     public void setUserIdentifier(ReadableMap attributes, final Callback callback) {
         try {
@@ -758,17 +790,40 @@ public class RNNotifyvisitorsModule extends ReactContextBaseJavaModule implement
             }
 
             NotifyVisitorsApi.getInstance(reactContext).userIdentifier(mAttributes, new OnUserTrackListener() {
+                private boolean isInvoked = false;
+
                 @Override
                 public void onResponse(JSONObject data) {
-                    if (data != null) {
-                        callback.invoke(data.toString());
+                    synchronized (this) {
+                        if (isInvoked) {
+                            Log.w(TAG, "⚠️ onResponse called multiple times - ignoring");
+                            return;
+                        }
+                        isInvoked = true;
+                    }
+                    
+                    final String result = (data != null) ? data.toString() : "{}";
+                    
+                    // Add null check for reactContext
+                    if (reactContext != null) {
+                        reactContext.runOnUiQueueThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    callback.invoke(result);
+                                    Log.i(TAG, "✅ Callback invoked successfully");
+                                } catch (Exception e) {
+                                    Log.e(TAG, "❌ Error invoking callback: " + e. getMessage());
+                                }
+                            }
+                        });
                     } else {
-                        callback.invoke("{}");
-                    }                    
+                        Log.e(TAG, "❌ ReactContext is null, cannot invoke callback");
+                    }
                 }
             });
         } catch (Exception e) {
-            Log.i(TAG, "SET USER IDENTIFIER ERROR : " + e);
+            Log.e(TAG, "SET USER IDENTIFIER ERROR : " + e);
         }
     }
     

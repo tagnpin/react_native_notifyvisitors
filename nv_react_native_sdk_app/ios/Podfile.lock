@@ -1813,7 +1813,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - react-native-notifyvisitors (4.6.2):
+  - react-native-notifyvisitors (4.6.3):
     - notifyvisitors (= 7.3.3)
     - notifyvisitorsNudges (= 0.0.3)
     - React (< 1.0.0, >= 0.13.0)
@@ -2990,7 +2990,7 @@ SPEC CHECKSUMS:
   React-Mapbuffer: 499069c3dcd4b438a70fcc2a65e8a4185ea9170b
   React-microtasksnativemodule: f0238469cb9894fd18c419137d312665b8fc05b3
   react-native-get-random-values: e2acf4070fe4b7325705a05af047449637a27a21
-  react-native-notifyvisitors: 8facd77da8b35ba89153784eac0b1e576df115b8
+  react-native-notifyvisitors: b2b1432459cd17a0a25032df50db67609e29f3ba
   react-native-safe-area-context: c00143b4823773bba23f2f19f85663ae89ceb460
   React-NativeModulesApple: 628df250681ccb569bd203494ed5187269580d6f
   React-oscompat: 80ca388c4831481cd03a6b45ecfc82739ca9a95e
