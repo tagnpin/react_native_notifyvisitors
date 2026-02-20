@@ -3,16 +3,16 @@ run-name: Android ${{ vars.RN_BUILD_TYPE }} build (commit ${{ github.sha }})
 
 on:
   push:
-    branches: [ stage ]
+    branches: [stage]
     paths:
-      - 'react_native_notifyvisitors/nv_react_native_sdk_app/android/**'
-      - 'react_native_notifyvisitors/nv_react_native_sdk_app/src/**'
-      - 'react_native_notifyvisitors/nv_react_native_sdk_app/package.json'
-      - 'react_native_notifyvisitors/nv_react_native_sdk_app/package-lock.json'
-      - 'react_native_notifyvisitors/nv_react_native_sdk_app/app.json'
-      - 'react_native_notifyvisitors/nv_react_native_sdk_app/index.js'
-      - '.github/workflows/android.yml'
-      - 'react_native_notifyvisitors/android/**'
+      - "react_native_notifyvisitors/android/**"
+      - "react_native_notifyvisitors/nv_react_native_sdk_app/android/**"
+      - "react_native_notifyvisitors/nv_react_native_sdk_app/src/**"
+      - "react_native_notifyvisitors/nv_react_native_sdk_app/package.json"
+      - "react_native_notifyvisitors/nv_react_native_sdk_app/package-lock.json"
+      - "react_native_notifyvisitors/nv_react_native_sdk_app/app.json"
+      - "react_native_notifyvisitors/nv_react_native_sdk_app/index.js"
+      - ".github/workflows/android.yml"
 
 jobs:
   build-android:
@@ -239,4 +239,3 @@ jobs:
             echo "☁️ Uploading $APK_NAME to s3://$S3_BUCKET/$S3_KEY"
             aws s3 cp "$apk" "s3://$S3_BUCKET/$S3_KEY" --only-show-errors
           done
-          

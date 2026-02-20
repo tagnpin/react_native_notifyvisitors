@@ -2,14 +2,15 @@ name: 🚀 iOS Release CI – Build & Upload
 
 on:
   push:
-    branches: [ stage ]
+    branches: [stage]
     paths:
-      - 'react_native_notifyvisitors/nv_react_native_sdk_app/ios/**'
-      - 'react_native_notifyvisitors/nv_react_native_sdk_app/src/**'
-      - 'react_native_notifyvisitors/nv_react_native_sdk_app/package.json'
-      - 'react_native_notifyvisitors/nv_react_native_sdk_app/package-lock.json'
-      - 'react_native_notifyvisitors/pf_ios/**'
-      - '.github/workflows/ios.yml' 
+      - "react_native_notifyvisitors/ios/**"
+      - "react_native_notifyvisitors/nv_react_native_sdk_app/ios/**"
+      - "react_native_notifyvisitors/nv_react_native_sdk_app/src/**"
+      - "react_native_notifyvisitors/nv_react_native_sdk_app/package.json"
+      - "react_native_notifyvisitors/nv_react_native_sdk_app/package-lock.json"
+      - "react_native_notifyvisitors/pf_ios/**"
+      - ".github/workflows/ios.yml"
 
 defaults:
   run:
@@ -47,7 +48,6 @@ jobs:
       RN_IOS_P12_PASSWORD: ${{ secrets.RN_IOS_P12_PASSWORD }}
 
     steps:
-
       # -------------------------------------------------
       # 1️⃣ Checkout Source Code
       # -------------------------------------------------
