@@ -9,7 +9,7 @@ on:
       - 'react_native_notifyvisitors/nv_react_native_sdk_app/package.json'
       - 'react_native_notifyvisitors/nv_react_native_sdk_app/package-lock.json'
       - 'react_native_notifyvisitors/pf_ios/**'
-      - '.github/workflows/ios.yml'
+      - '.github/workflows/ios.yml' 
 
 defaults:
   run:
