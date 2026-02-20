@@ -8,6 +8,7 @@ import SDK_VERSION from './SDKVersion';
 import Notifyvisitors from '../../..';
 import { theme } from '../shared/styles/theme';
 import { SDKCallbackEvents } from './events/SDKCallbackEvents';
+import { getPlatformName } from '../shared/utils/platform';
 
 /**
  * SDKManager
@@ -48,7 +49,7 @@ class SDKManager {
     const deviceIdStr = await DeviceInfoLib.getUniqueId();
 
     const info: DeviceInfo = {
-      platform: Platform.OS as 'ios' | 'android',
+      platform: getPlatformName(),
       osVersion: DeviceInfoLib.getSystemVersion(),
       deviceId: deviceIdStr,
       pushToken: tokenStr,
@@ -89,7 +90,7 @@ class SDKManager {
   };
 
   private static getNotificationId(type: PushType): string {
-    const platform = Platform.OS === 'android' ? 'android' : 'ios';
+    const platform = getPlatformName();
 
     const notificationId =
       this.nvNotificationIDs[platform][
