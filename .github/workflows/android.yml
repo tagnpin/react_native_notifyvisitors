@@ -12,7 +12,7 @@ on:
       - "react_native_notifyvisitors/nv_react_native_sdk_app/package-lock.json"
       - "react_native_notifyvisitors/nv_react_native_sdk_app/app.json"
       - "react_native_notifyvisitors/nv_react_native_sdk_app/index.js"
-      - ".github/workflows/android.yml"
+      - ".github/workflows/android.yml" 
 
 jobs:
   build-android:
