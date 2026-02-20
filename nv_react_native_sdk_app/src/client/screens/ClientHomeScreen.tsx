@@ -70,11 +70,6 @@ const ClientHomeScreen: React.FC<Props> = ({ navigation }) => {
           label="App Version:"
           value={`${deviceInfo?.appVersion} (${deviceInfo?.buildNumber})`}
         />
-        {/* <TextRow
-          label="Device ID:"
-          value={deviceInfo?.deviceId ?? ''}
-          copyable
-        /> */}
         <TextRow
           label="Device ID:"
           value={deviceInfo?.deviceId ?? ''}
