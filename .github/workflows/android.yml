@@ -12,6 +12,7 @@ on:
       - 'react_native_notifyvisitors/nv_react_native_sdk_app/app.json'
       - 'react_native_notifyvisitors/nv_react_native_sdk_app/index.js'
       - '.github/workflows/android.yml'
+      - 'react_native_notifyvisitors/android/**'
 
 jobs:
   build-android:
