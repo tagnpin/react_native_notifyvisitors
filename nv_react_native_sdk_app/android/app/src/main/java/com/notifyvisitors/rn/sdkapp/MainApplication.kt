@@ -28,7 +28,7 @@ class MainApplication : Application(), ReactApplication {
 
   override fun onCreate() {
     super.onCreate()
-    Log.i("rn-nv-android", "nvBrandID = " + nvBrandID + " nvSecreKey = " + nvSecreKey)
+    Log.w("rn-nv-android", "nvBrandID = " + nvBrandID + " nvSecreKey = " + nvSecreKey)
     RNNotifyvisitorsModule.register(this, nvBrandID, nvSecreKey);
     loadReactNative(this)
   }
