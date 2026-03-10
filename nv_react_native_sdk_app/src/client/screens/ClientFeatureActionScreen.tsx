@@ -1,4 +1,4 @@
-// src/client/screens/FeatureActionScreen.tsx
+// src/client/screens/ClientFeatureActionScreen.tsx
 
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import React, { useEffect, useMemo, useState } from 'react';
@@ -19,18 +19,16 @@ import { buildPayloadFromSchema } from '../../shared/utils/buildPayload';
 import { theme } from '../../shared/styles/theme';
 import ResultBottomSheet from '../../shared/components/ResultBottomSheet';
 import SectionHeader from '../../shared/components/SectionHeader';
-import ClientSectionCard from '../components/ClientSectionCard';
-import TrackEventAccordion from '../../shared/components/analytics/TrackEventAccordion';
-import SetupUserDetailsAccordion from '../../shared/components/analytics/SetupUserDetailsAccordion';
-import Notifyvisitors, { NotifyvisitorsNativeDisplay } from '../../../..';
 import ActionRow from '../../shared/components/ActionRow';
 import { useNotificationBadge } from '../../shared/store/NotificationBadgeContext';
-import SDKManager from '../../sdk/SDKManager';
 import {
   useNVGetEventSurveyInfo,
   useNVGetLinkInfo,
   useNVknownUserInfo,
 } from '../../shared/hooks/nvSDKHooks';
+import SectionCard from '../../shared/components/SectionCard';
+import { NotifyvisitorsNativeDisplay } from '../../../..';
+import { FeatureActionAccordion } from '../../shared/components/Accordion/FeatureActionAccordion';
 
 type Props = NativeStackScreenProps<
   ClientStackParamList,
@@ -137,25 +135,32 @@ const ClientFeatureActionScreen: React.FC<Props> = ({ route }) => {
 
   useEffect(() => {
     if (!nvGetLinkInfoData) return;
-    setResult(nvGetLinkInfoData);
+    setResult(nvGetLinkInfoData.payload);
     setResultTitle('Get Link Info Callback:');
     setVisible(true);
-  }, [nvGetLinkInfoData]);
+  }, [nvGetLinkInfoData?.eventId]);
 
   useEffect(() => {
     if (!nvKnownUserInfoData) return;
-    setResult(nvKnownUserInfoData);
+    setResult(nvKnownUserInfoData.payload);
     setResultTitle('Known User Info Callback:');
     setVisible(true);
-  }, [nvKnownUserInfoData]);
+  }, [nvKnownUserInfoData?.eventId]);
 
-  const executeAction = async <T,>(action: FeatureActionProps<T>) => {
+  const executeAction = async <T,>(
+    action: FeatureActionProps<T>,
+    options?: {
+      payload?: T;
+      executor?: (payload: T) => Promise<any> | void;
+    },
+  ) => {
     try {
       action.onBeforeExecute?.();
-      const schema = normalizeParams(action.params);
-      const payload = buildPayloadFromSchema(schema) as T;
+      const payload =
+        options?.payload ??
+        (buildPayloadFromSchema(normalizeParams(action.params)) as T);
 
-      const response = await action.execute?.(payload);
+      const response = await (options?.executor ?? action.execute)?.(payload);
 
       action.onAfterExecute?.(response);
       if (action.showResult && response !== undefined) {
@@ -166,7 +171,7 @@ const ClientFeatureActionScreen: React.FC<Props> = ({ route }) => {
       return response;
     } catch (e: any) {
       const errorResult = { status: 'failed', message: e.message };
-      setResult({ status: 'failed', message: e.message });
+      setResult(errorResult);
       setResultTitle('SDK Error');
       setVisible(true);
       return errorResult;
@@ -181,8 +186,77 @@ const ClientFeatureActionScreen: React.FC<Props> = ({ route }) => {
 
         <SectionHeader title="Actions" />
 
-        <ClientSectionCard>
+        <SectionCard>
           {actions.map(action => {
+            // ✅ Native Display
+            if (action.key === 'nativeDisplay') {
+              return (
+                <React.Fragment key={action.key}>
+                  <SectionHeader
+                    title={action.actionLabel || 'Native Display'}
+                  />
+
+                  <View style={styles.nativeDisplayContainer}>
+                    <NotifyvisitorsNativeDisplay
+                      propertyName="offers"
+                      style={styles.nativeView}
+                      onNudgeUiFinalized={(data: any) => {
+                        try {
+                          const parsedData = JSON.parse(data.response?.data);
+                          console.log('Native Display Size:', parsedData?.size);
+                        } catch (e) {
+                          console.log('Native Display parse error', e);
+                        }
+                      }}
+                    />
+                  </View>
+                </React.Fragment>
+              );
+            }
+
+            // ✅ NEW: Dynamic FeatureActionAccordion
+            if (action.inputParams) {
+              return (
+                <FeatureActionAccordion
+                  key={action.key}
+                  accordionId={`feature_${action.key}`}
+                  title={action.title}
+                  description={action.description}
+                  actionLabel={action.actionLabel}
+                  params={action.params}
+                  inputParams={action.inputParams}
+                  actionButtons={action.actionButtons}
+                  accordionDefaultExpanded={action.accordionDefaultExpanded}
+                  execute={payload => executeAction(action, { payload })}
+                  onExecuteActionButton={(executor, payload) =>
+                    executeAction(action, { payload, executor })
+                  }
+                  // execute={payload =>
+                  //   executeAction({ ...action, params: payload })
+                  // }
+                  // onExecute={payload => executeAction(action)}
+                />
+              );
+            }
+
+            // ✅ Default ActionRow
+            return (
+              <ActionRow
+                key={action.key}
+                title={action.title}
+                description={action.description}
+                actionLabel={action.actionLabel}
+                actionBadgeCount={
+                  action.key === 'getUnreadCountNotificationCenter'
+                    ? unreadCount
+                    : undefined
+                }
+                layout={action.layout}
+                execute={async () => executeAction(action)}
+              />
+            );
+          })}
+          {/* {actions.map(action => {
             // ✅ Track Custom Events
             if (action.key === 'trackCustomEvents') {
               return (
@@ -256,14 +330,14 @@ const ClientFeatureActionScreen: React.FC<Props> = ({ route }) => {
                 execute={async () => executeAction(action)}
               />
             );
-          })}
+          })} */}
 
           {actions.length === 0 && (
             <Text style={styles.emptyText}>
               No actions available for this feature.
             </Text>
           )}
-        </ClientSectionCard>
+        </SectionCard>
       </ScrollView>
 
       <ResultBottomSheet

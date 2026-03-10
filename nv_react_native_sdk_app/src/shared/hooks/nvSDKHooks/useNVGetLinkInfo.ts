@@ -10,7 +10,10 @@ export const useNVGetLinkInfo = (options?: { logOnly?: boolean }) => {
         console.log('[SDK getLinkInfo]', payload);
         return;
       }
-      setData(payload);
+      setData({
+        eventId: Date.now(),
+        payload,
+      });
     });
 
     return () => unsubscribe();

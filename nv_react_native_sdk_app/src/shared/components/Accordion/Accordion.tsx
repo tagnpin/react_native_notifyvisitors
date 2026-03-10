@@ -1,4 +1,4 @@
-// // src/shared/components/Accordion/Accordion.tsx
+// src/shared/components/Accordion/Accordion.tsx
 
 import React, { useState, useRef } from 'react';
 import {

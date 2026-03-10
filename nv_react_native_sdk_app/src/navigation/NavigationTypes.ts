@@ -30,14 +30,8 @@ export type ClientStackParamList = {
 export type QAStackParamList = {
   QAHome: undefined;
 
-  FeatureList: {
+  QAFeatureAction: {
     featureKey: string;
-    title?: string;
-  };
-
-  ActionDetail: {
-    featureKey: string;
-    actionKey: string;
     title?: string;
   };
 
@@ -52,4 +46,11 @@ export type QAStackParamList = {
   DeviceInfo: undefined;
 
   QATools: undefined;
+
+  QALinkLanding: {
+    page: 'about-us' | 'contact-us';
+    source: 'manual' | 'push_or_deeplink';
+    title?: string;
+    linkInfoJSON?: string;
+  };
 };

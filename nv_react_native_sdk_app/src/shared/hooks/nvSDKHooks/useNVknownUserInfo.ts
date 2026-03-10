@@ -10,7 +10,10 @@ export const useNVknownUserInfo = (options?: { logOnly?: boolean }) => {
         console.log('[SDK known user identified]', payload);
         return;
       }
-      setData(payload);
+      setData({
+        eventId: Date.now(),
+        payload,
+      });
     });
 
     return () => unsubscribe();

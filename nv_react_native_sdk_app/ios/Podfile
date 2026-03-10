@@ -36,5 +36,5 @@ end
 target 'notifyvisitorsServiceExtension' do
 #  inherit! :search_paths  # ✅ only inherits header search paths
 #  pod 'notifyvisitors'
-pod 'notifyvisitorsNotificationService'
+pod 'notifyvisitors'
 end

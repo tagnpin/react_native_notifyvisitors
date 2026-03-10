@@ -9,7 +9,6 @@ PODS:
     - hermes-engine/Pre-built (= 0.82.0)
   - hermes-engine/Pre-built (0.82.0)
   - notifyvisitors (7.3.3)
-  - notifyvisitorsNotificationService (1.0.0)
   - notifyvisitorsNudges (0.0.3)
   - RCT-Folly (2024.11.18.00):
     - boost
@@ -1813,7 +1812,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - react-native-notifyvisitors (4.6.3):
+  - react-native-notifyvisitors (4.7.0):
     - notifyvisitors (= 7.3.3)
     - notifyvisitorsNudges (= 0.0.3)
     - React (< 1.0.0, >= 0.13.0)
@@ -2686,7 +2685,7 @@ DEPENDENCIES:
   - fmt (from `../node_modules/react-native/third-party-podspecs/fmt.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - hermes-engine (from `../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec`)
-  - notifyvisitorsNotificationService
+  - notifyvisitors
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCTDeprecation (from `../node_modules/react-native/ReactApple/Libraries/RCTFoundation/RCTDeprecation`)
   - RCTRequired (from `../node_modules/react-native/Libraries/Required`)
@@ -2770,7 +2769,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - notifyvisitors
-    - notifyvisitorsNotificationService
     - notifyvisitorsNudges
     - SocketRocket
 
@@ -2954,7 +2952,6 @@ SPEC CHECKSUMS:
   glog: 5683914934d5b6e4240e497e0f4a3b42d1854183
   hermes-engine: 8642d8f14a548ab718ec112e9bebdfdd154138b5
   notifyvisitors: 2d95d5ad1014efafbf611ed68b0675795bcb026e
-  notifyvisitorsNotificationService: ef0ac1d14d3c3b168eec98d9aa1bff14f592e6a2
   notifyvisitorsNudges: 5d1d931d1c09107a0fa5d7cfc388ee3cc2e68cf2
   RCT-Folly: 846fda9475e61ec7bcbf8a3fe81edfcaeb090669
   RCTDeprecation: 22bf66112da540a7d40e536366ddd8557934fca1
@@ -2990,7 +2987,7 @@ SPEC CHECKSUMS:
   React-Mapbuffer: 499069c3dcd4b438a70fcc2a65e8a4185ea9170b
   React-microtasksnativemodule: f0238469cb9894fd18c419137d312665b8fc05b3
   react-native-get-random-values: e2acf4070fe4b7325705a05af047449637a27a21
-  react-native-notifyvisitors: b2b1432459cd17a0a25032df50db67609e29f3ba
+  react-native-notifyvisitors: 62bae9a3b4c499e31d4ddcb4505c840aef1235b7
   react-native-safe-area-context: c00143b4823773bba23f2f19f85663ae89ceb460
   React-NativeModulesApple: 628df250681ccb569bd203494ed5187269580d6f
   React-oscompat: 80ca388c4831481cd03a6b45ecfc82739ca9a95e
@@ -3035,6 +3032,6 @@ SPEC CHECKSUMS:
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: edeb9900b9e5bb5b27b9a6a2d5914e4fe4033c1b
 
-PODFILE CHECKSUM: aee67234e4d011ede07d3674163d97b5de90a938
+PODFILE CHECKSUM: a9d0f00f2624980d52f2000ec5c295456eba5897
 
 COCOAPODS: 1.16.2

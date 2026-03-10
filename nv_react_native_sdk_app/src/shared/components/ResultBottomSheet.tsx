@@ -11,6 +11,7 @@ import {
   useWindowDimensions,
   Platform,
 } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { theme } from '../styles/theme';
 import { useCopyToClipboard } from '../hooks/useCopyToClipboard';
 import { normalizeJSON } from '../utils/normalizeJSON';
@@ -29,32 +30,70 @@ const ResultBottomSheet: React.FC<Props> = ({
   onClose,
 }) => {
   const { height } = useWindowDimensions();
+  const insets = useSafeAreaInsets();
   const copy = useCopyToClipboard();
   // const formatted = JSON.stringify(result, null, 2);
   const [copied, setCopied] = useState(false);
   const normalizedResult = normalizeJSON(result);
-  const formattedJSON =
-    typeof normalizedResult === 'string'
-      ? normalizedResult
-      : JSON.stringify(normalizedResult, null, 2);
+  const getFormattedJSON = (value: any): string => {
+    if (typeof value === 'string') return value;
+    const seen = new WeakSet<object>();
+    try {
+      return JSON.stringify(
+        value,
+        (_key, currentValue) => {
+          if (typeof currentValue === 'bigint') {
+            return currentValue.toString();
+          }
+          if (typeof currentValue === 'function') {
+            return '[Function]';
+          }
+          if (typeof currentValue === 'symbol') {
+            return currentValue.toString();
+          }
+          if (currentValue && typeof currentValue === 'object') {
+            if (seen.has(currentValue)) return '[Circular]';
+            seen.add(currentValue);
+          }
+          return currentValue;
+        },
+        2,
+      );
+    } catch {
+      try {
+        return String(value);
+      } catch {
+        return '[Unserializable Result]';
+      }
+    }
+  };
+  const formattedJSON = getFormattedJSON(normalizedResult);
 
-  const maxHeight = Math.min(height * 0.85, 640);
+  const maxHeight = Math.min(height * 0.88, 700);
+  const footerInset = Math.max(insets.bottom, theme.spacing.sm);
 
   return (
     <Modal visible={visible} animationType="slide" transparent>
       <View style={styles.overlay}>
-        <View style={[styles.sheet, { maxHeight }]}>
+        <View style={[styles.sheet, { height: maxHeight, paddingBottom: footerInset }]}>
           <View style={styles.handle} />
 
           <Text style={styles.title}>{title}</Text>
 
-          {/* CONTENT — FIXED */}
+          {/* CONTENT */}
           <View style={styles.content}>
             <ScrollView
+              style={styles.verticalScroll}
               showsVerticalScrollIndicator
               contentContainerStyle={styles.verticalContent}
+              bounces={false}
+              nestedScrollEnabled
             >
-              <ScrollView horizontal showsHorizontalScrollIndicator>
+              <ScrollView
+                horizontal
+                style={styles.horizontalScroll}
+                showsHorizontalScrollIndicator
+              >
                 <Text selectable style={styles.json}>
                   {formattedJSON}
                 </Text>
@@ -99,8 +138,6 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: theme.radius.lg,
     borderTopRightRadius: theme.radius.lg,
     paddingHorizontal: theme.spacing.lg,
-    paddingBottom: theme.spacing.lg,
-    flexGrow: 0,
   },
 
   handle: {
@@ -119,11 +156,12 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.md,
   },
   content: {
-    flexGrow: 1, // ✅ not flex:1
-    minHeight: 0, // ✅ REQUIRED for Android ScrollView
+    flex: 1,
+    minHeight: 0,
     backgroundColor: theme.colors.surface ?? '#F9FAFB',
     borderRadius: theme.radius.sm,
     padding: theme.spacing.sm,
+    marginBottom: theme.spacing.md,
   },
 
   contentContainer: {
@@ -131,7 +169,13 @@ const styles = StyleSheet.create({
   },
 
   verticalContent: {
-    paddingBottom: theme.spacing.md,
+    paddingBottom: theme.spacing.xl,
+  },
+  verticalScroll: {
+    flex: 1,
+  },
+  horizontalScroll: {
+    flexGrow: 0,
   },
   json: {
     fontFamily: Platform.select({
@@ -146,6 +190,7 @@ const styles = StyleSheet.create({
   actions: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     paddingTop: theme.spacing.md,
     borderTopWidth: 1,
     borderColor: theme.colors.border,

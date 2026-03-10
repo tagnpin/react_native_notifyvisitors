@@ -18,7 +18,10 @@ class NotificationService: UNNotificationServiceExtension {
         
         if let bestAttemptContent = bestAttemptContent {
             // Modify the notification content here...
-          notifyvisitorsNotificationService.didReceive(request, withBestAttempt: bestAttemptContent, withContentHandler: self.contentHandler)
+//          bestAttemptContent.title = "\(bestAttemptContent.title) [modified]"
+//          contentHandler(bestAttemptContent)
+          notifyvisitors.loadAttachment(with: request, bestAttempt: bestAttemptContent, withContentHandler: contentHandler)
+//          notifyvisitorsNotificationService.didReceive(request, withBestAttempt: bestAttemptContent, withContentHandler: self.contentHandler)
         }
     }
     
@@ -26,7 +29,8 @@ class NotificationService: UNNotificationServiceExtension {
         // Called just before the extension will be terminated by the system.
         // Use this as an opportunity to deliver your "best attempt" at modified content, otherwise the original push payload will be used.
         if let contentHandler = contentHandler, let bestAttemptContent =  bestAttemptContent {
-          notifyvisitorsNotificationService.serviceExtensionTimeWillExpire()
+          contentHandler(bestAttemptContent)
+//          notifyvisitorsNotificationService.serviceExtensionTimeWillExpire()
         }
     }
 
