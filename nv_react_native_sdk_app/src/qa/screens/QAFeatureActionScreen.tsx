@@ -12,7 +12,7 @@ import {
   useNVknownUserInfo,
 } from '../../shared/hooks/nvSDKHooks';
 import { FeatureActionProps } from '../../shared/types/actions';
-import { filterActionsByPlatform } from '../../shared/utils/platformActionFilter';
+import { filterActionsByPlatform } from '../../shared/utils/platformUtils';
 import {
   qaTrackEventActions,
   qaUserPropertyActions,
@@ -21,8 +21,8 @@ import {
   qaPushActions,
   qaNotificationCenterActions,
 } from '../features/allQAFeatureActions';
-import { normalizeParams } from '../../shared/utils/normalizeParams';
-import { buildPayloadFromSchema } from '../../shared/utils/buildPayload';
+import { normalizeParams } from '../../shared/utils/normalizeUtils';
+import { buildPayloadFromSchema } from '../../shared/utils/payloadUtils';
 import SectionHeader from '../../shared/components/SectionHeader';
 import SectionCard from '../../shared/components/SectionCard';
 import { FeatureActionAccordion } from '../../shared/components/Accordion/FeatureActionAccordion';

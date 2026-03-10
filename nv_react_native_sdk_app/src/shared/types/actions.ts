@@ -16,9 +16,6 @@ export type FeatureActionProps<TPayload = Record<string, any>> = {
   description?: string;
 
   /** Parameters expected by SDK method */
-  //fields?: ActionField[]; // 👈 NEW (instead of params)
-  // params?: Record<string, ParamSchema>;
-  //params?: Record<keyof TPayload, ParamSchema>;
   params?: ParamsDefinition<TPayload>;
   inputParams?: ParamsDefinition<TPayload>;
   onParamChange?: (param: Record<string, ParamSchema>) => void;

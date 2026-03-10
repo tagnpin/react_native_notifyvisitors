@@ -5,14 +5,33 @@ on:
   push:
     branches: [stage]
     paths:
-      - "react_native_notifyvisitors/android/**"
-      - "react_native_notifyvisitors/nv_react_native_sdk_app/android/**"
-      - "react_native_notifyvisitors/nv_react_native_sdk_app/src/**"
-      - "react_native_notifyvisitors/nv_react_native_sdk_app/package.json"
-      - "react_native_notifyvisitors/nv_react_native_sdk_app/package-lock.json"
-      - "react_native_notifyvisitors/nv_react_native_sdk_app/app.json"
-      - "react_native_notifyvisitors/nv_react_native_sdk_app/index.js"
+      # Plugin Android native code
+      - "android/**"
+
+      # Example app Android
+      - "nv_react_native_sdk_app/android/**"
+
+      # JS affecting Android bundle
+      - "nv_react_native_sdk_app/src/**"
+      - "nv_react_native_sdk_app/index.js"
+
+      # Dependency changes
+      - "nv_react_native_sdk_app/package.json"
+      - "nv_react_native_sdk_app/package-lock.json"
+      - "nv_react_native_sdk_app/app.json"
+
+      # Workflow changes
       - ".github/workflows/android.yml"
+
+      ### OLD Paths (Given by Neeraj)
+      # - "react_native_notifyvisitors/android/**"
+      # - "react_native_notifyvisitors/nv_react_native_sdk_app/android/**"
+      # - "react_native_notifyvisitors/nv_react_native_sdk_app/src/**"
+      # - "react_native_notifyvisitors/nv_react_native_sdk_app/package.json"
+      # - "react_native_notifyvisitors/nv_react_native_sdk_app/package-lock.json"
+      # - "react_native_notifyvisitors/nv_react_native_sdk_app/app.json"
+      # - "react_native_notifyvisitors/nv_react_native_sdk_app/index.js"
+      # - ".github/workflows/android.yml"
 
 jobs:
   build-android:

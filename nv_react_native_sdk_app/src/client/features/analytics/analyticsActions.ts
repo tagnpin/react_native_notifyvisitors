@@ -2,7 +2,7 @@
 
 import SDKManager from '../../../sdk/SDKManager';
 import { FeatureActionProps } from '../../../shared/types/actions';
-import { CURRENT_PLATFORM } from '../../../shared/utils/platform';
+import { CURRENT_PLATFORM } from '../../../shared/utils/platformUtils';
 
 type TrackEventPayload = {
   eventName: string;

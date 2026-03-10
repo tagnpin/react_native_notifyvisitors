@@ -1,7 +1,4 @@
-// import { InputParameter, InputType } from '../../../shared/types/InputTypes';
-import SDKManager from '../../../sdk/SDKManager';
 import { FeatureActionProps } from '../../../shared/types/actions';
-// import { NVActionProps } from '../../../shared/utils/types';
 
 export const inAppNudgesActions: FeatureActionProps[] = [
   {

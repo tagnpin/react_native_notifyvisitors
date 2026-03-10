@@ -1,6 +1,6 @@
 // src/qa/inputs/PresetsStorage.ts
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { InputParameter } from '../../shared/types/InputTypes';
+import { InputParameter } from '../inputs/InputTypes';
 
 const PRESETS_KEY = 'INPUT_PLAYGROUND_PRESETS';
 

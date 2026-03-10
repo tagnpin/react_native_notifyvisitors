@@ -1,4 +1,26 @@
-// src/shared/utils/validatePayload.ts
+// src/shared/utils/payloadUtils.ts
+
+import { ParamSchema } from '../types/params';
+
+const buildPayloadFromSchema = (
+  schema: Record<string, ParamSchema>,
+): Record<string, any> => {
+  const payload: Record<string, any> = {};
+
+  Object.entries(schema).forEach(([key, def]) => {
+    let value = def.default;
+
+    if (def.type === 'json' || def.type === 'array') {
+      if (typeof value === 'string') {
+        value = JSON.parse(value);
+      }
+    }
+    validateNativeSafePayload(payload);
+    payload[key] = value;
+  });
+
+  return payload;
+};
 
 const validateNativeSafePayload = (payload: Record<string, any>) => {
   for (const [key, value] of Object.entries(payload)) {
@@ -28,4 +50,9 @@ const assertPlainObject = (value: any, fieldName: string) => {
   }
 };
 
-export { validateNativeSafePayload, assertNonEmptyString, assertPlainObject };
+export {
+  buildPayloadFromSchema,
+  validateNativeSafePayload,
+  assertNonEmptyString,
+  assertPlainObject,
+};

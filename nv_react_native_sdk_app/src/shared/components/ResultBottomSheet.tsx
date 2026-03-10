@@ -14,7 +14,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { theme } from '../styles/theme';
 import { useCopyToClipboard } from '../hooks/useCopyToClipboard';
-import { normalizeJSON } from '../utils/normalizeJSON';
+import { normalizeJSON } from '../utils/normalizeUtils';
 
 type Props = {
   visible: boolean;
@@ -34,6 +34,7 @@ const ResultBottomSheet: React.FC<Props> = ({
   const copy = useCopyToClipboard();
   // const formatted = JSON.stringify(result, null, 2);
   const [copied, setCopied] = useState(false);
+  const [footerHeight, setFooterHeight] = useState(0);
   const normalizedResult = normalizeJSON(result);
   const getFormattedJSON = (value: any): string => {
     if (typeof value === 'string') return value;
@@ -69,13 +70,13 @@ const ResultBottomSheet: React.FC<Props> = ({
   };
   const formattedJSON = getFormattedJSON(normalizedResult);
 
-  const maxHeight = Math.min(height * 0.88, 700);
+  const maxHeight = Math.min(height * 0.9, 720);
   const footerInset = Math.max(insets.bottom, theme.spacing.sm);
 
   return (
     <Modal visible={visible} animationType="slide" transparent>
       <View style={styles.overlay}>
-        <View style={[styles.sheet, { height: maxHeight, paddingBottom: footerInset }]}>
+        <View style={[styles.sheet, { height: maxHeight }]}>
           <View style={styles.handle} />
 
           <Text style={styles.title}>{title}</Text>
@@ -85,7 +86,10 @@ const ResultBottomSheet: React.FC<Props> = ({
             <ScrollView
               style={styles.verticalScroll}
               showsVerticalScrollIndicator
-              contentContainerStyle={styles.verticalContent}
+              contentContainerStyle={[
+                styles.verticalContent,
+                { paddingBottom: footerHeight + footerInset },
+              ]}
               bounces={false}
               nestedScrollEnabled
             >
@@ -102,7 +106,10 @@ const ResultBottomSheet: React.FC<Props> = ({
           </View>
 
           {/* ACTIONS */}
-          <View style={styles.actions}>
+          <View
+            style={[styles.actions, { paddingBottom: footerInset }]}
+            onLayout={event => setFooterHeight(event.nativeEvent.layout.height)}
+          >
             <Pressable onPress={onClose}>
               <Text style={styles.secondaryAction}>Close</Text>
             </Pressable>
@@ -138,6 +145,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: theme.radius.lg,
     borderTopRightRadius: theme.radius.lg,
     paddingHorizontal: theme.spacing.lg,
+    paddingTop: theme.spacing.sm,
   },
 
   handle: {
