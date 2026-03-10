@@ -24,16 +24,39 @@ import { DeviceInfo } from '../../sdk/SDKTypes';
 import SDKManager from '../../sdk/SDKManager';
 import SectionCard from '../../shared/components/SectionCard';
 import DeviceInfoCard from '../../shared/components/DeviceInfoCard';
-import Notifyvisitors, { PushPromptInfo } from '../../../..';
+import { useNVGetLinkInfo } from '../../shared/hooks/nvSDKHooks';
+import { resolveQALinkPage, toSafeJSON } from '../../qa/utils/qaLinkRouting';
 
 type Props = NativeStackScreenProps<ClientStackParamList, 'ClientHome'>;
 
 const ClientHomeScreen: React.FC<Props> = ({ navigation }) => {
   const qa = useQAToggle();
-  const [deviceInfo, setDeviceInfo] = useState<DeviceInfo | null>(null);
+  const [_deviceInfo, setDeviceInfo] = useState<DeviceInfo | null>(null);
+  const nvGetLinkInfoData = useNVGetLinkInfo();
 
   useEffect(() => {
     SDKManager.getDeviceInfo().then(setDeviceInfo);
+  }, []);
+
+  useEffect(() => {
+    if (!nvGetLinkInfoData) return;
+    const linkPayload = nvGetLinkInfoData.payload;
+    const page = resolveQALinkPage(linkPayload);
+    if (!page) return;
+
+    navigation.navigate('ClientLinkLanding', {
+      page,
+      source: 'push_or_deeplink',
+      title: page === 'about-us' ? 'About Us' : 'Contact Us',
+      linkInfoJSON: toSafeJSON(linkPayload),
+    });
+  }, [nvGetLinkInfoData, navigation]);
+
+  useEffect(() => {
+    console.log('ask the permission for push');
+    const result = SDKManager.androidPushPermissionPrompt();
+    console.log('push permission response = ', result);
+    // SDKManager.getDeviceInfo().then(setDeviceInfo);
   }, []);
 
   const openFeatureAction = (featureKey: string, title: string) => {

@@ -10,6 +10,13 @@ export type RootStackParamList = {
   QA: undefined;
 };
 
+export type LinkLandingParams = {
+  page: 'about-us' | 'contact-us';
+  source: 'manual' | 'push_or_deeplink';
+  title?: string;
+  linkInfoJSON?: string;
+};
+
 /**
  * Client Reference navigation
  * Safe for clients to read & copy.
@@ -21,6 +28,8 @@ export type ClientStackParamList = {
     featureKey: string;
     title?: string;
   };
+
+  ClientLinkLanding: LinkLandingParams;
 };
 
 /**
@@ -47,10 +56,5 @@ export type QAStackParamList = {
 
   QATools: undefined;
 
-  QALinkLanding: {
-    page: 'about-us' | 'contact-us';
-    source: 'manual' | 'push_or_deeplink';
-    title?: string;
-    linkInfoJSON?: string;
-  };
+  QALinkLanding: LinkLandingParams;
 };

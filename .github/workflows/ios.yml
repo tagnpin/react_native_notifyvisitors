@@ -4,13 +4,30 @@ on:
   push:
     branches: [stage]
     paths:
-      - "react_native_notifyvisitors/ios/**"
-      - "react_native_notifyvisitors/nv_react_native_sdk_app/ios/**"
-      - "react_native_notifyvisitors/nv_react_native_sdk_app/src/**"
-      - "react_native_notifyvisitors/nv_react_native_sdk_app/package.json"
-      - "react_native_notifyvisitors/nv_react_native_sdk_app/package-lock.json"
-      - "react_native_notifyvisitors/pf_ios/**"
+      # Plugin native iOS changes
+      - "ios/**"
+      - "pf_ios/**"
+      - "react-native-notifyvisitors.podspec"
+
+      # Example app iOS
+      - "nv_react_native_sdk_app/ios/**"
+
+      # JS affecting iOS
+      - "nv_react_native_sdk_app/src/**"
+      - "nv_react_native_sdk_app/package.json"
+      - "nv_react_native_sdk_app/package-lock.json"
+
+      # Workflow edits
       - ".github/workflows/ios.yml"
+
+      ### OLD Paths (Given by Neeraj)
+      # - "react_native_notifyvisitors/ios/**"
+      # - "react_native_notifyvisitors/nv_react_native_sdk_app/ios/**"
+      # - "react_native_notifyvisitors/nv_react_native_sdk_app/src/**"
+      # - "react_native_notifyvisitors/nv_react_native_sdk_app/package.json"
+      # - "react_native_notifyvisitors/nv_react_native_sdk_app/package-lock.json"
+      # - "react_native_notifyvisitors/pf_ios/**"
+      # - ".github/workflows/ios.yml"
 
 defaults:
   run:

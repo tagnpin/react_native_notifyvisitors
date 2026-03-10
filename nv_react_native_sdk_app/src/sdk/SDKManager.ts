@@ -7,7 +7,7 @@ import { DeviceInfo } from './SDKTypes';
 import Notifyvisitors, { PushPromptInfo } from '../../..';
 import { theme } from '../shared/styles/theme';
 import { SDKCallbackEvents } from './events/SDKCallbackEvents';
-import { getPlatformName } from '../shared/utils/platform';
+import { getPlatformName } from '../shared/utils/platformUtils';
 import { version as SDK_VERSION } from '../../../package.json';
 
 /**
@@ -254,17 +254,17 @@ class SDKManager {
     design.titleTextColor = theme.colors.textPrimary;
     design.description = 'Enable Push Notifications on Your Device !!';
     design.descriptionTextColor = theme.colors.textSecondary;
-    design.backgroundColor = theme.colors.card;
+    design.backgroundColor = theme.colors.background;
     design.buttonOneBorderColor = theme.colors.success;
-    design.buttonOneBackgroundColor = theme.colors.success;
-    design.buttonOneBorderRadius = '6';
+    design.buttonOneBackgroundColor = theme.colors.primary;
+    design.buttonOneBorderRadius = '16';
     design.buttonOneText = 'Allow';
-    design.buttonOneTextColor = theme.colors.textPrimary;
+    design.buttonOneTextColor = theme.colors.primaryText;
     design.buttonTwoText = 'Cancel';
-    design.buttonTwoTextColor = theme.colors.textSecondary;
+    design.buttonTwoTextColor = theme.colors.primaryText;
     design.buttonTwoBackgroundColor = theme.colors.danger;
     design.buttonTwoBorderColor = theme.colors.danger;
-    design.buttonTwoBorderRadius = '6';
+    design.buttonTwoBorderRadius = '16';
     design.numberOfSessions = '3';
     design.resumeInDays = '1';
     design.numberOfTimesPerSession = '6';
@@ -582,8 +582,11 @@ class SDKManager {
     return SDKCallbackEvents.nvEventSurvey.subscribe(listener);
   }
 
-  static getLinkInfo(listener: (data: any) => void) {
-    return SDKCallbackEvents.nvLinkInfo.subscribe(listener);
+  static getLinkInfo(
+    listener: (data: any) => void,
+    options?: { replayLast?: boolean; consumeLast?: boolean },
+  ) {
+    return SDKCallbackEvents.nvLinkInfo.subscribe(listener, options);
   }
 
   static knownUserIdentified(listener: (data: any) => void) {

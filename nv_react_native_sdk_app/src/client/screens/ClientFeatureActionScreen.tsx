@@ -5,7 +5,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { ClientStackParamList } from '../../navigation/NavigationTypes';
 import { FeatureActionProps } from '../../shared/types/actions';
-import { filterActionsByPlatform } from '../../shared/utils/platformActionFilter';
+import { filterActionsByPlatform } from '../../shared/utils/platformUtils';
 import {
   inAppMessageActions,
   inAppNudgesActions,
@@ -14,8 +14,8 @@ import {
   trackEventActions,
   userPropertyActions,
 } from '../features/allFeatureActions';
-import { normalizeParams } from '../../shared/utils/normalizeParams';
-import { buildPayloadFromSchema } from '../../shared/utils/buildPayload';
+import { normalizeParams } from '../../shared/utils/normalizeUtils';
+import { buildPayloadFromSchema } from '../../shared/utils/payloadUtils';
 import { theme } from '../../shared/styles/theme';
 import ResultBottomSheet from '../../shared/components/ResultBottomSheet';
 import SectionHeader from '../../shared/components/SectionHeader';

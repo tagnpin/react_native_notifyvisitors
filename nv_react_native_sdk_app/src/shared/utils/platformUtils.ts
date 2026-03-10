@@ -1,7 +1,18 @@
-// src/shared/utils/platformActionFilter.ts
+// src/shared/utils/platformUtils.ts
 
+import { Platform } from 'react-native';
 import { FeatureActionProps } from '../types/actions';
-import { CURRENT_PLATFORM } from './platform';
+
+export type NativePlatform = 'ios' | 'android';
+
+export const getPlatformName = (): NativePlatform =>
+  Platform.OS === 'android' ? 'android' : 'ios';
+
+export const CURRENT_PLATFORM = getPlatformName();
+
+export const isAndroid = (): boolean => CURRENT_PLATFORM === 'android';
+
+export const isIOS = (): boolean => CURRENT_PLATFORM === 'ios';
 
 export const filterActionsByPlatform = (
   actions: FeatureActionProps[],

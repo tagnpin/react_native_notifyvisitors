@@ -15,9 +15,9 @@ import {
 
 import Accordion from './Accordion';
 import { FeatureActionProps } from '../../types/actions';
-import { normalizeParams } from '../../utils/normalizeParams';
-import { parseParam } from '../../utils/parseParam';
-import { validateNativeSafePayload } from '../../utils/validatePayload';
+import { normalizeParams } from '../../utils/normalizeUtils';
+import { parseParam } from '../../utils/paramUtils';
+import { validateNativeSafePayload } from '../../utils/payloadUtils';
 import { theme } from '../../styles/theme';
 
 type Props = Omit<FeatureActionProps, 'key'> & {

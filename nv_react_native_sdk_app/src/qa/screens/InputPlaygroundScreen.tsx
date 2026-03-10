@@ -12,7 +12,7 @@ import ActionButton from '../../shared/components/ActionButton';
 import SectionHeader from '../../shared/components/SectionHeader';
 import SDKManager from '../../sdk/SDKManager';
 import DebugLogger from '../../debug/DebugLogger';
-import { parseParam } from '../../shared/utils/parseParam';
+import { parseParam } from '../../shared/utils/paramUtils';
 
 const InputPlaygroundScreen = () => {
   const [params, setParams] = useState<RuntimeParam[]>([
