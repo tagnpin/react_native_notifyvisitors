@@ -7,8 +7,7 @@ import { QAStackParamList } from './NavigationTypes';
 
 // QA Screens
 import QAHomeScreen from '../qa/screens/QAHomeScreen';
-import FeatureActionScreen from '../qa/screens/FeatureActionScreen';
-import ActionDetailScreen from '../qa/screens/ActionDetailScreen';
+
 import InputPlaygroundScreen from '../qa/screens/InputPlaygroundScreen';
 import DeviceInfoScreen from '../qa/screens/DeviceInfoScreen';
 import QAToolsScreen from '../qa/screens/QAToolsScreen';
@@ -16,6 +15,8 @@ import QAToolsScreen from '../qa/screens/QAToolsScreen';
 // Debug Screens
 import DebugLogListScreen from '../debug/screens/DebugLogListScreen';
 import DebugLogDetailScreen from '../debug/screens/DebugLogDetailScreen';
+import QAFeatureActionScreen from '../qa/screens/QAFeatureActionScreen';
+import QALinkLandingScreen from '../qa/screens/QALinkLandingScreen';
 
 const Stack = createNativeStackNavigator<QAStackParamList>();
 
@@ -37,18 +38,10 @@ const QANavigator = () => {
       />
 
       <Stack.Screen
-        name="FeatureList"
-        component={FeatureActionScreen}
+        name="QAFeatureAction"
+        component={QAFeatureActionScreen}
         options={({ route }) => ({
-          title: route.params?.title ?? 'Feature',
-        })}
-      />
-
-      <Stack.Screen
-        name="ActionDetail"
-        component={ActionDetailScreen}
-        options={({ route }) => ({
-          title: route.params?.title ?? 'Action',
+          title: route.params?.title ?? 'QA Action',
         })}
       />
 
@@ -90,6 +83,13 @@ const QANavigator = () => {
         options={{
           title: 'QA Utilities',
         }}
+      />
+      <Stack.Screen
+        name="QALinkLanding"
+        component={QALinkLandingScreen}
+        options={({ route }) => ({
+          title: route.params?.title ?? 'Landing Page',
+        })}
       />
     </Stack.Navigator>
   );

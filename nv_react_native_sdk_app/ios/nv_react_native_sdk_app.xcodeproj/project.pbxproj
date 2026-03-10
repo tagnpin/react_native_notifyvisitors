@@ -12,11 +12,13 @@
 		3534E6112F04FCAE005B7708 /* nvRNAppConfig.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3534E6102F04FCAE005B7708 /* nvRNAppConfig.debug.xcconfig */; };
 		3534E6132F04FCF5005B7708 /* nvRNAppConfig.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3534E6122F04FCF5005B7708 /* nvRNAppConfig.release.xcconfig */; };
 		3534E6152F04FD9E005B7708 /* nvSecrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3534E6142F04FD9E005B7708 /* nvSecrets.xcconfig */; };
+		354DDD982F5FD70900C2EF91 /* NVSDKConfigModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354DDD972F5FD70900C2EF91 /* NVSDKConfigModule.swift */; };
+		354DDD9A2F5FD85B00C2EF91 /* NVSDKConfigModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 354DDD992F5FD85B00C2EF91 /* NVSDKConfigModule.m */; };
 		3559C2132F050F0500EC14F6 /* notifyvisitorsServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3559C20C2F050F0500EC14F6 /* notifyvisitorsServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3559C21D2F05103A00EC14F6 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3559C21A2F05103A00EC14F6 /* NotificationService.swift */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		85F23DEE62F07A81A25AD6DB /* libPods-notifyvisitorsServiceExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF4DDAF91063B00AA673F89 /* libPods-notifyvisitorsServiceExtension.a */; };
+		AB16722F1A78F00A3AC746F8 /* libPods-notifyvisitorsServiceExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 125841BAE2E1BF0B4ED41350 /* libPods-notifyvisitorsServiceExtension.a */; };
 		B71E51D044013564E6D2BA27 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		000A435544C453315E48B1CD /* Pods-notifyvisitorsServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-notifyvisitorsServiceExtension.release.xcconfig"; path = "Target Support Files/Pods-notifyvisitorsServiceExtension/Pods-notifyvisitorsServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
+		125841BAE2E1BF0B4ED41350 /* libPods-notifyvisitorsServiceExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-notifyvisitorsServiceExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* nv_react_native_sdk_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nv_react_native_sdk_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = nv_react_native_sdk_app/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = nv_react_native_sdk_app/Info.plist; sourceTree = "<group>"; };
@@ -54,6 +58,9 @@
 		3534E6122F04FCF5005B7708 /* nvRNAppConfig.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = nvRNAppConfig.release.xcconfig; path = nv_react_native_sdk_app/nvRNAppConfig.release.xcconfig; sourceTree = "<group>"; };
 		3534E6142F04FD9E005B7708 /* nvSecrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = nvSecrets.xcconfig; path = nv_react_native_sdk_app/nvSecrets.xcconfig; sourceTree = "<group>"; };
 		3534E6162F050A73005B7708 /* nv_react_native_sdk_app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = nv_react_native_sdk_app.entitlements; path = nv_react_native_sdk_app/nv_react_native_sdk_app.entitlements; sourceTree = "<group>"; };
+		354DDD972F5FD70900C2EF91 /* NVSDKConfigModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NVSDKConfigModule.swift; sourceTree = "<group>"; };
+		354DDD992F5FD85B00C2EF91 /* NVSDKConfigModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVSDKConfigModule.m; sourceTree = "<group>"; };
+		35551F4C2F5EE40D0087F884 /* nv_react_native_sdk_appRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = nv_react_native_sdk_appRelease.entitlements; path = nv_react_native_sdk_app/nv_react_native_sdk_appRelease.entitlements; sourceTree = "<group>"; };
 		3559C20C2F050F0500EC14F6 /* notifyvisitorsServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = notifyvisitorsServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3559C2192F05103A00EC14F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3559C21A2F05103A00EC14F6 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
@@ -62,11 +69,9 @@
 		3B4392A12AC88292D35C810B /* Pods-nv_react_native_sdk_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nv_react_native_sdk_app.debug.xcconfig"; path = "Target Support Files/Pods-nv_react_native_sdk_app/Pods-nv_react_native_sdk_app.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-nv_react_native_sdk_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nv_react_native_sdk_app.release.xcconfig"; path = "Target Support Files/Pods-nv_react_native_sdk_app/Pods-nv_react_native_sdk_app.release.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-nv_react_native_sdk_app.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-nv_react_native_sdk_app.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		701A67188294B174A387F612 /* Pods-notifyvisitorsServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-notifyvisitorsServiceExtension.release.xcconfig"; path = "Target Support Files/Pods-notifyvisitorsServiceExtension/Pods-notifyvisitorsServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = nv_react_native_sdk_app/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = nv_react_native_sdk_app/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8C1D7B58910D9477C675155B /* Pods-notifyvisitorsServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-notifyvisitorsServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-notifyvisitorsServiceExtension/Pods-notifyvisitorsServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
-		EBF4DDAF91063B00AA673F89 /* libPods-notifyvisitorsServiceExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-notifyvisitorsServiceExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB7CC75D94069F3948F853FC /* Pods-notifyvisitorsServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-notifyvisitorsServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-notifyvisitorsServiceExtension/Pods-notifyvisitorsServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -83,7 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85F23DEE62F07A81A25AD6DB /* libPods-notifyvisitorsServiceExtension.a in Frameworks */,
+				AB16722F1A78F00A3AC746F8 /* libPods-notifyvisitorsServiceExtension.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,13 +98,16 @@
 		13B07FAE1A68108700A75B9A /* nv_react_native_sdk_app */ = {
 			isa = PBXGroup;
 			children = (
+				35551F4C2F5EE40D0087F884 /* nv_react_native_sdk_appRelease.entitlements */,
 				3534E6162F050A73005B7708 /* nv_react_native_sdk_app.entitlements */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				761780EC2CA45674006654EE /* AppDelegate.swift */,
+				354DDD972F5FD70900C2EF91 /* NVSDKConfigModule.swift */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 				3534E60A2F04F38C005B7708 /* nv_react_native_sdk_app-Bridging-Header.h */,
+				354DDD992F5FD85B00C2EF91 /* NVSDKConfigModule.m */,
 				3534E6142F04FD9E005B7708 /* nvSecrets.xcconfig */,
 				3534E6102F04FCAE005B7708 /* nvRNAppConfig.debug.xcconfig */,
 				3534E6122F04FCF5005B7708 /* nvRNAppConfig.release.xcconfig */,
@@ -112,7 +120,7 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				5DCACB8F33CDC322A6C60F78 /* libPods-nv_react_native_sdk_app.a */,
-				EBF4DDAF91063B00AA673F89 /* libPods-notifyvisitorsServiceExtension.a */,
+				125841BAE2E1BF0B4ED41350 /* libPods-notifyvisitorsServiceExtension.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -164,8 +172,8 @@
 			children = (
 				3B4392A12AC88292D35C810B /* Pods-nv_react_native_sdk_app.debug.xcconfig */,
 				5709B34CF0A7D63546082F79 /* Pods-nv_react_native_sdk_app.release.xcconfig */,
-				8C1D7B58910D9477C675155B /* Pods-notifyvisitorsServiceExtension.debug.xcconfig */,
-				701A67188294B174A387F612 /* Pods-notifyvisitorsServiceExtension.release.xcconfig */,
+				AB7CC75D94069F3948F853FC /* Pods-notifyvisitorsServiceExtension.debug.xcconfig */,
+				000A435544C453315E48B1CD /* Pods-notifyvisitorsServiceExtension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -200,7 +208,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3559C2152F050F0500EC14F6 /* Build configuration list for PBXNativeTarget "notifyvisitorsServiceExtension" */;
 			buildPhases = (
-				058AB5998FAFD2AA47DABD4F /* [CP] Check Pods Manifest.lock */,
+				100B021287667A26E751CA60 /* [CP] Check Pods Manifest.lock */,
 				3559C2082F050F0500EC14F6 /* Sources */,
 				3559C2092F050F0500EC14F6 /* Frameworks */,
 				3559C20A2F050F0500EC14F6 /* Resources */,
@@ -308,7 +316,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-nv_react_native_sdk_app/Pods-nv_react_native_sdk_app-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		058AB5998FAFD2AA47DABD4F /* [CP] Check Pods Manifest.lock */ = {
+		100B021287667A26E751CA60 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -376,7 +384,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				354DDD982F5FD70900C2EF91 /* NVSDKConfigModule.swift in Sources */,
 				761780ED2CA45674006654EE /* AppDelegate.swift in Sources */,
+				354DDD9A2F5FD85B00C2EF91 /* NVSDKConfigModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,7 +451,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = nv_react_native_sdk_app/nv_react_native_sdk_app.entitlements;
+				CODE_SIGN_ENTITLEMENTS = nv_react_native_sdk_app/nv_react_native_sdk_appRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Siddharth Gupta (4JW4924F8P)";
 				CODE_SIGN_STYLE = Manual;
@@ -472,7 +482,7 @@
 		};
 		3559C2162F050F0500EC14F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C1D7B58910D9477C675155B /* Pods-notifyvisitorsServiceExtension.debug.xcconfig */;
+			baseConfigurationReference = AB7CC75D94069F3948F853FC /* Pods-notifyvisitorsServiceExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -520,7 +530,7 @@
 		};
 		3559C2172F050F0500EC14F6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 701A67188294B174A387F612 /* Pods-notifyvisitorsServiceExtension.release.xcconfig */;
+			baseConfigurationReference = 000A435544C453315E48B1CD /* Pods-notifyvisitorsServiceExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;

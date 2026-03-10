@@ -15,7 +15,10 @@ export const useNVGetEventSurveyInfo = (options?: {
         console.log('[EventSurvey]', payload);
         return;
       }
-      setData(payload);
+      setData({
+        eventId: Date.now(),
+        payload,
+      });
     });
 
     return () => unsubscribe();

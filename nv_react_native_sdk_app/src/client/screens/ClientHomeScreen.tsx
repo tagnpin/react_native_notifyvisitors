@@ -8,7 +8,6 @@ import { ClientStackParamList } from '../../navigation/NavigationTypes';
 import { theme } from '../../shared/styles/theme';
 import SectionHeader from '../../shared/components/SectionHeader';
 import ActionButton from '../../shared/components/ActionButton';
-import ClientSectionCard from '../components/ClientSectionCard';
 
 import QAPinModal from '../../shared/components/QAPinModal';
 
@@ -22,15 +21,20 @@ import {
   InAppNudgesIcon,
 } from '../../shared/components/icons/myIcons';
 import { DeviceInfo } from '../../sdk/SDKTypes';
-// import Notifyvisitors from '../../../..';
-import { version as nvPluginVersion } from '../../../../package.json';
-import TextRow from '../../shared/components/TextRow';
 import SDKManager from '../../sdk/SDKManager';
+import SectionCard from '../../shared/components/SectionCard';
+import DeviceInfoCard from '../../shared/components/DeviceInfoCard';
+import Notifyvisitors, { PushPromptInfo } from '../../../..';
 
 type Props = NativeStackScreenProps<ClientStackParamList, 'ClientHome'>;
 
 const ClientHomeScreen: React.FC<Props> = ({ navigation }) => {
   const qa = useQAToggle();
+  const [deviceInfo, setDeviceInfo] = useState<DeviceInfo | null>(null);
+
+  useEffect(() => {
+    SDKManager.getDeviceInfo().then(setDeviceInfo);
+  }, []);
 
   const openFeatureAction = (featureKey: string, title: string) => {
     console.log('Navigating to feature:', featureKey);
@@ -39,16 +43,6 @@ const ClientHomeScreen: React.FC<Props> = ({ navigation }) => {
       title,
     });
   };
-
-  const [deviceInfo, setDeviceInfo] = useState<DeviceInfo | null>(null);
-  // const [pushToken, setPushToken] = useState('');
-  const [sdkVersion, setSDKVersion] = useState('');
-
-  useEffect(() => {
-    SDKManager.getDeviceInfo().then(setDeviceInfo);
-    let finalnvVerssion = nvPluginVersion.toString() ?? '';
-    setSDKVersion(finalnvVerssion);
-  }, []);
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -60,32 +54,13 @@ const ClientHomeScreen: React.FC<Props> = ({ navigation }) => {
         </Text>
       </View>
 
-      {/* SDK Status */}
-      <ClientSectionCard>
-        <Text style={styles.statusValue}>SDK Info</Text>
-
-        <TextRow label="Status:" value="Initialized" />
-        <TextRow label="SDK Version:" value={sdkVersion} />
-        <TextRow
-          label="App Version:"
-          value={`${deviceInfo?.appVersion} (${deviceInfo?.buildNumber})`}
-        />
-        <TextRow
-          label="Device ID:"
-          value={deviceInfo?.deviceId ?? ''}
-          copyable
-        />
-        <TextRow
-          label="Push Token:"
-          value={deviceInfo?.pushToken ?? 'Registering device…'}
-          copyable
-        />
-      </ClientSectionCard>
+      {/* App & SDK Info */}
+      <DeviceInfoCard />
 
       {/* Features */}
       <SectionHeader title="Features" />
 
-      <ClientSectionCard>
+      <SectionCard>
         <Accordion
           key="pushAccordion"
           title="Push Notifications"
@@ -141,7 +116,7 @@ const ClientHomeScreen: React.FC<Props> = ({ navigation }) => {
             }
           />
         </Accordion>
-      </ClientSectionCard>
+      </SectionCard>
 
       {/* Advanced */}
       <SectionHeader title="Advanced" />

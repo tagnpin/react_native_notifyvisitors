@@ -1,6 +1,7 @@
 // src/client/features/push/pushActions.ts
 
 import SDKManager from '../../../sdk/SDKManager';
+import { theme } from '../../../shared/styles/theme';
 import { FeatureActionProps } from '../../../shared/types/actions';
 
 type BadgeHelpers = {
@@ -119,7 +120,19 @@ const sendPushActions: FeatureActionProps[] = [
   },
 ];
 
-// const notificationCenterActions: FeatureActionProps[] = [
+const nvDefaultAppInboxInfo = {
+  label_one: 'promotion',
+  name_one: 'Promotional',
+  label_two: 'transaction',
+  name_two: 'Transactional',
+  label_three: 'other',
+  name_three: 'Others',
+  selectedTabTextColor: theme.colors.textPrimary,
+  unselectedTabTextColor: theme.colors.textPrimary,
+  selectedTabBgColor: theme.colors.primary,
+  unselectedTabBgColor_ios: theme.colors.textSecondary,
+  selectedTabIndex_ios: '0',
+};
 const notificationCenterActions = (
   badge: BadgeHelpers,
 ): FeatureActionProps[] => [
@@ -143,12 +156,30 @@ const notificationCenterActions = (
     title: 'Show Advanced Notification Center',
     description: 'Shows the advanced notification center UI',
     actionLabel: 'Show Advanced Notification Center',
+    showResult: true,
+    resultTitle: 'Advanced Notification Center Result:',
+    params: {
+      appInboxInfo: nvDefaultAppInboxInfo,
+      dismissValue: '0',
+    },
     onBeforeExecute: () => {
       // ✅ ALWAYS clear badge
       badge.clearBadge();
     },
-    execute: payload => SDKManager.showAdvancedNotificationCenter(payload),
+    execute: async payload => {
+      const { appInboxInfo, dismissValue } = payload;
+      const finalPayload = {
+        appInboxInfo,
+        dismissValue,
+      };
+      console.log('advanced center data: ', JSON.stringify(finalPayload));
+      const result = await SDKManager.showAdvancedNotificationCenter(
+        finalPayload,
+      );
+      return result;
+    },
   },
+
   {
     key: 'getUnreadCountNotificationCenter',
     title: 'Get Unread Notification Count',
@@ -156,8 +187,7 @@ const notificationCenterActions = (
       'Retrieves the unread notification count in the notification center',
     actionLabel: 'Get Unread notification Count in Center',
     params: {
-      androidStdPushID: '',
-      iOSStdPushNID: '',
+      appInboxInfo: nvDefaultAppInboxInfo,
     },
     showResult: true,
     resultTitle: 'Center Push Unread Count Result:',

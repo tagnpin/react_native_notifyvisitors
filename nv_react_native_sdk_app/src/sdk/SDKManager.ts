@@ -4,11 +4,11 @@ import { Alert, Platform } from 'react-native';
 import DeviceInfoLib from 'react-native-device-info';
 import moment from 'moment';
 import { DeviceInfo } from './SDKTypes';
-import SDK_VERSION from './SDKVersion';
-import Notifyvisitors from '../../..';
+import Notifyvisitors, { PushPromptInfo } from '../../..';
 import { theme } from '../shared/styles/theme';
 import { SDKCallbackEvents } from './events/SDKCallbackEvents';
 import { getPlatformName } from '../shared/utils/platform';
+import { version as SDK_VERSION } from '../../../package.json';
 
 /**
  * SDKManager
@@ -47,6 +47,7 @@ class SDKManager {
   static async getDeviceInfo(): Promise<DeviceInfo> {
     const tokenStr = await this.getPushToken();
     const deviceIdStr = await DeviceInfoLib.getUniqueId();
+    const finalSDKVerssion = SDK_VERSION.toString() ?? '';
 
     const info: DeviceInfo = {
       platform: getPlatformName(),
@@ -55,10 +56,9 @@ class SDKManager {
       pushToken: tokenStr,
       appVersion: DeviceInfoLib.getVersion(),
       buildNumber: DeviceInfoLib.getBuildNumber(),
-      sdkVersion: SDK_VERSION,
+      sdkVersion: finalSDKVerssion,
       environment: __DEV__ ? 'debug' : 'release',
     };
-
     return info;
   }
 
@@ -236,23 +236,57 @@ class SDKManager {
     });
   }
 
+  static async subscribePushCategory(payload: Record<string, any>) {
+    const { categories, unSubscribeAll } = payload as {
+      categories?: string[];
+      unSubscribeAll?: boolean;
+    };
+    console.log(
+      'subscribePushCategory called with payload:',
+      JSON.stringify(payload),
+    );
+    Notifyvisitors.subscribePushCategory(categories, unSubscribeAll);
+  }
+
+  static async androidPushPermissionPrompt(): Promise<any> {
+    let design = new PushPromptInfo();
+    design.title = 'Get Notified !!';
+    design.titleTextColor = theme.colors.textPrimary;
+    design.description = 'Enable Push Notifications on Your Device !!';
+    design.descriptionTextColor = theme.colors.textSecondary;
+    design.backgroundColor = theme.colors.card;
+    design.buttonOneBorderColor = theme.colors.success;
+    design.buttonOneBackgroundColor = theme.colors.success;
+    design.buttonOneBorderRadius = '6';
+    design.buttonOneText = 'Allow';
+    design.buttonOneTextColor = theme.colors.textPrimary;
+    design.buttonTwoText = 'Cancel';
+    design.buttonTwoTextColor = theme.colors.textSecondary;
+    design.buttonTwoBackgroundColor = theme.colors.danger;
+    design.buttonTwoBorderColor = theme.colors.danger;
+    design.buttonTwoBorderRadius = '6';
+    design.numberOfSessions = '3';
+    design.resumeInDays = '1';
+    design.numberOfTimesPerSession = '6';
+
+    return new Promise(async (resolve, reject) => {
+      try {
+        Notifyvisitors.pushPermissionPrompt(design, (response: any) => {
+          console.log(
+            'pushPermissionPrompt response: ',
+            JSON.stringify(response),
+          );
+          resolve(response);
+        });
+      } catch (error) {
+        reject(error);
+      }
+    });
+  }
+
   /* ---------------------------------------------------
    *  -- Notifications Center
    * --------------------------------------------------- */
-
-  private static nvAdvanceCenterTabsData = {
-    label_one: 'promotion',
-    name_one: 'Promotional',
-    label_two: 'transaction',
-    name_two: 'Transactional',
-    label_three: 'other',
-    name_three: 'Others',
-    selectedTabTextColor: theme.colors.textPrimary,
-    unselectedTabTextColor: theme.colors.textPrimary,
-    selectedTabBgColor: theme.colors.primary,
-    unselectedTabBgColor_ios: theme.colors.textSecondary,
-    selectedTabIndex_ios: '0',
-  };
 
   static async showStdNotificationCenter(
     payload: Record<string, any>,
@@ -263,30 +297,38 @@ class SDKManager {
       throw error;
     }
   }
-  static async showAdvancedNotificationCenter(
-    payload: Record<string, any>,
-  ): Promise<any> {
-    try {
-      Notifyvisitors.openNotificationCenter(
-        this.nvAdvanceCenterTabsData,
-        '0',
-        (callback: any) => {
-          console.log(
-            `open Notification Center callback: ${JSON.stringify(callback)}`,
-          );
-          return callback;
-        },
-      );
-    } catch (error) {
-      throw error;
-    }
+
+  static async showAdvancedNotificationCenter(payload: {
+    appInboxInfo?: Record<string, any>;
+    dismissValue: string;
+  }): Promise<any> {
+    const { appInboxInfo, dismissValue } = payload;
+    return new Promise((resolve, reject) => {
+      try {
+        Notifyvisitors.openNotificationCenter(
+          appInboxInfo,
+          dismissValue,
+          (callback: any) => {
+            console.log(
+              `open Notification Center callback: ${JSON.stringify(callback)}`,
+            );
+            resolve(callback);
+          },
+        );
+      } catch (error) {
+        reject(error);
+      }
+    });
   }
 
-  static async getNotificationCenterUnreadCount(payload: Record<string, any>) {
+  static async getNotificationCenterUnreadCount(payload: {
+    appInboxInfo?: Record<string, any>;
+  }) {
+    const { appInboxInfo } = payload;
     return new Promise((resolve, reject) => {
       try {
         Notifyvisitors.getNotificationCenterCount(
-          this.nvAdvanceCenterTabsData,
+          appInboxInfo,
           (callback: any) => {
             console.log(
               `get notification center unread count callback: ${JSON.stringify(
@@ -335,19 +377,24 @@ class SDKManager {
             )}\n customRule = ${JSON.stringify(customRule)}`,
           );
 
-          Notifyvisitors.showInAppMessage(
-            userToken,
-            customRule,
-            null,
-            (callback: any) => {
-              result = callback;
-              console.log(
-                `showInAppMessage() callback: ${JSON.stringify(callback)}`,
-              );
-
-              resolve(result);
+          this.nvSDKShowInAppBanner(userToken, customRule, null).then(
+            (response: any) => {
+              resolve(response);
             },
           );
+          // Notifyvisitors.showInAppMessage(
+          //   userToken,
+          //   customRule,
+          //   null,
+          //   (callback: any) => {
+          //     result = callback;
+          //     console.log(
+          //       `showInAppMessage() callback: ${JSON.stringify(callback)}`,
+          //     );
+
+          //     resolve(result);
+          //   },
+          // );
         } else {
           reject('Invalid InAppMessage Template');
         }
@@ -357,8 +404,34 @@ class SDKManager {
     });
   }
 
+  static async nvSDKShowInAppBanner(
+    tokens: any,
+    customObjects: any,
+    fragmentName: any,
+  ): Promise<any> {
+    return new Promise((resolve, reject) => {
+      try {
+        let result: any;
+        Notifyvisitors.showInAppMessage(
+          tokens,
+          customObjects,
+          fragmentName,
+          (callback: any) => {
+            result = callback;
+            console.log(
+              `showInAppMessage() callback: ${JSON.stringify(callback)}`,
+            );
+            resolve(result);
+          },
+        );
+      } catch (error) {
+        reject(error);
+      }
+    });
+  }
+
   /* ---------------------------------------------------
-   *  -- Analytics -->> TRACK EENTS
+   *  -- Analytics -->> TRACK EVNTS
    * --------------------------------------------------- */
 
   static async trackEvent(payload: {
@@ -368,6 +441,9 @@ class SDKManager {
     scope?: string;
   }) {
     const { eventName, attributes = {}, ltv = '', scope = '' } = payload;
+
+    const scopeValue =
+      scope !== undefined && scope !== null ? String(scope) : '';
 
     // eventName (required)
     if (typeof eventName !== 'string' || !eventName.trim()) {
@@ -382,24 +458,29 @@ class SDKManager {
       return;
     }
 
-    if (typeof scope !== 'string' || isNaN(Number(scope))) {
+    if (isNaN(Number(scopeValue))) {
       Alert.alert('scope value must be a numeric string');
-      // throw new Error('scope value must be a numeric string');
       return;
     }
+
+    // if (typeof scope !== 'string' || isNaN(Number(scope))) {
+    //   Alert.alert('scope value must be a numeric string');
+    //   // throw new Error('scope value must be a numeric string');
+    //   return;
+    // }
 
     return new Promise((resolve, reject) => {
       try {
         console.log(
           `goto trackEvent for \n{"eventName": "${eventName}",\n"attributes": ${JSON.stringify(
             attributes,
-          )},\n"ltv": "${ltv}",\n"scope": "${scope}"}`,
+          )},\n"ltv": "${ltv}",\n"scope": "${scopeValue}"}`,
         );
         Notifyvisitors.event(
           eventName,
           attributes,
           ltv,
-          scope,
+          scopeValue,
           (callback: any) => {
             console.log(
               `trackEvent callback response = ${JSON.stringify(callback)}`,
@@ -422,19 +503,31 @@ class SDKManager {
       // throw new Error('screentName is required and must be a non-empty string');
       return;
     }
-    return new Promise((resolve, reject) => {
-      try {
-        console.log(`trackScreen for screentName = ${screentName}`);
-        Notifyvisitors.trackScreen(screentName.trim());
-      } catch (e) {
-        reject(e);
-      }
-    });
+    try {
+      console.log(`trackScreen for screentName = ${screentName}`);
+      Notifyvisitors.trackScreen(screentName.trim());
+    } catch (e) {
+      console.error('error while tracking screen name = ', e);
+    }
   }
 
   /* ---------------------------------------------------
    *  -- Analytics -->> USER PROPERTIES
    * --------------------------------------------------- */
+
+  static async setOldUserIdentifier(payload: {
+    userID: string;
+    userParams?: Record<string, any>;
+  }) {
+    const { userID, userParams } = payload;
+
+    if (typeof userID !== 'string' || !userID.trim()) {
+      Alert.alert('userID must be a non-empty string');
+      // throw new Error('userID must be a non-empty string');
+      return;
+    }
+    Notifyvisitors.userIdentifier(userID.trim(), userParams ?? {});
+  }
 
   static async setUserDetails(payload: Record<string, any>): Promise<any> {
     if (payload && typeof payload !== 'object') {
@@ -459,6 +552,18 @@ class SDKManager {
     return new Promise(async (resolve, reject) => {
       try {
         Notifyvisitors.getNvUID((callback: any) => {
+          resolve(callback);
+        });
+      } catch (e) {
+        reject(e);
+      }
+    });
+  }
+
+  static async getSessionData(): Promise<any> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        Notifyvisitors.getSessionData((callback: any) => {
           resolve(callback);
         });
       } catch (e) {

@@ -13,6 +13,15 @@ export type ParamSchema = {
   required?: boolean;
   default?: any;
   description?: string;
+
+  /** UI hints (optional) */
+  label?: string;
+  placeholder?: string;
+
+  inputType?: 'text' | 'textarea' | 'switch' | 'dropdown';
+
+  inline?: boolean;
+  group?: string;
 };
 
 // ✅ NEW: allow raw shorthand

@@ -15,6 +15,7 @@ export const initializeApp = async (): Promise<void> => {
   // Future: SDKManager.initialize()
   // Future: preload configs
   SDKManager.nvInitListeners();
+  SDKManager.androidPushPermissionPrompt();
   await DebugLogsStore.init();
   return Promise.resolve();
 };

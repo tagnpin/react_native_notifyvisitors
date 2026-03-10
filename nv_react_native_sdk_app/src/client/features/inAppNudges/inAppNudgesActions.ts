@@ -11,7 +11,6 @@ export const inAppNudgesActions: FeatureActionProps[] = [
     actionLabel: 'Show InApp Nudges',
     params: {},
   },
-
   {
     key: 'nativeDisplay',
     title: 'Native Display',
