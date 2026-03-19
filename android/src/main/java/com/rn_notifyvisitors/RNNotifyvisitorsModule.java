@@ -44,13 +44,14 @@ import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Iterator;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 
 public class RNNotifyvisitorsModule extends ReactContextBaseJavaModule implements ActivityEventListener {
 
     private final ReactApplicationContext reactContext;
     private static final String TAG = "RN-NotifyVisitors";
-    private static final String PLUGIN_VERSION = "4.7.0";
+    private static final String PLUGIN_VERSION = "4.8.0";
 
     private String PUSH_BANNER_CLICK_EVENT = "nv_push_banner_click";
     private String CHAT_BOT_BUTTON_CLICK = "nv_chat_bot_button_click";
@@ -145,6 +146,7 @@ public class RNNotifyvisitorsModule extends ReactContextBaseJavaModule implement
     }
 
     /* 1 - Survey, InApp Banners */
+    @Deprecated
     @ReactMethod
     public void show(ReadableMap tokens, ReadableMap customObjects, final String fragmentName, Callback callback) {
         try {
@@ -335,6 +337,7 @@ public class RNNotifyvisitorsModule extends ReactContextBaseJavaModule implement
     }
     
     /* 2 - Notification Center */
+    @Deprecated
     @ReactMethod
     public void showNotifications(ReadableMap mAppInboxInfo, final int dismissValue) {
         Log.i(TAG, "SHOW NOTIFICATIONS !!");
@@ -711,6 +714,7 @@ public class RNNotifyvisitorsModule extends ReactContextBaseJavaModule implement
     }
 
     /* 4 - Login User */
+    @Deprecated
     @ReactMethod
     public void userIdentifier(String userID, ReadableMap attributes) {
         try {
@@ -1033,7 +1037,7 @@ public class RNNotifyvisitorsModule extends ReactContextBaseJavaModule implement
                 config.setSecondTabDetail(tab2Label, tab2Name);
                 config.setThirdTabDetail(tab3Label, tab3Name);
 
-
+                final AtomicBoolean callbackInvoked = new AtomicBoolean(false);
                 mActivity = reactContext.getCurrentActivity();
                 if (mActivity != null) {
                     mActivity.runOnUiThread(new Runnable() {
@@ -1042,12 +1046,22 @@ public class RNNotifyvisitorsModule extends ReactContextBaseJavaModule implement
                             NotifyVisitorsApi.getInstance(reactContext).getNotificationCenterCount(new OnCenterCountListener() {
                                 @Override
                                 public void getCount(JSONObject tabCount) {
-                                    Log.i(TAG, "Tab Counts : " + tabCount);
-                                    if (tabCount != null) {
-                                        callback.invoke(tabCount.toString());
-                                    } else {
-                                        Log.i(TAG, "GETTING NULL COUNT OBJECT !!");
+                                    if (!callbackInvoked.compareAndSet(false, true)) {
+                                        Log.w(TAG, "GET NOTIFICATION CENTER COUNT callback called multiple times - ignoring");
+                                        return;
                                     }
+                                    Log.i(TAG, "Tab Counts : " + tabCount);
+                                    final String response = (tabCount != null) ? tabCount.toString() : "{}";
+                                    reactContext.runOnUiQueueThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            try {
+                                                callback.invoke(response);
+                                            } catch (Exception invokeError) {
+                                                Log.i(TAG, "GET NOTIFICATION CENTER COUNT CALLBACK INVOKE ERROR : " + invokeError);
+                                            }
+                                        }
+                                    });
                                 }
                             }, config);
                         }
@@ -1058,6 +1072,7 @@ public class RNNotifyvisitorsModule extends ReactContextBaseJavaModule implement
 
             } else {
                 Log.i(TAG, "INFO IS NULL GOING FOR STANDARD NOTIFICATION CENTER COUNT  !!");
+                final AtomicBoolean callbackInvoked = new AtomicBoolean(false);
                 mActivity = reactContext.getCurrentActivity();
                 if (mActivity != null) {
                     mActivity.runOnUiThread(new Runnable() {
@@ -1066,12 +1081,22 @@ public class RNNotifyvisitorsModule extends ReactContextBaseJavaModule implement
                             NotifyVisitorsApi.getInstance(reactContext).getNotificationCenterCount(new OnCenterCountListener() {
                                 @Override
                                 public void getCount(JSONObject tabCount) {
-                                    Log.i(TAG, "Tab Counts : " + tabCount);
-                                    if (tabCount != null) {
-                                        callback.invoke(tabCount.toString());
-                                    } else {
-                                        Log.i(TAG, "GETTING NULL COUNT OBJECT !!");
+                                    if (!callbackInvoked.compareAndSet(false, true)) {
+                                        Log.w(TAG, "GET NOTIFICATION CENTER COUNT callback called multiple times - ignoring");
+                                        return;
                                     }
+                                    Log.i(TAG, "Tab Counts : " + tabCount);
+                                    final String response = (tabCount != null) ? tabCount.toString() : "{}";
+                                    reactContext.runOnUiQueueThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            try {
+                                                callback.invoke(response);
+                                            } catch (Exception invokeError) {
+                                                Log.i(TAG, "GET NOTIFICATION CENTER COUNT CALLBACK INVOKE ERROR : " + invokeError);
+                                            }
+                                        }
+                                    });
                                 }
                             }, null);
                         }
@@ -1100,6 +1125,7 @@ public class RNNotifyvisitorsModule extends ReactContextBaseJavaModule implement
 
         } catch (Exception e) {
             Log.i(TAG, "GET NOTIFICATION CENTER COUNT ERROR : " + e);
+            callback.invoke("unavailable");
         }
     }
 
@@ -1192,11 +1218,13 @@ public class RNNotifyvisitorsModule extends ReactContextBaseJavaModule implement
     }
 
     /* 16 - JSon Data For Custom Notification Center  */
+    @Deprecated
     @ReactMethod
     public void getNotificationDataListener(final Callback callback) {
         try {
             Log.i(TAG, "GET NOTIFICATION DATA LISTENER !!");
             mActivity = reactContext.getCurrentActivity();
+            final AtomicBoolean callbackInvoked = new AtomicBoolean(false);
             if (mActivity != null) {
                 mActivity.runOnUiThread(new Runnable() {
                     @Override
@@ -1205,12 +1233,23 @@ public class RNNotifyvisitorsModule extends ReactContextBaseJavaModule implement
                             @Override
                             public void getNotificationData(JSONArray notificationListResponse) {
                                 try {
-                                    //Log.i(TAG, "RESPONSE : " + notificationListResponse);
-                                    if (notificationListResponse != null) {
-                                        callback.invoke(notificationListResponse.toString());
-                                    } else {
-                                        callback.invoke("[]"); // Return empty array if null
+                                    if (!callbackInvoked.compareAndSet(false, true)) {
+                                        Log.w(TAG, "GET NOTIFICATION DATA LISTENER callback called multiple times - ignoring");
+                                        return;
                                     }
+
+                                    //Log.i(TAG, "RESPONSE : " + notificationListResponse);
+                                    final String response = (notificationListResponse != null) ? notificationListResponse.toString() : "[]";
+                                    reactContext.runOnUiQueueThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            try {
+                                                callback.invoke(response);
+                                            } catch (Exception invokeError) {
+                                                Log.i(TAG, "GET NOTIFICATION DATA LISTENER CALLBACK INVOKE ERROR : " + invokeError);
+                                            }
+                                        }
+                                    });
                                 } catch (Exception e) {
                                     Log.i(TAG, "GET NOTIFICATION DATA LISTENER ERROR 2 : " + e);  
                                 }
@@ -1229,20 +1268,34 @@ public class RNNotifyvisitorsModule extends ReactContextBaseJavaModule implement
     @ReactMethod
     public void getNotificationCenterData(final Callback callback) {
         try {
-            Log.i(TAG, "GET NOTIFICATION DATA LISTENER !!");
+            Log.i(TAG, "GET NOTIFICATION CENTER DATA !!");
             mActivity = reactContext.getCurrentActivity();
+            final AtomicBoolean callbackInvoked = new AtomicBoolean(false);
             if (mActivity != null) {
                 mActivity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        NotifyVisitorsApi.getInstance(mActivity).getNotificationCenterData(new OnCenterDataListener() {
+                        NotifyVisitorsApi.getInstance(reactContext).getNotificationCenterData(new OnCenterDataListener() {
                             @Override
                             public void getData(JSONObject jsonObject) {
                                 try {
-                                    //Log.i(TAG, "RESPONSE : " + jsonObject);
-                                    if (jsonObject != null) {
-                                        callback.invoke(jsonObject.toString());
+                                    if (!callbackInvoked.compareAndSet(false, true)) {
+                                        Log.w(TAG, "GET NOTIFICATION CENTER DATA callback called multiple times - ignoring");
+                                        return;
                                     }
+
+                                    //Log.i(TAG, "RESPONSE : " + jsonObject);
+                                    final String response = (jsonObject != null) ? jsonObject.toString() : "{}";
+                                    reactContext.runOnUiQueueThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            try {
+                                                callback.invoke(response);
+                                            } catch (Exception invokeError) {
+                                                Log.i(TAG, "GET NOTIFICATION CENTER DATA CALLBACK INVOKE ERROR : " + invokeError);
+                                            }
+                                        }
+                                    });
                                 } catch (Exception e) {
                                     Log.i(TAG, "GET NOTIFICATION CENTER DATA ERROR 2 : " + e);  
                                 }
@@ -1345,23 +1398,36 @@ public class RNNotifyvisitorsModule extends ReactContextBaseJavaModule implement
     }
 
     /* 22 - Depricated Function For Notification Count */
+    @Deprecated
     @ReactMethod
     public void getNotificationCount(final Callback callback) {
         try {
             Log.i(TAG, "GET NOTIFICATION COUNT !!");
+            final AtomicBoolean callbackInvoked = new AtomicBoolean(false);
             NotifyVisitorsApi.getInstance(reactContext).getNotificationCount(new NotificationCountInterface() {
                 @Override
                 public void getCount(int count) {
-                    try {
-                        Log.i(TAG, "COUNT : " + count);
-                        String strI = String.valueOf(count);
-                        if (strI == null || strI.isEmpty()) {
-                            strI = "0";
-                        }
-                        callback.invoke(strI);
-                    } catch (Exception e) {
-                        Log.i(TAG, "GET NOTIFICATION COUNT ERROR 2 : " + e);  
+                    if (!callbackInvoked.compareAndSet(false, true)) {
+                        Log.w(TAG, "GET NOTIFICATION COUNT callback called multiple times - ignoring");
+                        return;
                     }
+                    
+                    Log.i(TAG, "COUNT : " + count);
+                    String strI = String.valueOf(count);
+                    if (strI == null || strI.isEmpty()) {
+                        strI = "0";
+                    }
+                    final String response = strI;
+                    reactContext.runOnUiQueueThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                callback.invoke(response);
+                            } catch (Exception invokeError) {
+                                Log.i(TAG, "GET NOTIFICATION COUNT CALLBACK INVOKE ERROR : " + invokeError);
+                            }
+                        }
+                    });
                 }
             });
         } catch (Exception e) {
@@ -1411,6 +1477,7 @@ public class RNNotifyvisitorsModule extends ReactContextBaseJavaModule implement
             design.setNumberOfSessions(Integer.parseInt(numberOfSessions));
             design.setResumeInDays(Integer.parseInt(resumeInDays));
             design.setNumberOfTimesPerSession(Integer.parseInt(numberOfTimesPerSession));
+            final AtomicBoolean callbackInvoked = new AtomicBoolean(false);
             mActivity = reactContext.getCurrentActivity();
             if (mActivity != null) {
                 mActivity.runOnUiThread(new Runnable() {
@@ -1419,16 +1486,23 @@ public class RNNotifyvisitorsModule extends ReactContextBaseJavaModule implement
                         NotifyVisitorsApi.getInstance(mActivity).activatePushPermissionPopup(design, new OnPushRuntimePermission() {
                             @Override
                             public void getPopupInfo(JSONObject result) {
-                                try {
-                                    Log.i(TAG, "Popup Response => " + result);
-                                    if (result != null) {
-                                        callback.invoke(result.toString());
-                                    } 
-                                } catch (Exception e) {
-                                    Log.i(TAG, "PUSH PERMISSION PROMPT ERROR 2 : " + e);
+                                if (!callbackInvoked.compareAndSet(false, true)) {
+                                    Log.w(TAG, "PUSH PERMISSION PROMPT callback called multiple times - ignoring");
+                                    return;
                                 }
                                 
-                                
+                                Log.i(TAG, "Popup Response => " + result);
+                                final String response = (result != null) ? result.toString() : "{}";
+                                reactContext.runOnUiQueueThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        try {
+                                            callback.invoke(response);
+                                        } catch (Exception invokeError) {
+                                            Log.i(TAG, "PUSH PERMISSION PROMPT CALLBACK INVOKE ERROR : " + invokeError);
+                                        }
+                                    }
+                                });
                             }
                         });
                     }
@@ -1470,6 +1544,7 @@ public class RNNotifyvisitorsModule extends ReactContextBaseJavaModule implement
         try {
             Log.i(TAG, "Check Native Push Permission Prompt !!");
 
+            final AtomicBoolean callbackInvoked = new AtomicBoolean(false);
             mActivity = reactContext.getCurrentActivity();
             if (mActivity != null) {
                 mActivity.runOnUiThread(new Runnable() {
@@ -1478,14 +1553,23 @@ public class RNNotifyvisitorsModule extends ReactContextBaseJavaModule implement
                         NotifyVisitorsApi.getInstance(mActivity).nativePushPermissionPrompt(new OnPushRuntimePermission() {
                             @Override
                             public void getPopupInfo(JSONObject result) {
-                                try {
-                                    Log.i(TAG, "Popup Response => " + result);
-                                    if (result != null) {
-                                        callback.invoke(result.toString());
-                                    } 
-                                } catch (Exception e) {
-                                    Log.i(TAG, "NATIVE PUSH PERMISSION PROMPT ERROR 2 : " + e);
+                                if (!callbackInvoked.compareAndSet(false, true)) {
+                                    Log.w(TAG, "NATIVE PUSH PERMISSION PROMPT callback called multiple times - ignoring");
+                                    return;
                                 }
+                                
+                                Log.i(TAG, "Popup Response => " + result);
+                                final String response = (result != null) ? result.toString() : "{}";
+                                reactContext.runOnUiQueueThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        try {
+                                            callback.invoke(response);
+                                        } catch (Exception invokeError) {
+                                            Log.i(TAG, "NATIVE PUSH PERMISSION PROMPT CALLBACK INVOKE ERROR : " + invokeError);
+                                        }
+                                    }
+                                });
                             }
                         });
                     }
