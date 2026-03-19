@@ -36,7 +36,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.facebook.react:react-native:+'
     implementation('com.notifyvisitors.notifyvisitors:notifyvisitors:v5.8.1')
-    implementation("com.notifyvisitors.nudges:notifyvisitors-nudges:v0.0.8")
+    implementation("com.notifyvisitors.nudges:notifyvisitors-nudges:v0.0.9")
     implementation platform('com.google.firebase:firebase-bom:33.16.0') 
     implementation ('com.google.firebase:firebase-messaging')
     implementation ('com.google.android.gms:play-services-location')
