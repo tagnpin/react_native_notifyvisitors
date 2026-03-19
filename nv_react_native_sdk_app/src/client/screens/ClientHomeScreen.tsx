@@ -54,9 +54,13 @@ const ClientHomeScreen: React.FC<Props> = ({ navigation }) => {
 
   useEffect(() => {
     console.log('ask the permission for push');
-    const result = SDKManager.androidPushPermissionPrompt();
-    console.log('push permission response = ', result);
-    // SDKManager.getDeviceInfo().then(setDeviceInfo);
+
+    const timeoutId = setTimeout(() => {
+      const result = SDKManager.androidPushPermissionPrompt();
+      console.log('push permission response = ', result);
+    }, 1500);
+
+    return () => clearTimeout(timeoutId);
   }, []);
 
   const openFeatureAction = (featureKey: string, title: string) => {
