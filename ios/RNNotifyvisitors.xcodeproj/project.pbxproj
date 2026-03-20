@@ -10,7 +10,7 @@
 		138AE09F22A7ACA600F403E1 /* RNNVExtensionService.m in Sources */ = {isa = PBXBuildFile; fileRef = 138AE09E22A7ACA600F403E1 /* RNNVExtensionService.m */; };
 		13B25F2D22BA35B000C4D0B7 /* RCTNVEventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B25F2C22BA35B000C4D0B7 /* RCTNVEventEmitter.m */; };
 		3587FCE02EC3530C00067AB0 /* notifyvisitorsNudges.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3587FCDF2EC3530C00067AB0 /* notifyvisitorsNudges.xcframework */; };
-		35C6A6D62E657CB800A5DEF6 /* notifyvisitors.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35C6A6D52E657CB800A5DEF6 /* notifyvisitors.xcframework */; };
+		35E588BE2F6D95CB006F6B11 /* notifyvisitors.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E588BD2F6D95CB006F6B11 /* notifyvisitors.xcframework */; };
 		B3E7B58A1CC2AC0600A0062D /* RNNotifyvisitors.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNNotifyvisitors.m */; };
 		DC31F4E523BC9CC900AAB2DB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC31F4E423BC9CC900AAB2DB /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
@@ -34,7 +34,7 @@
 		13B25F2B22BA35B000C4D0B7 /* RCTNVEventEmitter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTNVEventEmitter.h; sourceTree = "<group>"; };
 		13B25F2C22BA35B000C4D0B7 /* RCTNVEventEmitter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTNVEventEmitter.m; sourceTree = "<group>"; };
 		3587FCDF2EC3530C00067AB0 /* notifyvisitorsNudges.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = notifyvisitorsNudges.xcframework; sourceTree = "<group>"; };
-		35C6A6D52E657CB800A5DEF6 /* notifyvisitors.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = notifyvisitors.xcframework; sourceTree = "<group>"; };
+		35E588BD2F6D95CB006F6B11 /* notifyvisitors.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = notifyvisitors.xcframework; sourceTree = "<group>"; };
 		B3E7B5881CC2AC0600A0062D /* RNNotifyvisitors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNNotifyvisitors.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNNotifyvisitors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNNotifyvisitors.m; sourceTree = "<group>"; };
 		DC31F4E423BC9CC900AAB2DB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
@@ -47,7 +47,7 @@
 			files = (
 				DC31F4E523BC9CC900AAB2DB /* SystemConfiguration.framework in Frameworks */,
 				3587FCE02EC3530C00067AB0 /* notifyvisitorsNudges.xcframework in Frameworks */,
-				35C6A6D62E657CB800A5DEF6 /* notifyvisitors.xcframework in Frameworks */,
+				35E588BE2F6D95CB006F6B11 /* notifyvisitors.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,7 +65,7 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				35C6A6D52E657CB800A5DEF6 /* notifyvisitors.xcframework */,
+				35E588BD2F6D95CB006F6B11 /* notifyvisitors.xcframework */,
 				3587FCDF2EC3530C00067AB0 /* notifyvisitorsNudges.xcframework */,
 				DC4962D123BE131B005E63F5 /* RNNotifyvisitors */,
 				134814211AA4EA7D00B7C361 /* Products */,

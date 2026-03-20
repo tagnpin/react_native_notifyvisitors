@@ -23,16 +23,6 @@ on:
       # Workflow changes
       - ".github/workflows/android.yml"
 
-      ### OLD Paths (Given by Neeraj)
-      # - "react_native_notifyvisitors/android/**"
-      # - "react_native_notifyvisitors/nv_react_native_sdk_app/android/**"
-      # - "react_native_notifyvisitors/nv_react_native_sdk_app/src/**"
-      # - "react_native_notifyvisitors/nv_react_native_sdk_app/package.json"
-      # - "react_native_notifyvisitors/nv_react_native_sdk_app/package-lock.json"
-      # - "react_native_notifyvisitors/nv_react_native_sdk_app/app.json"
-      # - "react_native_notifyvisitors/nv_react_native_sdk_app/index.js"
-      # - ".github/workflows/android.yml"
-
 jobs:
   build-android:
     name: Android Build (${{ vars.RN_BUILD_TYPE }})
