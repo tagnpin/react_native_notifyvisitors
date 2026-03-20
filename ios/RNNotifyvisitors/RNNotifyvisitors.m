@@ -23,7 +23,7 @@ int nvCheckPushClickTimeCounter = 0;
 
 @implementation RNNotifyvisitors
 
-static NSString *const kNVPluginVersion = @"4.7.0";
+static NSString *const kNVPluginVersion = @"4.8.0";
 
 - (dispatch_queue_t)methodQueue{
     return dispatch_get_main_queue();

@@ -20,15 +20,6 @@ on:
       # Workflow edits
       - ".github/workflows/ios.yml"
 
-      ### OLD Paths (Given by Neeraj)
-      # - "react_native_notifyvisitors/ios/**"
-      # - "react_native_notifyvisitors/nv_react_native_sdk_app/ios/**"
-      # - "react_native_notifyvisitors/nv_react_native_sdk_app/src/**"
-      # - "react_native_notifyvisitors/nv_react_native_sdk_app/package.json"
-      # - "react_native_notifyvisitors/nv_react_native_sdk_app/package-lock.json"
-      # - "react_native_notifyvisitors/pf_ios/**"
-      # - ".github/workflows/ios.yml"
-
 defaults:
   run:
     working-directory: nv_react_native_sdk_app
