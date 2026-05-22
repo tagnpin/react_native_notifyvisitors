@@ -8,7 +8,7 @@ PODS:
   - hermes-engine (0.82.0):
     - hermes-engine/Pre-built (= 0.82.0)
   - hermes-engine/Pre-built (0.82.0)
-  - notifyvisitors (7.3.4)
+  - notifyvisitors (7.4.0)
   - notifyvisitorsNudges (0.0.3)
   - RCT-Folly (2024.11.18.00):
     - boost
@@ -1812,8 +1812,8 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - react-native-notifyvisitors (4.8.0):
-    - notifyvisitors (= 7.3.4)
+  - react-native-notifyvisitors (4.8.2):
+    - notifyvisitors (= 7.4.0)
     - notifyvisitorsNudges (= 0.0.3)
     - React (< 1.0.0, >= 0.13.0)
   - react-native-safe-area-context (5.6.2):
@@ -2951,7 +2951,7 @@ SPEC CHECKSUMS:
   fmt: a40bb5bd0294ea969aaaba240a927bd33d878cdd
   glog: 5683914934d5b6e4240e497e0f4a3b42d1854183
   hermes-engine: 8642d8f14a548ab718ec112e9bebdfdd154138b5
-  notifyvisitors: 2ed26c7672ded56d30310e6bc7096fe4b5dbf263
+  notifyvisitors: 00c00362752218646804941d8c0d1b165920104a
   notifyvisitorsNudges: 5d1d931d1c09107a0fa5d7cfc388ee3cc2e68cf2
   RCT-Folly: 846fda9475e61ec7bcbf8a3fe81edfcaeb090669
   RCTDeprecation: 22bf66112da540a7d40e536366ddd8557934fca1
@@ -2987,7 +2987,7 @@ SPEC CHECKSUMS:
   React-Mapbuffer: 499069c3dcd4b438a70fcc2a65e8a4185ea9170b
   React-microtasksnativemodule: f0238469cb9894fd18c419137d312665b8fc05b3
   react-native-get-random-values: e2acf4070fe4b7325705a05af047449637a27a21
-  react-native-notifyvisitors: 7daec331a28414289d1ce7dbfad324121fab71bf
+  react-native-notifyvisitors: 44788b23b7bf9cc4157aeb26e26f119a0d42527a
   react-native-safe-area-context: c00143b4823773bba23f2f19f85663ae89ceb460
   React-NativeModulesApple: 628df250681ccb569bd203494ed5187269580d6f
   React-oscompat: 80ca388c4831481cd03a6b45ecfc82739ca9a95e
