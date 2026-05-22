@@ -124,6 +124,8 @@ typedef void(^nv_UID)(NSString *_Nullable);
 
 +(void)trackEvents:(NSString *_Nullable)event_name Attributes:(NSMutableDictionary *_Nullable)attributes lifetimeValue:(NSString *_Nullable)ltv Scope:(int)scope;
 
+//+(void)nvTestNewAPiTrackEvent;
+
 +(void)trackScreen:(NSString *_Nullable)screenName;
 
 #pragma mark - USER TRACKING METHODS
