@@ -51,7 +51,7 @@ public class RNNotifyvisitorsModule extends ReactContextBaseJavaModule implement
 
     private final ReactApplicationContext reactContext;
     private static final String TAG = "RN-NotifyVisitors";
-    private static final String PLUGIN_VERSION = "4.8.2";
+    private static final String PLUGIN_VERSION = "4.8.3";
 
     private String PUSH_BANNER_CLICK_EVENT = "nv_push_banner_click";
     private String CHAT_BOT_BUTTON_CLICK = "nv_chat_bot_button_click";
