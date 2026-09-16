@@ -33,13 +33,13 @@ npm install react-native-notifyvisitors
 **JavaScript**
 
 ```javascript
-import NotifyVisitors from 'react-native-notifyvisitors';
+import Notifyvisitors from 'react-native-notifyvisitors';
 ```
 
 **TypeScript**
 
 ```typescript
-import NotifyVisitors from 'react-native-notifyvisitors';
+import Notifyvisitors from 'react-native-notifyvisitors';
 ```
 
 <br>
