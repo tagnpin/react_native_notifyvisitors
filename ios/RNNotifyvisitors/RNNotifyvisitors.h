@@ -16,6 +16,7 @@ extern BOOL nvPushObserverReady;
 // SDK initialization
 
 +(void)initializeWithBrandId:(NSInteger)brandID secretKey:(NSString *_Nullable)secretKey launchingOptions:(NSDictionary *_Nullable)launchingOptions;
++(void)nvInitialize;
 
 +(void)Initialize;
 
