@@ -99,6 +99,9 @@ If you do not have an `Application` class, create one and register it in your `A
 
 > **Important:** Replace the placeholder `NOTIFYVISITORS_BRAND_ID` and `NOTIFYVISITORS_BRAND_ENCRYPTION_KEY` values with the credentials provided for your NVECTA account.
 
+> Replace YOUR_NVECTA_BRAND_ID and YOUR_NVECTA_BRAND_SECRET_KEY with your actual Brand ID and Encryption Key in below code.
+> To find these credentials, see the 🔑 [Where can I find my Brand ID and Encryption Key?](#-where-can-i-find-my-brand-id-and-encryption-key)
+
 **Java**
 
 ```java
@@ -170,6 +173,19 @@ Inside `AndroidManifest.xml`, specify your custom `Application` class:
 
 > **Important:** The NVECTA registration call should be performed during `Application.onCreate()` rather than being initialized lazily from an Activity or React component. This ensures SDK initialization is available from the beginning of the application lifecycle.
 
+## 🔑 Where can I find my Brand ID and Encryption Key?
+Replace `YOUR_NVECTA_BRAND_ID` and `YOUR_NVECTA_BRAND_SECRET_KEY` with your actual NVECTA credentials.
+
+You can obtain these credentials in one of the following ways:
+
+- Retrieve them yourself from the NVECTA Dashboard. 
+<br>
+📍 <b>NVECTA Dashboard</b>
+https://console.notifyvisitors.com/brand/admin/integration_javaScriptCode?active_tab=direct_integration
+
+    📖 **Detailed Guide**
+https://support.nvecta.com/support/solutions/articles/84000395836-how-to-get-brand-id-encryption-key-and-api-keys-in-nvecta
+
 <br>
 
 # 4. Build & Run
@@ -234,7 +250,7 @@ Example:
 
 ```text
 I/NotifyVisitors: This is the first call of NotifyVisitors SDK.
-I/NotifyVisitors: !SDK-VERSION! :: notifyvisitors: v5.8.4
+I/NotifyVisitors: !SDK-VERSION! :: notifyvisitors: v5.8.6
 I/NotifyVisitors: NV BrandID = 1234
 ```
 
@@ -248,7 +264,17 @@ Verify the following after app launch:
 * NVECTA Brand ID is displayed correctly in the logs.
 * Device token is generated successfully when FCM is configured.
 * No crash or ANR appears in logs.
-* NVECTA SDK logs are visible using the `NotifyVisitors` filter.
+* NVECTA SDK logs are visible using the `NotifyVisitors` | `NVECTA` filter.
+
+## Validation
+
+After completing the integration, verify that the SDK is successfully communicating with NVECTA.
+
+Follow the [Integration Code and Event Validation](https://support.nvecta.com/support/solutions/articles/84000399408-integration-code-and-event-validation) guide to confirm that:
+
+- App sessions are visible in the NVECTA dashboard.
+- Events are being received successfully.
+- The SDK integration has been completed correctly.
 
 <br>
 

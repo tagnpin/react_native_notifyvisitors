@@ -57,65 +57,7 @@ This one line of code tells the plugin:
 
 Choose one method below based on your app structure.
 
-### **Method 1: Manual Tracking in Each Screen (Simplest)**
-
-Use this method if you have a small number of screens or want to start with a simple implementation.
-
-You can track a screen when the screen becomes active using React's `useEffect` hook.
-
-#### How it works:
-
-Add the tracking call to the screen component.
-
-**JavaScript:**
-
-```javascript
-import React, { useEffect } from "react";
-import { View, Text } from "react-native";
-import Notifyvisitors from "react-native-notifyvisitors";
-
-const HomeScreen = () => {
-
-  useEffect(() => {
-    // Track this screen when it opens
-    Notifyvisitors.trackScreen("Home");
-  }, []);
-
-  return (
-    <View>
-      <Text>Welcome to Home Screen</Text>
-    </View>
-  );
-};
-
-export default HomeScreen;
-```
-
-**TypeScript:**
-
-```typescript
-import React, { useEffect } from "react";
-import { View, Text } from "react-native";
-import Notifyvisitors from "react-native-notifyvisitors";
-
-const HomeScreen = () => {
-
-  useEffect(() => {
-    // Track this screen when it opens
-    Notifyvisitors.trackScreen("Home");
-  }, []);
-
-  return (
-    <View>
-      <Text>Welcome to Home Screen</Text>
-    </View>
-  );
-};
-
-export default HomeScreen;
-```
-
-### **Method 2: React Navigation Integration (Recommended)**
+### **Method 1: React Navigation Integration (Recommended)**
 
 If your application uses **React Navigation**, you can track screen changes centrally instead of adding `trackScreen()` to every screen.
 
@@ -258,6 +200,64 @@ The screen will be automatically tracked as:
 
 ```text
 Profile
+```
+
+### **Method 2: Manual Tracking in Each Screen (Simplest)**
+
+Use this method if you have a small number of screens or want to start with a simple implementation.
+
+You can track a screen when the screen becomes active using React's `useEffect` hook.
+
+#### How it works:
+
+Add the tracking call to the screen component.
+
+**JavaScript:**
+
+```javascript
+import React, { useEffect } from "react";
+import { View, Text } from "react-native";
+import Notifyvisitors from "react-native-notifyvisitors";
+
+const HomeScreen = () => {
+
+  useEffect(() => {
+    // Track this screen when it opens
+    Notifyvisitors.trackScreen("Home");
+  }, []);
+
+  return (
+    <View>
+      <Text>Welcome to Home Screen</Text>
+    </View>
+  );
+};
+
+export default HomeScreen;
+```
+
+**TypeScript:**
+
+```typescript
+import React, { useEffect } from "react";
+import { View, Text } from "react-native";
+import Notifyvisitors from "react-native-notifyvisitors";
+
+const HomeScreen = () => {
+
+  useEffect(() => {
+    // Track this screen when it opens
+    Notifyvisitors.trackScreen("Home");
+  }, []);
+
+  return (
+    <View>
+      <Text>Welcome to Home Screen</Text>
+    </View>
+  );
+};
+
+export default HomeScreen;
 ```
 
 ### **Method 3: Screen Focus Tracking**
