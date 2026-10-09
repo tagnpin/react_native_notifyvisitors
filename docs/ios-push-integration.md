@@ -200,10 +200,7 @@ func userNotificationCenter(
     willPresent notification: UNNotification,
     withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
 ) {
-    NotifyvisitorsPlugin.willPresent(
-        notification,
-        withCompletionHandler: completionHandler
-    )
+    RNNotifyvisitors.willPresent(notification, withCompletionHandler: completionHandler)
 }
 
 func application(
@@ -211,10 +208,7 @@ func application(
     didReceiveRemoteNotification userInfo: [AnyHashable : Any],
     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void
 ) {
-    NotifyvisitorsPlugin.application(
-        application,
-        didReceiveRemoteNotification: userInfo
-    )
+    RNNotifyvisitors.application(application, didReceiveRemoteNotification: userInfo, fetchCompletionHandler: completionHandler)
 }
 
 func userNotificationCenter(
@@ -222,7 +216,7 @@ func userNotificationCenter(
     didReceive response: UNNotificationResponse,
     withCompletionHandler completionHandler: @escaping () -> Void
 ) {
-    NotifyvisitorsPlugin.didReceive(response)
+    RNNotifyvisitors.didReceive(response)
 }
 ```
 
@@ -234,24 +228,21 @@ func userNotificationCenter(
        willPresentNotification:(UNNotification *)notification
          withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
 
-    [NotifyvisitorsPlugin willPresentNotification:notification
-                           withCompletionHandler:completionHandler];
+        [RNNotifyvisitors willPresentNotification: notification withCompletionHandler: completionHandler];
 }
 
 - (void)application:(UIApplication *)application
 didReceiveRemoteNotification:(NSDictionary *)userInfo
 fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
 
-    [NotifyvisitorsPlugin application:application
-didReceiveRemoteNotification:userInfo
-fetchCompletionHandler:completionHandler];
+    [RNNotifyvisitors application: application didReceiveRemoteNotification: userInfo fetchCompletionHandler: completionHandler];
 }
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
 didReceiveNotificationResponse:(UNNotificationResponse *)response
          withCompletionHandler:(void (^)(void))completionHandler {
 
-    [NotifyvisitorsPlugin didReceiveNotificationResponse:response];
+    [RNNotifyvisitors didReceiveNotificationResponse: response];
 }
 ```
 
