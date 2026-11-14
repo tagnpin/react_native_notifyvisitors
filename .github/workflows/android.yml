@@ -122,14 +122,16 @@ jobs:
           java-version: 17
           cache: gradle
 
-      - name: 🤖 Setup Android SDK
-        uses: android-actions/setup-android@v3
-
       - name: ⚡ Cache Android NDK
         uses: actions/cache@v4
         with:
           path: /usr/local/lib/android/sdk/ndk/27.1.12297006
           key: ${{ runner.os }}-ndk-27.1.12297006
+
+      - name: 🤖 Setup Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: "cmdline-tools;latest platform-tools ndk;27.1.12297006"
 
       # ============================================================
       # STEP 6️⃣  Prepare Firebase Config & Android Signing
