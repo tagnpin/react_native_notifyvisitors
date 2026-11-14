@@ -56,6 +56,21 @@ NSLog(@"RN-NotifyVisitors PLUGIN VERSION : %@ !!", kNVPluginVersion);
         [notifyvisitors initializeWithBrandId: brandID secretKey: secretKey appMode: nvMode launchingOptions: launchingOptions];
 }
 
++(void)nvInitialize {
+    NSLog(@"RN-NotifyVisitors : NV-INITIALIZE !!");
+    NSLog(@"RN-NotifyVisitors PLUGIN VERSION : %@ !!", kNVPluginVersion);
+   
+    [[self sharedInstance] nvTurnOffAutomaticScreenViewEventForReactNative];
+        NSString *nvMode = nil;
+    #if DEBUG
+        nvMode = @"debug";
+    #else
+        nvMode = @"live";
+    #endif
+        [notifyvisitors Initialize:nvMode];
+}
+
+
 +(void)Initialize {
     NSLog(@"RN-NotifyVisitors : INITIALIZE !!");
     NSLog(@"RN-NotifyVisitors PLUGIN VERSION : %@ !!", kNVPluginVersion);
@@ -314,9 +329,9 @@ NSLog(@"RN-NotifyVisitors PLUGIN VERSION : %@ !!", kNVPluginVersion);
 }
 
 -(void)nvTurnOffAutomaticScreenViewEventForReactNative {
-    NSUserDefaults *nvflutterCustomUserDefaults = [[NSUserDefaults alloc] initWithSuiteName: @"com.cp.plugin.notifyvisitors"];
-    [nvflutterCustomUserDefaults setBool: YES forKey: @"nv_isSDKRunningInCP"];
-    [nvflutterCustomUserDefaults synchronize];
+    NSUserDefaults *nvRNCustomUserDefaults = [[NSUserDefaults alloc] initWithSuiteName: @"com.cp.plugin.notifyvisitors"];
+    [nvRNCustomUserDefaults setBool: YES forKey: @"nv_isSDKRunningInCP"];
+    [nvRNCustomUserDefaults synchronize];
 }
 
 @end
