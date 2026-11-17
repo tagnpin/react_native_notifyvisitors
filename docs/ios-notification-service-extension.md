@@ -266,6 +266,11 @@ Once you've added `AppGroups capabilities`, you'll be able to see them in your `
 
 ---
 
+## 🛠️ Troubleshooting
+
+- [Common Issues](./ios-specific-troubleshooting.md)
+- If you are still facing issue then you can refer to our detailed **[Push Troubleshooting](https://docs.nvecta.com/docs/push-notification-troubleshooting)** documentation on our website.
+
 # Support
 
 If you encounter any issues during integration:
