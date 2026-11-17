@@ -125,7 +125,7 @@ YOUR_PROJECT_NAME-Bridging-Header.h
 Example:
 
 ```text
-Runner-Bridging-Header.h
+AwesomeProject-Bridging-Header.h
 ```
 
 Configure the path under:
@@ -135,7 +135,7 @@ Configure the path under:
 Example:
 
 ```text
-Runner/Runner-Bridging-Header.h
+AwesomeProject/AwesomeProject-Bridging-Header.h
 ```
 
 > **Note**
@@ -284,13 +284,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ## 4. Verify the Integration
 
-Build and launch the application.
+After completing the integration, verify the `NVECTA SDK` initialization from Xcode console logs. Build and run your iOS app from Xcode and check the logs in Xcode console.
 
-Verify that:
+Filter logs using our SDK tag:
+
+```text
+[NVECTA]
+```
+
+Example successful initialization logs:
+
+```text
+[NVECTA]-[INFO]: You are in debug mode
+[NVECTA]-[INFO]: BrandID >>>>======>>>>> 123XX
+[NVECTA]-[INFO]: Inside, write inAppBanner/Survey settings data finished.
+```
+
+> **Note:**
+> If you do not see any logs with the `[NVECTA]` tag, you may be using an older version of the SDK. In that case, replace `NVECTA` with `notifyvisitors` when filtering the logs to view the same SDK logs under the `[notifyvisitors]` tag.
+
+## Recommended Checks
+
+Verify the following after app launch:
 
 - The application builds successfully.
 - The SDK initializes without errors.
 - Initialization logs appear in the Xcode console.
+- Your actual `BrandID` printed in logs successfully
 - No runtime exceptions are reported.
 
 If the SDK does not initialize correctly:

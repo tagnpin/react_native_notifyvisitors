@@ -23,7 +23,7 @@ int nvCheckPushClickTimeCounter = 0;
 
 @implementation RNNotifyvisitors
 
-static NSString *const kNVPluginVersion = @"4.8.4";
+static NSString *const kNVPluginVersion = @"4.9.0";
 
 - (dispatch_queue_t)methodQueue{
     return dispatch_get_main_queue();
@@ -39,6 +39,48 @@ static NSString *const kNVPluginVersion = @"4.8.4";
         sharedInstance = [[RNNotifyvisitors alloc] init];
     });
     return sharedInstance;
+}
+
+
++(void)nvRegisterWithConfiguration:(NVConfiguration *)configuration {
+    
+    // 1. Guard against a nil configuration object
+    if (configuration == nil) {
+        NSLog(@"RN-NotifyVisitors ERROR : NV-CONFIGURATION PASSED TO REGISTER WITH CONFIGURATION IS NIL. REGISTRATION ABORTED !!");
+            return;
+        }
+        
+        // 2. Type Safety Check (Guards against invalid objects passed from dynamic runtime/Swift)
+        if (![configuration isKindOfClass: [NVConfiguration class]]) {
+            NSLog(@"RN-NotifyVisitors ERROR : INVALID OBJECT TYPE PASSED TO REGISTER WITH CONFIGURATION. EXPECTED TYPE IS  NVConfiguration !!");
+            
+            return;
+        }
+    
+    // 3. Mandatory Field Validations
+        if (configuration.brandID <= 0) {
+            NSLog(@"RN-NotifyVisitors ERROR : INVALID BRANDID (%ld). !!", (long)configuration.brandID);
+            return;
+        }
+
+        // Validate secretKey (check for nil, empty string, or NSNull)
+        NSString *secretKey = configuration.secretKey;
+        if (secretKey == nil ||
+            ![secretKey isKindOfClass: [NSString class]] ||
+            [secretKey stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]].length == 0 ||
+            [secretKey isEqualToString: @"(null)"]) {
+            
+            NSLog(@"RN-NotifyVisitors ERROR : INVALID SECRET KEY. SECRET KEY CAN NOT BE NIL OR EMPTY. KINDLY PROVIDE A VALID SECRET KEY FROM YOUR DASHBOARD !!");
+            return;
+        }
+    
+    // 4. Catch Native Runtime Exceptions
+        @try {
+            [notifyvisitors registerWithConfiguration: configuration];
+        } @catch (NSException *exception) {
+            
+            NSLog(@"RN-NotifyVisitors : SOMETHING WENT WRONG DURING REGISTER WITH CONFIGURATION. REASON: %@ !!", exception.reason);
+        }
 }
 
 +(void)initializeWithBrandId:(NSInteger)brandID secretKey:(NSString *)secretKey launchingOptions:(NSDictionary *)launchingOptions {
@@ -83,6 +125,13 @@ NSLog(@"RN-NotifyVisitors PLUGIN VERSION : %@ !!", kNVPluginVersion);
         nvMode = @"live";
     #endif
         [notifyvisitors Initialize:nvMode];
+}
+
++ (void)globalAttributesPersistenceOptions:(nvGlobalAttributePersistenceType) persistenceType expiryInDays:(NSInteger)expiryInDays {
+    
+    NSLog(@"RN-NotifyVisitors : GLOBAL ATTRIBUTES PERSISTENCE OPTIONS !!");
+    
+    [notifyvisitors globalAttributesPersistenceOptions: persistenceType expiryInDays: expiryInDays];
 }
 
 +(void)applicationDidEnterBackground:(UIApplication *)application {

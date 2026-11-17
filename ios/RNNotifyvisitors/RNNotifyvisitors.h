@@ -15,10 +15,15 @@ extern BOOL nvPushObserverReady;
 
 // SDK initialization
 
-+(void)initializeWithBrandId:(NSInteger)brandID secretKey:(NSString *_Nullable)secretKey launchingOptions:(NSDictionary *_Nullable)launchingOptions;
-+(void)nvInitialize;
++(void)nvRegisterWithConfiguration:(NVConfiguration *_Nullable)configuration NS_SWIFT_NAME(nvRegister(withConfiguration:));
 
++(void)initializeWithBrandId:(NSInteger)brandID secretKey:(NSString *_Nullable)secretKey launchingOptions:(NSDictionary *_Nullable)launchingOptions;
+
++(void)nvInitialize;
 +(void)Initialize;
+
+
++ (void)globalAttributesPersistenceOptions:(nvGlobalAttributePersistenceType) persistenceType expiryInDays:(NSInteger)expiryInDays;
 
 
 +(void)applicationDidEnterBackground:(UIApplication *_Nullable)application;

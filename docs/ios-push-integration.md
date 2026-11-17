@@ -167,7 +167,7 @@ didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
 Open your iOS project in Xcode and select:
 
 ```
-Runner
+AwesomeProject
     └── Signing & Capabilities
 ```
 
@@ -177,12 +177,16 @@ Enable the following capabilities:
 
 Add the **Push Notifications** capability if it is not already enabled.
 
+![Push Notifications Capability](./images/ios/push-notification/PushCapabilities_NV_SDK.png)
+
 ### Background Modes
 
 Enable **Background Modes** and select:
 
 - Background fetch
 - Remote notifications
+
+![Background Modes Capability](./images/ios//push-notification/BgModeCapabilities_NV_SDK.png)
 
 These capabilities are required for reliable push notification delivery and background processing.
 
@@ -250,7 +254,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 
 ---
 
-# 3. Enable Rich Notifications (Recommended)
+## 3. Enable Rich Notifications (Recommended)
 
 By default, iOS displays only the notification title and body.
 
@@ -269,19 +273,32 @@ Refer to the dedicated [Notification Service Extension](/docs/ios-notification-s
 
 ---
 
-# 4. Verify Integration
+## 4. Verify Integration
 
 After completing the configuration:
 
 - Build and run the application.
 - Accept the notification permission prompt.
-- Confirm that the device is successfully registered with APNs.
+- Confirm that the device has been successfully registered with APNs. You can verify this in the Xcode console by searching for the following logs:
+
+  ```text
+  [NVECTA]-[INFO]: SubscriptionID for push notification = 5ffc7cf51a553aXXXXXXXXXXXXXXX
+  [NVECTA]-[INFO]: Send subscriptionID to notifyvisitors panel.
+  [NVECTA]-[INFO]: Successfully subscribed to notifyvisitors push notifications.
+  ```
+
+- If the above logs are not printed, check the Xcode console for the error logged regaring pusg registration, review the error message and resolve the underlying issue before proceeding.
 - Send a test push notification from the NVECTA Dashboard.
 - Verify that notifications are received on the device.
+- [**Validate push**](https://support.nvecta.com/support/solutions/articles/84000399426-test-push-notifications) registration, push delivery, and click tracking are working correctly by sending a test push notification
 
+<br>
 If Rich Notifications are configured, verify that images, action buttons, and delivery tracking work as expected.
 
----
+## 🛠️ Troubleshooting
+
+- [Common Issues](./ios-specific-troubleshooting.md)
+- If you are still facing issue then you can refer to our detailed **[Push Troubleshooting](https://docs.nvecta.com/docs/push-notification-troubleshooting)** documentation on our website.
 
 # Support
 

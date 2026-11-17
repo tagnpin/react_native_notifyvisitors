@@ -80,6 +80,14 @@ typedef void(^nv_UID)(NSString *_Nullable);
 @end
 
 
+@interface NVConfiguration : NSObject
+@property (nonatomic, assign)NSInteger brandID;
+@property (nonatomic, strong)NSString * _Nonnull secretKey;
+@property (nonatomic, strong)NSString * _Nullable appMode;
+@property (nonatomic, assign) NSTimeInterval trackingAuthorizationWaitTimeInterval;
+@end
+
+
 @class NVSDKCallbackUtils;
 
 @interface notifyvisitors : NSObject <UNUserNotificationCenterDelegate>
@@ -89,6 +97,8 @@ typedef void(^nv_UID)(NSString *_Nullable);
 +(instancetype _Nonnull )sharedInstance;
 
 #pragma mark - INITIAL INTEGRATION METHODS (INITIALIZE Notifyvisitors SDK and Basic Integration Methods)
+
++(void)registerWithConfiguration:(NVConfiguration *_Nullable)configuration NS_SWIFT_NAME(register(withConfiguration:));
 
 +(void)Initialize:(NSString *_Nullable)nvMode;
 

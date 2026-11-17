@@ -600,6 +600,46 @@ RCT_EXPORT_METHOD(trackScreen:(NSString*_Nullable)nvScreenName) {
     }
 }
 
+#pragma mark - GLOBAL ATTRIBUTES
+
+RCT_EXPORT_METHOD(setGlobalAttributes:(NSDictionary<NSString *,id> *_Nonnull)attributes) {
+    @try {
+        NSLog(@"RN-NotifyVisitors : SET GLOBAL ATTRIBUTES !!");
+        if ([attributes  count] > 0) {
+            [notifyvisitors setGlobalAttributes: attributes];
+        } else {
+            NSLog(@"RN-NotifyVisitors ERROR : Unable to set global attributes due to Invalid or empty data !!");
+        }
+    } @catch (NSException *exception) {
+        NSLog(@"RN-NotifyVisitors ERROR : %@", exception.reason);
+    }
+}
+
+RCT_EXPORT_METHOD(removeGlobalAttributeForKey:(NSString *_Nonnull)key) {
+    @try{
+        NSLog(@"RN-NotifyVisitors : REMOVE GLOBAL ATTRIBUTES !!");
+        
+        if ([key length] > 0 && ![key isEqualToString: @""] && ![key isEqual: [NSNull null]] && ![key isEqualToString: @"(null)"]) {
+            [notifyvisitors removeGlobalAttributeForKey: key];
+        } else {
+            NSLog(@"RN-NotifyVisitors ERROR : Unable to remove global attributes due to Invalid or empty key name");
+        }
+    }
+    @catch(NSException *exception){
+        NSLog(@"RN-NotifyVisitors ERROR : %@", exception.reason);
+    }
+}
+
+RCT_EXPORT_METHOD(clearGlobalAttributes) {
+    @try{
+    NSLog(@"RN-NotifyVisitors : CLEAR ALL GLOBAL ATTRIBUTES !!");
+    [notifyvisitors clearGlobalAttributes];
+    }
+    @catch(NSException *exception){
+        NSLog(@"RN-NotifyVisitors ERROR : %@", exception.reason);
+    }
+}
+
 #pragma mark - Push Notifications related methods
 
 /* 13 - Schedule Push Notification */

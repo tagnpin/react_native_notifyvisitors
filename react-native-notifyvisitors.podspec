@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   # pod 'React', :path => '../node_modules/react-native/'
 
   # The Native Notifyvisitors-iOS-SDK from cocoapods.
-  s.dependency 'notifyvisitors', '8.0.2'
+  s.dependency 'notifyvisitors', '9.0.1'
   s.dependency 'notifyvisitorsNudges', '0.0.3'
 
 end
