@@ -1,6 +1,6 @@
 // src/qa/inputs/InputValidator.ts
 
-import { InputParameter, InputType } from '../../shared/types/InputTypes';
+import { InputParameter, InputType } from '../inputs/InputTypes';
 
 export type ValidationResult = {
   valid: boolean;

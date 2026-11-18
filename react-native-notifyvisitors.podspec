@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.license           = package_json["license"]
   s.author            = { package_json["author"] => package_json["author"] }
   s.platform          = :ios
-  s.ios.deployment_target = '12.0'
+  s.ios.deployment_target = '13.0'
   s.source            = { :git => "#{package_json["repository"]["url"]}.git", :tag => "#{s.version}" }
   s.source_files      = ['ios/RNNotifyvisitors/*.{h,m}']
   s.static_framework  = true  
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   # pod 'React', :path => '../node_modules/react-native/'
 
   # The Native Notifyvisitors-iOS-SDK from cocoapods.
-  s.dependency 'notifyvisitors', '7.3.3'
+  s.dependency 'notifyvisitors', '9.0.1'
   s.dependency 'notifyvisitorsNudges', '0.0.3'
 
 end

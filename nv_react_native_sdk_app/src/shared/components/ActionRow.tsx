@@ -55,15 +55,6 @@ const ActionRow = <TPayload,>(props: ActionRowProps<TPayload>) => {
     <View style={styles.cardContainer}>
       {title && <Text style={styles.title}>{title}</Text>}
       {description && <Text style={styles.description}>{description}</Text>}
-
-      {/* {params?.map(param => (
-        <ParameterRenderer
-          key={param.id}
-          param={param}
-          onChange={updated => onParamChange?.(updated)}
-        />
-      ))} */}
-
       {params &&
         Object.entries(params).map(([key, value]) => (
           <ParameterRenderer
@@ -96,88 +87,6 @@ const ActionRow = <TPayload,>(props: ActionRowProps<TPayload>) => {
     </View>
   );
 };
-
-// // src/shared/components/ActionRow.tsx
-
-// import React from 'react';
-// import { View, Text, StyleSheet } from 'react-native';
-// import { theme } from '../styles/theme';
-// // import { InputParameter } from '../types/InputTypes';
-// import ParameterRenderer from '../../qa/inputs/ParameterRenderer';
-// import ActionButton from './ActionButton';
-// import { ParamSchema } from '../types/params';
-
-// type Props = {
-//   title?: string;
-//   description?: string;
-//   // params?: InputParameter[];
-//   params?: ParamSchema[];
-//   actionLabel?: string;
-//   actionIcon?: React.ReactNode;
-//   actionIconPosition?: 'left' | 'right';
-//   actionVariant?: 'primary' | 'secondary' | 'danger' | 'ghost' | 'row';
-//   actionBadgeCount?: number;
-//   layout?: 'card' | 'inline';
-//   onParamChange?: (param: Record<string, ParamSchema>) => void;
-//   // onParamChange?: (param: InputParameter) => void;
-//   onPress: () => void;
-// };
-
-// const ActionRow: React.FC<Props> = ({
-//   title = '',
-//   description,
-//   params,
-//   actionLabel = 'Execute',
-//   actionIcon,
-//   actionVariant = 'primary',
-//   actionIconPosition = 'right',
-//   actionBadgeCount = 0,
-//   layout = 'card',
-//   onParamChange,
-//   onPress,
-// }) => {
-//   const isInline = layout === 'inline';
-//   const hasContent =
-//     Boolean(title) || Boolean(description) || (params?.length ?? 0) > 0;
-
-//   // INLINE MODE → Only button, no wrapper UI
-//   if (isInline) {
-//     return (
-//       <ActionButton
-//         title={actionLabel}
-//         icon={actionIcon}
-//         iconPosition={actionIconPosition}
-//         variant={actionVariant}
-//         badgeCount={actionBadgeCount}
-//         onPress={onPress}
-//       />
-//     );
-//   }
-
-//   // CARD MODE → Full container
-//   return (
-//     <View style={styles.cardContainer}>
-//       {title && <Text style={styles.title}>{title}</Text>}
-//       {description && <Text style={styles.description}>{description}</Text>}
-
-//       {params?.map(param => (
-//         <ParameterRenderer
-//           key={param.id}
-//           param={param}
-//           onChange={updated => onParamChange?.(updated)}
-//         />
-//       ))}
-
-//       <ActionButton
-//         title={actionLabel}
-//         icon={actionIcon}
-//         iconPosition={actionIconPosition}
-//         variant={actionVariant}
-//         onPress={onPress}
-//       />
-//     </View>
-//   );
-// };
 
 export default ActionRow;
 

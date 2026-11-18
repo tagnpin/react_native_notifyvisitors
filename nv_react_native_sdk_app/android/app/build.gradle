@@ -125,7 +125,7 @@ android {
         applicationId = "com.notifyvisitors.rn.sdkapp"
         minSdkVersion = rootProject.ext.minSdkVersion
         targetSdkVersion = rootProject.ext.targetSdkVersion
-        versionCode = 1
+        versionCode = 4
         versionName = resolvedVersionName
         buildConfigField "int", "nvBrandID", nvBrandId
         buildConfigField "String", "nvSecretKey", "\"${nvSecretKey}\""

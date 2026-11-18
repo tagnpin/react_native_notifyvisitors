@@ -48,6 +48,10 @@ addListeners();
 
 /*  Native SDK Bridge Class */
 export default class Notifyvisitors {
+
+  /**
+   * @deprecated Use showInAppMessage(tokens, customObjects, fragmentName, nvCallback) instead.
+   */
   /* 1 - Survery, InApp Banners */
   static show(tokens, customObjects, fragmentName, nvCallback) {
     console.log("NV- Show !!");
@@ -74,6 +78,9 @@ export default class Notifyvisitors {
     }
   }
 
+  /**
+   * @deprecated Use openNotificationCenter(mAppInboxInfo, dismissValue, callback) instead.
+   */
   /* 2 - Notification Center */
   static showNotifications(mAppInboxInfo, dismissValue) {
     console.log("NV- Show Notifications !!");
@@ -138,6 +145,9 @@ export default class Notifyvisitors {
     }
   }
 
+  /**
+   * @deprecated Use setUserIdentifier(sJsonObject, callback) instead.
+   */
   /* 4 - Login User */
   static userIdentifier(userID, sJsonObject) {
     console.log("NV- User Identifier !!");
@@ -304,7 +314,9 @@ export default class Notifyvisitors {
   }
 
   /* 16 - JSon Data For Custom Notification Center  */
-
+  /**
+   * @deprecated Use getNotificationCenterData(callback) instead.
+   */
   static getNotificationDataListener(callback) {
     console.log("NV- Get Notification Data Listener !!");
     try {
@@ -389,6 +401,9 @@ export default class Notifyvisitors {
     }
   }
 
+  /**
+   * @deprecated Use getNotificationCenterCount(tabCountInfo,callback) instead.
+   */
   /* 22 - Depricated Function For Notification Count */
   static getNotificationCount(callback) {
     console.log("NV- Get Notification Count !!");

@@ -1,5 +1,8 @@
 export default class Notifyvisitors {
   /* 1 - inApp-Banner & inApp-Surveys */
+  /**
+   * @deprecated Use showInAppMessage(tokens, customObjects, fragmentName, nvCallback) instead.
+   */
   static show(
     tokens: any,
     customObjects: any,
@@ -23,10 +26,19 @@ export default class Notifyvisitors {
     dismissValue: any,
     callback: any
   ): void;
+  /**
+   * @deprecated Use openNotificationCenter(mAppInboxInfo, dismissValue, callback) instead.
+   */
   static showNotifications(mAppInboxInfo: any, dismissValue: any): void;
   static getNotificationCenterData(callback: any): void;
   static getNotificationCenterCount(tabCountInfo: any, callback: any): void;
+  /**
+   * @deprecated Use getNotificationCenterData(callback) instead.
+   */
   static getNotificationDataListener(callback: any): void;
+  /**
+   * @deprecated Use getNotificationCenterCount(tabCountInfo, callback) instead.
+   */
   static getNotificationCount(callback: any): void;
 
   /* 3 - Track Events */
@@ -53,6 +65,9 @@ export default class Notifyvisitors {
   static getRegistrationToken(nvCallback: any): void;
 
   /* 5 - Track User */
+  /**
+   * @deprecated Use setUserIdentifier(sJsonObject, callback) instead.
+   */
   static userIdentifier(userID: any, sJsonObject: any): void;
   static setUserIdentifier(sJsonObject: any, callback: any): void;
   static getNvUID(callback: any): void;

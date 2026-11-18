@@ -23,18 +23,56 @@ target 'nv_react_native_sdk_app' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  post_install do |installer|
+#   post_install do |installer|
+#     react_native_post_install(
+#       installer,
+#       config[:reactNativePath],
+#       :mac_catalyst_enabled => false,
+#       # :ccache_enabled => true
+#     )
+#   end
+# end
+
+
+post_install do |installer|
     react_native_post_install(
       installer,
       config[:reactNativePath],
       :mac_catalyst_enabled => false,
       # :ccache_enabled => true
     )
+
+    # 1. Target ONLY the fmt pod target for C++17
+    installer.pods_project.targets.each do |target|
+      if target.name == 'fmt'
+        target.build_configurations.each do |config|
+          config.build_settings['CLANG_CXX_LANGUAGE_STANDARD'] = 'c++17'
+          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)']
+          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] << 'FMT_USE_CONSTEVAL=0'
+          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] << 'FMT_CONSTEVAL='
+        end
+      end
+    end
+
+    # 2. Patch fmt header directly to bypass consteval macro detection on Apple Clang
+    fmt_base_header = File.join(installer.sandbox.root, 'fmt/include/fmt/base.h')
+    fmt_core_header = File.join(installer.sandbox.root, 'fmt/include/fmt/core.h')
+    
+    [fmt_base_header, fmt_core_header].each do |header|
+      if File.exist?(header)
+        contents = File.read(header)
+        # Prevent fmt from defining FMT_CONSTEVAL as consteval on Apple Clang
+        patched = contents.gsub('#  define FMT_CONSTEVAL consteval', '#  define FMT_CONSTEVAL')
+        patched = patched.gsub('#define FMT_CONSTEVAL consteval', '#define FMT_CONSTEVAL')
+        File.write(header, patched)
+      end
+    end
   end
 end
 
 target 'notifyvisitorsServiceExtension' do
 #  inherit! :search_paths  # ✅ only inherits header search paths
 #  pod 'notifyvisitors'
-pod 'notifyvisitorsNotificationService'
+#pod 'notifyvisitors'
+   pod 'notifyvisitorsNotificationService'
 end

@@ -26,6 +26,12 @@ typedef NS_ENUM(NSUInteger, nvPushBadgeCount){
     nvPushBadgeCountClearAll
 };
 
+typedef NS_ENUM(NSUInteger, nvGlobalAttributePersistenceType){
+    nvGlobalAttributePersistenceTypeMemory = 0,
+    nvGlobalAttributePersistenceTypeSession,
+    nvGlobalAttributePersistenceTypePersistent
+};
+
 typedef void(^NotificationListData)(NSMutableArray*_Nullable);
 typedef void(^nvGetCount)(NSInteger);
 typedef void(^nvUnreadCenterCount)(NSDictionary*_Nullable);
@@ -43,7 +49,6 @@ typedef void(^nv_UID)(NSString *_Nullable);
 - (void)NotifyvisitorsGetEventResponseWithUserInfo:(NSDictionary*_Nullable)userInfo DEPRECATED_MSG_ATTRIBUTE("first deprecated in Notifyvisitors iOS SDK 7.0.1 Use [notifyvisitors notifyvisitorsEventsResponseCallback:] (see notifyvisitors.h)");
 -(void)notifyvisitorsEventsResponseCallback:(NSDictionary*_Nullable)callback;
 -(void)notifyvisitorsKnownUserIdentified:(NSDictionary*_Nullable)userInfo;
--(void)notifyvisitorsNewDelegateMethod:(NSDictionary*_Nullable)userInfo;
 -(void)notifyvisitorsNudgeUiFinalized:(NSDictionary*_Nullable)callback;
 
 @end
@@ -75,6 +80,14 @@ typedef void(^nv_UID)(NSString *_Nullable);
 @end
 
 
+@interface NVConfiguration : NSObject
+@property (nonatomic, assign)NSInteger brandID;
+@property (nonatomic, strong)NSString * _Nonnull secretKey;
+@property (nonatomic, strong)NSString * _Nullable appMode;
+@property (nonatomic, assign) NSTimeInterval trackingAuthorizationWaitTimeInterval;
+@end
+
+
 @class NVSDKCallbackUtils;
 
 @interface notifyvisitors : NSObject <UNUserNotificationCenterDelegate>
@@ -84,6 +97,8 @@ typedef void(^nv_UID)(NSString *_Nullable);
 +(instancetype _Nonnull )sharedInstance;
 
 #pragma mark - INITIAL INTEGRATION METHODS (INITIALIZE Notifyvisitors SDK and Basic Integration Methods)
+
++(void)registerWithConfiguration:(NVConfiguration *_Nullable)configuration NS_SWIFT_NAME(register(withConfiguration:));
 
 +(void)Initialize:(NSString *_Nullable)nvMode;
 
@@ -136,6 +151,12 @@ typedef void(^nv_UID)(NSString *_Nullable);
 
 +(void)getNvUid:(nv_UID _Nullable)nvUID DEPRECATED_MSG_ATTRIBUTE("first deprecated in Notifyvisitors iOS SDK 7.2.0 Use NSString *myNvUID = [notifyvisitors getNvUid] to get reformated method (see notifyvisitors.h)");
 
+#pragma mark - GLOBAL ATTRIBUTES
+
++ (void)globalAttributesPersistenceOptions:(nvGlobalAttributePersistenceType) persistenceType expiryInDays:(NSInteger)expiryInDays;
++ (void)setGlobalAttributes:(NSDictionary<NSString *,id> *_Nonnull)attributes;
++ (void)removeGlobalAttributeForKey:(NSString *_Nonnull)key;
++ (void)clearGlobalAttributes;
 
 #pragma mark - PUSH NOTIFICATIONS METHODS
 

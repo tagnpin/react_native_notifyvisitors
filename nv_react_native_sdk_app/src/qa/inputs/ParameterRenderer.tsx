@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, Text, StyleSheet } from 'react-native';
 import { RuntimeParam } from '../../shared/types/runtimeParam';
-import { parseParam } from '../../shared/utils/parseParam';
+import { parseParam } from '../../shared/utils/paramUtils';
 
 type Props = {
   param: RuntimeParam;

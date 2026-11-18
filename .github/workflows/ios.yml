@@ -2,15 +2,27 @@ name: 🚀 iOS Release CI – Build & Upload
 
 on:
   push:
-    branches: [ stage ]
+    branches: [stage]
     paths:
-      - 'react_native_notifyvisitors/nv_react_native_sdk_app/ios/**'
-      - 'react_native_notifyvisitors/nv_react_native_sdk_app/src/**'
-      - 'react_native_notifyvisitors/nv_react_native_sdk_app/package.json'
-      - 'react_native_notifyvisitors/nv_react_native_sdk_app/package-lock.json'
-      - 'react_native_notifyvisitors/pf_ios/**'
-      - '.github/workflows/ios.yml' 
+      # Plugin native iOS changes
+      - "ios/**"
+      - "pf_ios/**"
+      - "react-native-notifyvisitors.podspec"
 
+      # Example app iOS
+      - "nv_react_native_sdk_app/ios/**"
+
+      # JS affecting iOS
+      - "nv_react_native_sdk_app/src/**"
+      - "nv_react_native_sdk_app/package.json"
+      - "nv_react_native_sdk_app/package-lock.json"
+
+      # Workflow edits
+      - ".github/workflows/ios.yml"
+
+# --------------------------------------------------------------------
+# 📂 Global Working Directory (React Native App Root)
+# --------------------------------------------------------------------
 defaults:
   run:
     working-directory: nv_react_native_sdk_app
@@ -47,7 +59,6 @@ jobs:
       RN_IOS_P12_PASSWORD: ${{ secrets.RN_IOS_P12_PASSWORD }}
 
     steps:
-
       # -------------------------------------------------
       # 1️⃣ Checkout Source Code
       # -------------------------------------------------
@@ -55,6 +66,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: 🧰 Select Xcode 26.3
+        run: sudo xcode-select -s /Applications/Xcode_26.3.app
 
       # -------------------------------------------------
       # 2️⃣ Generate iOS Runtime Secrets

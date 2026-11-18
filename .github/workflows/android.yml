@@ -3,16 +3,25 @@ run-name: Android ${{ vars.RN_BUILD_TYPE }} build (commit ${{ github.sha }})
 
 on:
   push:
-    branches: [ stage ]
+    branches: [stage]
     paths:
-      - 'react_native_notifyvisitors/nv_react_native_sdk_app/android/**'
-      - 'react_native_notifyvisitors/nv_react_native_sdk_app/src/**'
-      - 'react_native_notifyvisitors/nv_react_native_sdk_app/package.json'
-      - 'react_native_notifyvisitors/nv_react_native_sdk_app/package-lock.json'
-      - 'react_native_notifyvisitors/nv_react_native_sdk_app/app.json'
-      - 'react_native_notifyvisitors/nv_react_native_sdk_app/index.js'
-      - '.github/workflows/android.yml'
-      - 'react_native_notifyvisitors/android/**'
+      # Plugin Android native code
+      - "android/**"
+
+      # Example app Android
+      - "nv_react_native_sdk_app/android/**"
+
+      # JS affecting Android bundle
+      - "nv_react_native_sdk_app/src/**"
+      - "nv_react_native_sdk_app/index.js"
+
+      # Dependency changes
+      - "nv_react_native_sdk_app/package.json"
+      - "nv_react_native_sdk_app/package-lock.json"
+      - "nv_react_native_sdk_app/app.json"
+
+      # Workflow changes
+      - ".github/workflows/android.yml"
 
 jobs:
   build-android:
@@ -113,14 +122,16 @@ jobs:
           java-version: 17
           cache: gradle
 
-      - name: 🤖 Setup Android SDK
-        uses: android-actions/setup-android@v2
-
       - name: ⚡ Cache Android NDK
         uses: actions/cache@v4
         with:
           path: /usr/local/lib/android/sdk/ndk/27.1.12297006
           key: ${{ runner.os }}-ndk-27.1.12297006
+
+      - name: 🤖 Setup Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: "cmdline-tools;latest platform-tools ndk;27.1.12297006"
 
       # ============================================================
       # STEP 6️⃣  Prepare Firebase Config & Android Signing
@@ -239,4 +250,3 @@ jobs:
             echo "☁️ Uploading $APK_NAME to s3://$S3_BUCKET/$S3_KEY"
             aws s3 cp "$apk" "s3://$S3_BUCKET/$S3_KEY" --only-show-errors
           done
-          

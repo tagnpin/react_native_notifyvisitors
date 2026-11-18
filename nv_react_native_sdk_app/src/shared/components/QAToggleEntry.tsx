@@ -1,7 +1,7 @@
 import React from 'react';
-import ClientSectionCard from '../../client/components/ClientSectionCard';
 import ActionButton from './ActionButton';
 import { isQAEnabled } from '../../config/QAGateConfig';
+import SectionCard from './SectionCard';
 
 type Props = {
   onPress: () => void;
@@ -11,7 +11,7 @@ const QAToggleEntry: React.FC<Props> = ({ onPress }) => {
   const enabled = isQAEnabled();
 
   return (
-    <ClientSectionCard>
+    <SectionCard>
       <ActionButton
         title={enabled ? 'Disable QA Mode' : 'Enable QA Mode'}
         subtitle={
@@ -22,7 +22,7 @@ const QAToggleEntry: React.FC<Props> = ({ onPress }) => {
         variant="row"
         onPress={onPress}
       />
-    </ClientSectionCard>
+    </SectionCard>
   );
 };
 

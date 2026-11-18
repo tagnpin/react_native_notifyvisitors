@@ -21,13 +21,14 @@ class MainApplication : Application(), ReactApplication {
         PackageList(this).packages.apply {
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // add(MyReactNativePackage())
+            add(NVSDKConfigPackage())
         },
     )
   }
 
   override fun onCreate() {
     super.onCreate()
-    Log.d("rn-nv-android", "nvBrandID = " + nvBrandID + " nvSecreKey = " + nvSecreKey)
+    Log.w("rn-nv-android", "nvBrandID = " + nvBrandID + " nvSecreKey = " + nvSecreKey)
     RNNotifyvisitorsModule.register(this, nvBrandID, nvSecreKey);
     loadReactNative(this)
   }

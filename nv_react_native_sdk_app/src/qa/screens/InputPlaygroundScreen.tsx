@@ -1,12 +1,10 @@
 // src/qa/screens/InputPlaygroundScreen.tsx
+
 import React, { useState, useMemo, useEffect } from 'react';
 import { ScrollView, Alert } from 'react-native';
 import uuid from 'react-native-uuid';
 
 import { RuntimeParam } from '../../shared/types/runtimeParam';
-// import { parseValue } from '../../shared/utils/parseParam';
-
-// import { InputParameter, InputType } from '../inputs/InputTypes';
 import { validateInput } from '../inputs/InputValidator';
 import ParameterRenderer from '../inputs/ParameterRenderer';
 import PayloadPreview from '../inputs/PayloadPreview';
@@ -14,7 +12,7 @@ import ActionButton from '../../shared/components/ActionButton';
 import SectionHeader from '../../shared/components/SectionHeader';
 import SDKManager from '../../sdk/SDKManager';
 import DebugLogger from '../../debug/DebugLogger';
-import { parseParam } from '../../shared/utils/parseParam';
+import { parseParam } from '../../shared/utils/paramUtils';
 
 const InputPlaygroundScreen = () => {
   const [params, setParams] = useState<RuntimeParam[]>([

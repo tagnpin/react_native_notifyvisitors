@@ -4,7 +4,10 @@ import { SDKEventsEmitter } from './SDKEventsEmitter';
 
 export const SDKCallbackEvents = {
   nvEventSurvey: new SDKEventsEmitter<any>(),
-  nvLinkInfo: new SDKEventsEmitter<any>(),
+  nvLinkInfo: new SDKEventsEmitter<any>({
+    replayLastOnSubscribe: true,
+    cacheLastOnlyWhenNoListeners: true,
+  }),
   nvKnownUser: new SDKEventsEmitter<any>(),
 };
 

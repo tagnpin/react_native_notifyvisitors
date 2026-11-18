@@ -1,9 +1,14 @@
 // src/shared/types/actions.ts
 
-import { ActionField } from './ActionField';
 import { ParamSchema, ParamsDefinition } from './params';
 
 export type PlatformSupport = 'android' | 'ios' | 'all';
+
+export type FeatureActionButton<TPayload = Record<string, any>> = {
+  label: string;
+  variant?: 'primary' | 'secondary' | 'danger';
+  execute: (payload: TPayload) => Promise<any> | void;
+};
 
 export type FeatureActionProps<TPayload = Record<string, any>> = {
   key: string;
@@ -11,14 +16,13 @@ export type FeatureActionProps<TPayload = Record<string, any>> = {
   description?: string;
 
   /** Parameters expected by SDK method */
-  //fields?: ActionField[]; // 👈 NEW (instead of params)
-  // params?: Record<string, ParamSchema>;
-  //params?: Record<keyof TPayload, ParamSchema>;
   params?: ParamsDefinition<TPayload>;
+  inputParams?: ParamsDefinition<TPayload>;
   onParamChange?: (param: Record<string, ParamSchema>) => void;
 
   /** Execution handler */
   execute?: (payload: TPayload) => Promise<any> | void;
+  actionButtons?: FeatureActionButton<TPayload>[];
 
   /** UI hints */
   actionLabel?: string;
